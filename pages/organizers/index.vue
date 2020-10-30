@@ -7,6 +7,5 @@
 <script>
 export default {
   name: 'Index',
-  layout: 'organizer',
 };
 </script>

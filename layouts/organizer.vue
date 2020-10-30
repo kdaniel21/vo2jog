@@ -1,16 +1,24 @@
 <template>
-  <b-row>
-    <b-col cols="1">
-      <organizer-sidebar />
-    </b-col>
-    <b-col>
-      <organizer-navbar />
-      <b-container>
-        <Nuxt />
-        <the-footer />
-      </b-container>
-    </b-col>
-  </b-row>
+  <div>
+    <organizer-sidebar @toggle-collapse="(val) => (isSidebarCollapsed = val)" />
+    <div
+      :class="[
+        sidebarClass,
+        'main',
+        'd-flex',
+        'flex-column',
+        'justify-content-between',
+      ]"
+    >
+      <div>
+        <organizer-navbar />
+        <b-container fluid>
+          <Nuxt />
+        </b-container>
+      </div>
+      <the-footer />
+    </div>
+  </div>
 </template>
 
 <script>
@@ -24,5 +32,29 @@ export default {
     OrganizerSidebar,
     TheFooter,
   },
+  data() {
+    return {
+      isSidebarCollapsed: false,
+    };
+  },
+  computed: {
+    sidebarClass() {
+      return this.isSidebarCollapsed ? 'sidebar-collapsed' : 'sidebar-open';
+    },
+  },
 };
 </script>
+
+<style scoped>
+.main {
+  min-height: 100vh;
+}
+.sidebar-open {
+  margin-left: 250px;
+  width: calc(100vw - 250px);
+}
+.sidebar-collapsed {
+  margin-left: 80px;
+  width: calc(100vw - 80px);
+}
+</style>

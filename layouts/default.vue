@@ -1,13 +1,14 @@
 <template>
-  <div>
-    <slot name="navbar">
-      <default-navbar />
-    </slot>
-    <b-container>
-      <Nuxt />
-      <hr />
-      <the-footer />
-    </b-container>
+  <div class="main d-flex justify-content-between flex-column">
+    <div>
+      <slot name="navbar">
+        <default-navbar />
+      </slot>
+      <b-container fluid>
+        <Nuxt />
+      </b-container>
+    </div>
+    <the-footer />
   </div>
 </template>
 
@@ -23,3 +24,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.main {
+  min-height: 100vh;
+}
+</style>
