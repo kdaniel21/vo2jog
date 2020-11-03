@@ -1,40 +1,65 @@
 <template>
-  <div>
-    <organizer-sidebar @toggle-collapse="(val) => (isSidebarCollapsed = val)" />
-    <div
-      :class="[
-        sidebarClass,
-        'main',
-        'd-flex',
-        'flex-column',
-        'justify-content-between',
-      ]"
-    >
-      <div>
-        <organizer-navbar />
-        <b-container fluid>
-          <Nuxt />
-        </b-container>
-      </div>
-      <the-footer />
-    </div>
-  </div>
+  <vsb-layout :items="navItems">
+    <template v-slot:toggle-icon
+      ><fa
+        v-b-toggle="'sidebar'"
+        icon="bars"
+        class="h3 d-md-none mt-1"
+        style="vertical-align: none"
+    /></template>
+
+    <template v-slot:navbar-content> <organizer-navbar /> </template>
+
+    <template v-slot:dropdown-icon="{ item, index }">
+      <fa
+        v-if="item.children"
+        v-b-toggle="`nav-item-${index}`"
+        icon="caret-down"
+      />
+    </template>
+  </vsb-layout>
 </template>
 
 <script>
 import OrganizerNavbar from '@/components/navbars/OrganizerNavbar';
-import OrganizerSidebar from '@/components/organizer/OrganizerSidebar';
-import TheFooter from '@/components/TheFooter';
 
 export default {
   components: {
     OrganizerNavbar,
-    OrganizerSidebar,
-    TheFooter,
   },
   data() {
     return {
       isSidebarCollapsed: false,
+      navItems: [
+        {
+          name: 'Race',
+          children: [
+            {
+              link: '/',
+              text: 'Analytics',
+              icon: { tag: 'fa', attributes: { icon: 'chart-line' } },
+            },
+            {
+              link: '/',
+              text: 'Signups',
+              icon: { tag: 'fa', attributes: { icon: 'user' } },
+            },
+            {
+              text: 'Edit',
+              icon: { tag: 'fa', attributes: { icon: 'edit' } },
+              children: [
+                { text: 'Basic Information', link: '/' },
+                { text: 'Description' },
+                { text: 'Schedule' },
+                { text: 'Q&A' },
+                { text: 'Location' },
+                { text: 'Competitions' },
+                { text: 'Social Media' },
+              ],
+            },
+          ],
+        },
+      ],
     };
   },
   computed: {
