@@ -1,0 +1,50 @@
+<template>
+  <div id="organizer-navbar" style="display: contents">
+    <nuxt-link :to="brandLink">
+      <b-navbar-brand>
+        Racircuit
+        <span id="brand-title-mini" class="d-none d-md-inline"
+          >Organizer Dashboard</span
+        >
+      </b-navbar-brand>
+    </nuxt-link>
+
+    <b-navbar-nav v-if="$auth.user" class="ml-auto align-items-center">
+      <div class="mr-md-3">
+        <fa icon="question-circle" class="mr-2" />
+        <fa icon="user" class="mr-2" />
+        <logout />
+      </div>
+      <span class="d-none d-md-inline mr-2">
+        {{ $auth.user.name }}
+      </span>
+      <b-avatar :src="$auth.user.avatar" class="d-none d-md-inline"></b-avatar>
+    </b-navbar-nav>
+  </div>
+</template>
+
+<script>
+import Logout from '@/components/organizer/navbar/Logout';
+
+export default {
+  name: 'OrganizerNavbar',
+  components: {
+    Logout,
+  },
+  data() {
+    return {
+      brandLink: '/organizers',
+      navItems: [
+        { text: 'menu1', link: '/organizers' },
+        { text: 'menu2', link: '/organiers' },
+      ],
+    };
+  },
+};
+</script>
+
+<style scoped>
+#brand-title-mini {
+  font-size: 50%;
+}
+</style>

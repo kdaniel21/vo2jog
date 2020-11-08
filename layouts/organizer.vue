@@ -1,57 +1,87 @@
 <template>
-  <vsb-layout :items="navItems">
+  <vsb-layout :items="navItems" mobile-fullscreen>
     <template v-slot:toggle-icon
       ><fa
         v-b-toggle="'sidebar'"
         icon="bars"
-        class="h3 d-md-none mt-1"
-        style="vertical-align: none"
+        class="h3 d-md-none mt-1 align-self-end"
     /></template>
 
-    <template v-slot:navbar-content> <organizer-navbar /> </template>
+    <template #title>
+      <div class="d-flex justify-content-between w-100">
+        <event-picker />
+        <create-event>
+          <fa v-b-modal.create-modal icon="plus-circle" />
+        </create-event>
+      </div>
+    </template>
 
-    <template v-slot:dropdown-icon="{ item, index }">
+    <template #navbar-content>
+      <organizer-navbar />
+    </template>
+
+    <template #dropdown-icon="{ item, index }">
       <fa
         v-if="item.children"
         v-b-toggle="`nav-item-${index}`"
         icon="caret-down"
       />
     </template>
+
+    <template>
+      <b-container class="py-5">
+        <Nuxt />
+      </b-container>
+    </template>
   </vsb-layout>
 </template>
 
 <script>
-import OrganizerNavbar from '@/components/navbars/OrganizerNavbar';
+import OrganizerNavbar from '@/components/organizer/navbar/OrganizerNavbar';
+import EventPicker from '@/components/organizer/sidebar/EventPicker';
+import CreateEvent from '@/components/organizer/sidebar/CreateEvent';
 
 export default {
+  async middleware({ store }) {
+    // Initalize store: fetch events and pre-select
+    await store.dispatch('organizer/fetchEvents');
+  },
   components: {
     OrganizerNavbar,
+    EventPicker,
+    CreateEvent,
   },
   data() {
     return {
-      isSidebarCollapsed: false,
       navItems: [
         {
-          name: 'Race',
+          text: 'Dashboard',
+          link: '/organizers/dashboard',
+          icon: { tag: 'fa', attributes: { icon: 'tachometer-alt' } },
+        },
+        {
+          name: 'Event',
           children: [
             {
               link: '/',
               text: 'Analytics',
+              disabled: true,
               icon: { tag: 'fa', attributes: { icon: 'chart-line' } },
             },
             {
               link: '/',
               text: 'Signups',
+              disabled: true,
               icon: { tag: 'fa', attributes: { icon: 'user' } },
             },
             {
               text: 'Edit',
               icon: { tag: 'fa', attributes: { icon: 'edit' } },
               children: [
-                { text: 'Basic Information', link: '/' },
-                { text: 'Description' },
-                { text: 'Schedule' },
-                { text: 'Q&A' },
+                { text: 'Basic Information', link: '/organizers/edit/basic' },
+                { text: 'Description', link: '/organizers/edit/description' },
+                { text: 'Schedule', link: '/organizers/edit/schedule' },
+                { text: 'Q&A', link: '/organizers/edit/questions' },
                 { text: 'Location' },
                 { text: 'Competitions' },
                 { text: 'Social Media' },
@@ -62,24 +92,5 @@ export default {
       ],
     };
   },
-  computed: {
-    sidebarClass() {
-      return this.isSidebarCollapsed ? 'sidebar-collapsed' : 'sidebar-open';
-    },
-  },
 };
 </script>
-
-<style scoped>
-.main {
-  min-height: 100vh;
-}
-.sidebar-open {
-  margin-left: 250px;
-  width: calc(100vw - 250px);
-}
-.sidebar-collapsed {
-  margin-left: 80px;
-  width: calc(100vw - 80px);
-}
-</style>

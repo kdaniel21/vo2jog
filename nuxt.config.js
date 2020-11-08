@@ -11,14 +11,19 @@ export default {
   },
 
   publicRuntimeConfig: {
+    staticUrl: 'http://127.0.0.1:4000',
     baseUrl: 'http://127.0.0.1:4000/api/v1',
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [],
+  css: ['@/assets/scss/main.scss', 'vue-select/dist/vue-select.css'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: ['~/plugins/vue-sidebar-bootstrap.js'],
+  plugins: [
+    '~/plugins/vue-sidebar-bootstrap.js',
+    '~/plugins/axios.js',
+    '~/plugins/vue-select.js',
+  ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -28,6 +33,8 @@ export default {
     // https://go.nuxtjs.dev/eslint
     // '@nuxtjs/eslint-module',
     '@nuxtjs/fontawesome',
+    '@nuxtjs/style-resources',
+    '@nuxtjs/date-fns',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -64,7 +71,7 @@ export default {
         endpoints: {
           login: { url: '/organizers/login', method: 'post' },
           refresh: { url: '/organizers/refresh', method: 'post' },
-          user: { url: '/organizers/profile', method: 'get' },
+          user: { url: '/profile', method: 'get' },
           logout: { url: '/organizers/logout', method: 'post' },
         },
       },
