@@ -53,10 +53,10 @@ export default {
     ...mapState('organizer', ['selectedEvent']),
   },
   methods: {
-    ...mapActions('organizer', ['addFaq']),
+    ...mapActions('organizer', ['addItem']),
     async createQuestion() {
       try {
-        await this.addFaq(this.faq);
+        await this.addItem({ name: 'faq', data: this.faq });
 
         this.successToast('Question successfully added!');
         this.$refs['create-question'].reset();

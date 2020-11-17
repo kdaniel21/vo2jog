@@ -1,7 +1,7 @@
 <template>
   <div id="organizer-navbar" style="display: contents">
     <nuxt-link :to="brandLink">
-      <b-navbar-brand>
+      <b-navbar-brand class="ml-3 ml-md-0">
         Racircuit
         <span id="brand-title-mini" class="d-none d-md-inline"
           >Organizer Dashboard</span

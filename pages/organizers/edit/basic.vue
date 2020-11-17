@@ -37,7 +37,7 @@
     <!-- MULTI DAY CHECKBOX -->
     <div class="mb-3">
       <b-form-checkbox id="multi-day-input" v-model="input.multiDay" switch>
-        Multiple day event
+        Multi-day event
       </b-form-checkbox>
     </div>
 
@@ -45,7 +45,7 @@
     <b-form-group v-if="input.multiDay" label="End Date" label-for="end-input">
       <b-form-datepicker
         id="end-input"
-        v-model="input.endDate"
+        v-model="input.endDay"
         required
         placeholder="Last day of your event"
       ></b-form-datepicker>
@@ -68,24 +68,30 @@
     ></b-form-file>
 
     <!-- SAVE BUTTON -->
-    <b-button
-      type="submit"
-      variant="primary"
-      class="btn-block-xs-only float-right mt-3"
-    >
-      Save
-    </b-button>
+    <div class="d-flex justify-content-between flex-wrap mt-3">
+      <make-public-button />
+
+      <b-button
+        type="submit"
+        variant="primary"
+        class="btn-block-xs-only mt-2 mt-sm-0"
+      >
+        Save
+      </b-button>
+    </div>
   </b-form>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
 import toaster from '@/mixins/toaster';
+import MakePublicButton from '@/components/organizer/edit/basic/MakePublicButton';
 
 export default {
   name: 'Basic',
   layout: 'organizer',
   middleware: ['auth', 'event-selected'],
+  components: { MakePublicButton },
   mixins: [toaster],
   data() {
     return {
@@ -97,8 +103,8 @@ export default {
           'HH:mm'
         ),
         multiDay: !!this.$store.state.organizer.selectedEvent.endDate,
-        endDate: this.$store.state.organizer.selectedEvent.endDate,
-        image: this.$store.state.organizer.selectedEvent.image,
+        endDay: this.$store.state.organizer.selectedEvent.endDate,
+        image: null,
       },
     };
   },
@@ -109,31 +115,42 @@ export default {
       const minutes = splittedStartTime[1];
       return this.$dateFns.set(this.input.startDay, { hours, minutes });
     },
+    endDate() {
+      return this.input.multiDay ? this.input.endDay : null;
+    },
     imagePath() {
-      return typeof this.input.image === 'object'
-        ? URL.createObjectURL(this.input.image)
-        : `${this.$config.staticUrl}/img/events/${this.input.image}`;
+      // Current image is only shown but not loaded to the file uploader input
+      const image =
+        this.input.image || this.$store.state.organizer.selectedEvent.image;
+      if (!image) return;
+
+      return typeof image === 'object'
+        ? URL.createObjectURL(image)
+        : `${this.$config.staticUrl}/events/img/${image}`;
     },
   },
   methods: {
     ...mapActions('organizer', ['updateEvent']),
-    createFormData() {
-      const formData = new FormData();
-
-      if (this.input.name) formData.append('name', this.input.name);
-      if (this.input.image)
-        formData.append('image', this.input.image, this.input.image.filename);
-      if (this.input.startDate) formData.append('startDate', this.startDate);
-      if (this.input.endDate) formData.append('endDate', this.input.endDate);
-
-      return formData;
-    },
     async save() {
       try {
-        const formData = this.createFormData();
+        const data = {
+          name: this.input.name,
+          startDate: this.startDate,
+          endDate: this.endDate,
+        };
+
+        const formData = new FormData();
+        /* Append all data as string and parse on API/server side
+        Else it couldn't send null and undefined
+        Since formData can send either string or file */
+        formData.append('data', JSON.stringify(data));
+        if (this.input.image)
+          formData.append('image', this.input.image, this.input.image.filename);
+
         await this.updateEvent(formData);
         this.successToast('Event successfully updated!');
-      } catch {
+      } catch (err) {
+        console.log(err);
         this.errorToast('Something went wrong. Please try again!');
       }
     },

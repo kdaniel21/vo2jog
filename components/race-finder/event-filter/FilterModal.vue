@@ -1,7 +1,7 @@
 <template>
   <div id="filter-modal">
     <b-button v-b-modal.filter-modal variant="link">Filter Results</b-button>
-    <b-modal id="filter-modal" :hide-header="true">
+    <b-modal id="filter" :hide-header="true">
       <filter-overview />
     </b-modal>
   </div>
@@ -18,12 +18,12 @@ export default {
 };
 </script>
 
-<style>
-.modal-dialog {
+<style scoped>
+#filter {
   max-width: 100% !important;
   margin: 0 !important;
 }
-.modal-body {
+#filter > .modal-body {
   height: 87vh;
   overflow-y: scroll;
 }

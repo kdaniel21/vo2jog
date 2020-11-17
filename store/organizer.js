@@ -1,3 +1,5 @@
+import camelToKebab from '@/assets/utils/camelToKebab';
+
 export const state = () => ({
   selectedEvent: null,
   events: [],
@@ -33,7 +35,7 @@ export const mutations = {
 
 export const actions = {
   async fetchEvents({ commit }) {
-    const res = await this.$axios.get('/profile/events');
+    const res = await this.$axios.get('/api/profile/events');
 
     const events = res.data.data;
     if (events.length > 0) commit('setEvents', events);
@@ -49,26 +51,41 @@ export const actions = {
     commit('setSelectedEvent', eventId);
   },
   async createEvent({ commit }, newEvent) {
-    const res = await this.$axios.post('/events', newEvent);
+    const res = await this.$axios.post('/api/events', newEvent);
 
     commit('addEvent', res.data.data);
   },
   async updateEvent({ commit, state }, updatedItems) {
     const { _id } = state.selectedEvent;
-    const res = await this.$axios.patch(`events/${_id}`, updatedItems);
+    const res = await this.$axios.patch(`/api/events/${_id}`, updatedItems);
 
     commit('updateEvent', res.data.data);
   },
-  async addFaq({ commit, state }, faq) {
+  async addItem({ commit, state }, { name, data, url }) {
     const { _id } = state.selectedEvent;
-    const res = await this.$axios.post(`/events/${_id}/faq`, faq);
+    const endpointName = camelToKebab(name);
+    const endpointUrl = url || `/api/events/${_id}/${endpointName}`;
 
-    commit('updateEvent', { ...state.selectedEvent, faq: res.data.data });
+    const res = await this.$axios.post(endpointUrl, data);
+
+    commit('updateEvent', { ...state.selectedEvent, [name]: res.data.data });
   },
-  async deleteFaq({ commit, state }, faqId) {
+  async updateItem({ commit, state }, { name, itemId, data, url }) {
     const { _id } = state.selectedEvent;
-    const res = await this.$axios.delete(`/events/${_id}/faq/${faqId}`);
+    const endpointName = camelToKebab(name);
+    const endpointUrl = url || `/api/events/${_id}/${endpointName}/${itemId}`;
 
-    commit('updateEvent', { ...state.selectedEvent, faq: res.data.data });
+    const res = await this.$axios.patch(endpointUrl, data);
+
+    commit('updateEvent', { ...state.selectedEvent, [name]: res.data.data });
+  },
+  async deleteItem({ commit, state }, { name, itemId, url }) {
+    const { _id } = state.selectedEvent;
+    const endpointName = camelToKebab(name);
+    const endpointUrl = url || `/api/events/${_id}/${endpointName}/${itemId}`;
+
+    const res = await this.$axios.delete(endpointUrl);
+
+    commit('updateEvent', { ...state.selectedEvent, [name]: res.data.data });
   },
 };

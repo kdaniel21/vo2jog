@@ -11,7 +11,11 @@
       <div class="d-flex justify-content-between w-100">
         <event-picker />
         <create-event>
-          <fa v-b-modal.create-modal icon="plus-circle" />
+          <fa
+            v-b-modal.create-modal
+            icon="plus-circle"
+            style="vertical-align: -0.5rem"
+          />
         </create-event>
       </div>
     </template>
@@ -29,7 +33,7 @@
     </template>
 
     <template>
-      <b-container class="py-5">
+      <b-container class="py-3 py-md-5">
         <Nuxt />
       </b-container>
     </template>
@@ -43,7 +47,7 @@ import CreateEvent from '@/components/organizer/sidebar/CreateEvent';
 
 export default {
   async middleware({ store }) {
-    // Initalize store: fetch events and pre-select
+    // Initalize store: fetch events
     await store.dispatch('organizer/fetchEvents');
   },
   components: {
@@ -82,9 +86,10 @@ export default {
                 { text: 'Description', link: '/organizers/edit/description' },
                 { text: 'Schedule', link: '/organizers/edit/schedule' },
                 { text: 'Q&A', link: '/organizers/edit/questions' },
-                { text: 'Location' },
-                { text: 'Competitions' },
-                { text: 'Social Media' },
+                { text: 'Location', link: '/organizers/edit/location' },
+                { text: 'Competitions', link: '/organizers/edit/competitions' },
+                { text: 'Social Media', link: '/organizers/edit/social-media' },
+                { text: 'Documents', link: '/organizers/edit/documents' },
               ],
             },
           ],

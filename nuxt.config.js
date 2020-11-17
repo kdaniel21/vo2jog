@@ -1,4 +1,9 @@
 export default {
+  server: {
+    port: 3000,
+    host: '0.0.0.0',
+  },
+
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'racircuit',
@@ -13,6 +18,7 @@ export default {
   publicRuntimeConfig: {
     staticUrl: 'http://127.0.0.1:4000',
     baseUrl: 'http://127.0.0.1:4000/api/v1',
+    hereApiKey: 'BFTP7HQsgOf6mW8rMA9K8JWY6qf7VJtUxGW1ZxfzbNE',
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
@@ -44,11 +50,26 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
+    // '@nuxtjs/proxy',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
-    baseURL: 'http://127.0.0.1:4000/api/v1',
+    withCredentials: false,
+    proxy: true,
+  },
+
+  proxy: {
+    '/api/': {
+      target: 'http://127.0.0.1:4000/api/v1/',
+      pathRewrite: { '^/api/': '' },
+      changeOrigin: true,
+    },
+    '/here-api/': {
+      target: 'https://geocode.search.hereapi.com/v1/geocode',
+      pathRewrite: { '^/here-api/': '' },
+      changeOrigin: true,
+    },
   },
 
   // @nuxtjs/auth module configuration
@@ -69,10 +90,10 @@ export default {
           property: 'profile',
         },
         endpoints: {
-          login: { url: '/organizers/login', method: 'post' },
-          refresh: { url: '/organizers/refresh', method: 'post' },
-          user: { url: '/profile', method: 'get' },
-          logout: { url: '/organizers/logout', method: 'post' },
+          login: { url: '/api/organizers/login', method: 'post' },
+          refresh: { url: '/api/organizers/refresh', method: 'post' },
+          user: { url: '/api/profile', method: 'get' },
+          logout: { url: '/api/organizers/logout', method: 'post' },
         },
       },
     },
@@ -86,6 +107,7 @@ export default {
     component: 'fa',
     icons: {
       solid: true,
+      brands: true,
     },
   },
 };
