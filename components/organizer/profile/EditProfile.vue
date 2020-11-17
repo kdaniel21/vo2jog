@@ -3,7 +3,7 @@
     <template #header>
       <h3>Edit Profile</h3>
       <span>
-        <b-button variant="link" @click="$emit('edit', false)">Cancel</b-button>
+        <b-button variant="link" @click="cancelEdit">Cancel</b-button>
         <b-button variant="link" @click="save">Save</b-button></span
       >
     </template>
@@ -75,9 +75,13 @@ export default {
 
         await this.updateProfile(data);
         this.successToast('Profile updated successfully!');
+        this.cancelEdit();
       } catch {
         this.errorToast('Could not update profile! Please try again.');
       }
+    },
+    cancelEdit() {
+      this.$emit('edit', false);
     },
   },
 };
