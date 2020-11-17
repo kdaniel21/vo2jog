@@ -22,7 +22,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions('organizer', ['updateEvent']),
+    ...mapActions('organizer/events', ['updateEvent']),
     async saveLocation() {
       try {
         const { location } = this;

@@ -29,7 +29,7 @@ export default {
     await this.preSelectEvent();
   },
   methods: {
-    ...mapActions('organizer', ['selectEvent', 'preSelectEvent']),
+    ...mapActions('organizer/events', ['selectEvent', 'preSelectEvent']),
   },
 };
 </script>

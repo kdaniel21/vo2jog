@@ -130,7 +130,7 @@ export default {
     },
   },
   methods: {
-    ...mapActions('organizer', ['updateEvent']),
+    ...mapActions('organizer/events', ['updateEvent']),
     async save() {
       try {
         const data = {

@@ -95,7 +95,7 @@ export default {
     this.limitAge = !!ageLimit.minimum || !!ageLimit.maximum;
   },
   methods: {
-    ...mapActions('organizer', ['addItem', 'updateItem']),
+    ...mapActions('organizer/events', ['addItem', 'updateItem']),
     async saveCompetition() {
       try {
         const actionParams = { name: 'competitions', data: this.form };

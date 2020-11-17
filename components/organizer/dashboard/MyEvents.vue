@@ -23,7 +23,7 @@ export default {
   name: 'MyEvents',
   components: { EventCard },
   computed: {
-    ...mapState('organizer', ['events']),
+    ...mapState('organizer/events', ['events']),
   },
 };
 </script>

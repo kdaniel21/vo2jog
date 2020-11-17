@@ -45,7 +45,7 @@ export default {
     },
   },
   methods: {
-    ...mapActions('organizer', ['addItem']),
+    ...mapActions('organizer/events', ['addItem']),
     removeDiacriticsAndWhitespace(string) {
       return string
         .normalize('NFD')

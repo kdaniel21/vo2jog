@@ -27,7 +27,7 @@ export default {
     },
   },
   methods: {
-    ...mapActions('organizer', ['selectEvent']),
+    ...mapActions('organizer/events', ['selectEvent']),
     async selectAndEdit() {
       await this.selectEvent(this.event._id);
       this.$router.push('/organizers/edit/basic');

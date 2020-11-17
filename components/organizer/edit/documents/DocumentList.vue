@@ -52,7 +52,7 @@ export default {
     },
   },
   methods: {
-    ...mapActions('organizer', ['deleteItem']),
+    ...mapActions('organizer/events', ['deleteItem']),
     async deleteDocument(id) {
       try {
         await this.deleteItem({ name: 'documents', itemId: id });

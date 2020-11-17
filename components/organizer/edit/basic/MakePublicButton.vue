@@ -32,7 +32,7 @@ export default {
     }),
   },
   methods: {
-    ...mapActions('organizer', ['updateEvent']),
+    ...mapActions('organizer/events', ['updateEvent']),
     async publish() {
       try {
         await this.updateEvent({ public: !this.public });

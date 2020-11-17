@@ -47,7 +47,7 @@ export default {
     };
   },
   computed: {
-    ...mapState('organizer', ['selectedEvent']),
+    ...mapState('organizer/events', ['selectedEvent']),
     dayOptions() {
       if (!this.selectedEvent.endDate || !this.selectedEvent.startDate) return;
 
@@ -66,7 +66,7 @@ export default {
     },
   },
   methods: {
-    ...mapActions('organizer', ['addItem']),
+    ...mapActions('organizer/events', ['addItem']),
     async saveScheduleItem() {
       try {
         const { _id } = this.selectedEvent;

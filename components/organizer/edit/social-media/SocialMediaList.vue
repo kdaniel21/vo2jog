@@ -37,7 +37,7 @@ export default {
     }),
   },
   methods: {
-    ...mapActions('organizer', ['deleteItem']),
+    ...mapActions('organizer/events', ['deleteItem']),
   },
 };
 </script>
