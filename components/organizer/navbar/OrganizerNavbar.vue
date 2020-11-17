@@ -20,7 +20,7 @@
       <span class="d-none d-md-inline mr-2">
         {{ $auth.user.name }}
       </span>
-      <b-avatar :src="$auth.user.avatar" class="d-none d-md-inline"></b-avatar>
+      <b-avatar :src="avatarPath" class="d-none d-md-inline"></b-avatar>
     </b-navbar-nav>
   </div>
 </template>
@@ -41,6 +41,11 @@ export default {
         { text: 'menu2', link: '/organiers' },
       ],
     };
+  },
+  computed: {
+    avatarPath() {
+      return `${this.$config.staticUrl}/organizers/avatars/${this.$auth.user.avatar}`;
+    },
   },
 };
 </script>

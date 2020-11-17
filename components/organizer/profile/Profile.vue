@@ -1,7 +1,7 @@
 <template>
   <b-row id="profile">
     <b-col cols="12" md="2">
-      <b-avatar button :src="avatar" size="10rem"></b-avatar>
+      <b-avatar button :src="avatarPath" size="10rem"></b-avatar>
     </b-col>
     <b-col cols="12" md="10">
       <edit-profile
@@ -33,7 +33,7 @@ export default {
   computed: {
     avatarPath() {
       return !this.avatar.startsWith('http')
-        ? ` ${this.$config.staticUrl}/organizers/${this.avatar}`
+        ? `${this.$config.staticUrl}/organizers/avatars/${this.avatar}`
         : this.avatar;
     },
   },
