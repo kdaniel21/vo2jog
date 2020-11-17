@@ -70,10 +70,14 @@ export default {
 
         const formData = new FormData();
         formData.append('data', JSON.stringify(data));
-        if (this.avatar)
-          formData.append('avatar', this.avatar, this.avatar.filename);
+        if (this.form.avatar)
+          formData.append(
+            'avatar',
+            this.form.avatar,
+            this.form.avatar.filename
+          );
 
-        await this.updateProfile(data);
+        await this.updateProfile(formData);
         this.successToast('Profile updated successfully!');
         this.cancelEdit();
       } catch {
