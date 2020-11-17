@@ -12,7 +12,9 @@
     <b-navbar-nav v-if="$auth.user" class="ml-auto align-items-center">
       <div class="mr-md-3">
         <fa icon="question-circle" class="mr-2" />
-        <fa icon="user" class="mr-2" />
+        <nuxt-link to="/organizers/profile">
+          <fa icon="user" class="mr-2 text-dark" />
+        </nuxt-link>
         <logout />
       </div>
       <span class="d-none d-md-inline mr-2">
