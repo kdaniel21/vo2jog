@@ -1,0 +1,13 @@
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap-vue/src/index.scss';
+
+@include media-breakpoint-only(xs) {
+  .btn-block-xs-only {
+    display: block;
+    width: 100%;
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

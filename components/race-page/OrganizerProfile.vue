@@ -1,5 +1,5 @@
 <template>
-  <div id="organizer-profile" class="d-flex flex-wrap justify-content-center">
+  <div id="organizer-profile" class="d-flex flex-wrap justify-content-start">
     <b-avatar
       src="https://placekitten.com/300/300"
       size="lg"
