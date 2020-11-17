@@ -48,7 +48,7 @@ import CreateEvent from '@/components/organizer/sidebar/CreateEvent';
 export default {
   async middleware({ store }) {
     // Initalize store: fetch events
-    await store.dispatch('organizer/fetchEvents');
+    await store.dispatch('organizer/events/fetchEvents');
   },
   components: {
     OrganizerNavbar,
