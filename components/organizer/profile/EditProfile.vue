@@ -1,36 +1,30 @@
 <template>
-  <show-profile>
-    <template #header>
-      <h3>Edit Profile</h3>
-      <span>
-        <b-button variant="link" @click="cancelEdit">Cancel</b-button>
-        <b-button variant="link" @click="save">Save</b-button></span
-      >
-    </template>
+  <b-form id="edit-profile p-2">
+    <show-profile>
+      <template #header>
+        <h3>Edit Profile</h3>
+        <span>
+          <b-button variant="link" @click="cancelEdit">Cancel</b-button>
+          <b-button variant="link" @click="save">Save</b-button>
+        </span>
+      </template>
 
-    <template #content="{ prop }">
-      <b-form-input
-        v-model="form[prop]"
-        :placeholder="prop"
-        class="w-50 text-capitalize"
-        size="sm"
-      ></b-form-input>
-    </template>
+      <template #input="{ prop }">
+        <b-input v-model="form[prop]" size="sm"></b-input>
+      </template>
 
-    <template #description>
-      <b-form-textarea
-        v-model="form.description"
-        class="w-50 mb-1"
-      ></b-form-textarea>
-    </template>
+      <template #description>
+        <b-textarea v-model="form.description" size="sm"></b-textarea>
+      </template>
+    </show-profile>
 
-    <template #default>
-      <div class="d-flex justify-content-between">
-        <span>Avatar</span>
-        <b-form-file v-model="form.avatar" class="w-50" size="sm"></b-form-file>
-      </div>
-    </template>
-  </show-profile>
+    <b-row class="mb-2">
+      <b-col cols="12" md="4" class="font-weight-bold">Avatar</b-col>
+      <b-col>
+        <b-file v-model="form.avatar" size="sm"></b-file>
+      </b-col>
+    </b-row>
+  </b-form>
 </template>
 
 <script>
@@ -56,17 +50,16 @@ export default {
   },
   watch: {
     'form.avatar'(val) {
-      this.$emit('avatar', URL.createObjectURL(val));
+      console.log('watch', val);
+      this.$emit('avatar', val);
     },
   },
   methods: {
     ...mapActions('organizer/profile', ['updateProfile']),
     async save() {
       try {
-        const data = {
-          ...this.form,
-          avatar: null,
-        };
+        const data = { ...this.form };
+        delete data.avatar;
 
         const formData = new FormData();
         formData.append('data', JSON.stringify(data));
@@ -90,3 +83,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.b-form-file,
+input,
+textarea {
+  min-width: 25rem;
+  max-width: 30rem;
+}
+</style>

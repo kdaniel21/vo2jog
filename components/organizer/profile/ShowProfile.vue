@@ -1,43 +1,31 @@
 <template>
   <div id="show-profile">
-    <div class="d-flex justify-content-between mb-2">
+    <div class="d-flex justify-content-between mb-3">
       <slot name="header">
         <h3>Profile</h3>
         <b-button variant="link" @click="$emit('edit', true)"> Edit </b-button>
       </slot>
     </div>
 
-    <div
-      v-for="prop in ['name', 'motto']"
-      :key="prop"
-      class="d-flex justify-content-between mb-1"
-    >
-      <span
-        :class="[
-          user[prop] ? 'font-weight-bold' : 'text-muted',
-          'text-capitalize',
-        ]"
-      >
-        {{ prop }}:
-      </span>
-      <slot name="content" :prop="prop">
-        <span v-if="user[prop]">{{ user[prop] }}</span>
-      </slot>
-    </div>
-    <div class="d-flex justify-content-between">
-      <span
-        :class="[
-          user.description ? 'font-weight-bold' : 'text-muted',
-          'text-capitalize',
-        ]"
-        >Description:
-      </span>
-      <slot name="description">
-        <p class="w-50 text-right">{{ user.description }}</p>
-      </slot>
-    </div>
+    <b-row v-for="prop in ['name', 'motto']" :key="prop" class="mb-2">
+      <b-col cols="12" md="4" class="text-capitalize font-weight-bold">
+        {{ prop }}
+      </b-col>
+      <b-col>
+        <slot name="input" :prop="prop">
+          {{ user[prop] }}
+        </slot>
+      </b-col>
+    </b-row>
 
-    <slot></slot>
+    <b-row class="mb-2">
+      <b-col cols="12" md="4" class="font-weight-bold">Description</b-col>
+      <b-col>
+        <slot name="description">
+          {{ user.description }}
+        </slot>
+      </b-col>
+    </b-row>
   </div>
 </template>
 

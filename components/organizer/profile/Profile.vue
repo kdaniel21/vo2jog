@@ -1,17 +1,18 @@
 <template>
-  <b-row id="profile">
-    <b-col cols="12" md="2">
-      <b-avatar button :src="avatarPath" size="10rem"></b-avatar>
-    </b-col>
-    <b-col cols="12" md="10">
+  <div
+    id="profile"
+    class="d-flex flex-wrap justify-content-center justify-content-lg-start"
+  >
+    <b-avatar :src="avatarPath" size="10rem" class="mr-3"></b-avatar>
+    <div class="profile-container">
       <edit-profile
         v-if="editProfile"
         @edit="val => (editProfile = val)"
         @avatar="val => (avatar = val)"
       />
       <show-profile v-else @edit="val => (editProfile = val)" />
-    </b-col>
-  </b-row>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -32,10 +33,18 @@ export default {
   },
   computed: {
     avatarPath() {
-      return !this.avatar.startsWith('http')
-        ? `${this.$config.staticUrl}/organizers/avatars/${this.avatar}`
-        : this.avatar;
+      if (!this.avatar) return;
+
+      return typeof this.avatar === 'object'
+        ? URL.createObjectURL(this.avatar)
+        : `${this.$config.staticUrl}/organizers/avatars/${this.avatar}`;
     },
   },
 };
 </script>
+
+<style scoped>
+.profile-container {
+  width: clamp(calc(100% - 11rem), 30rem, 100vw);
+}
+</style>
