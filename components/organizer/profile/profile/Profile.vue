@@ -7,17 +7,17 @@
     <div class="profile-container">
       <edit-profile
         v-if="editProfile"
-        @edit="val => (editProfile = val)"
+        @cancel="editProfile = false"
         @avatar="val => (avatar = val)"
       />
-      <show-profile v-else @edit="val => (editProfile = val)" />
+      <show-profile v-else @edit="editProfile = true" />
     </div>
   </div>
 </template>
 
 <script>
-import ShowProfile from '@/components/organizer/profile/ShowProfile';
-import EditProfile from '@/components/organizer/profile/EditProfile';
+import ShowProfile from '@/components/organizer/profile/profile/ShowProfile';
+import EditProfile from '@/components/organizer/profile/profile/EditProfile';
 
 export default {
   name: 'Profile',

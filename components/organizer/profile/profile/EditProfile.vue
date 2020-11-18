@@ -1,22 +1,23 @@
 <template>
-  <div class="w-100">
-    <show-profile>
-      <template #header>
-        <h3>Edit Profile</h3>
-        <span>
-          <b-button variant="link" @click="cancelEdit">Cancel</b-button>
-          <b-button variant="link" @click="save">Save</b-button>
-        </span>
-      </template>
-
+  <div>
+    <layout
+      title="Edit Profile"
+      :props="['name', 'motto']"
+      edit
+      @save="save"
+      @cancel="$emit('cancel')"
+    >
       <template #input="{ prop }">
         <b-input v-model="form[prop]" size="sm"></b-input>
       </template>
+    </layout>
 
-      <template #description>
+    <b-row class="mb-2">
+      <b-col cols="12" md="4" class="font-weight-bold">Description</b-col>
+      <b-col>
         <b-textarea v-model="form.description" size="sm"></b-textarea>
-      </template>
-    </show-profile>
+      </b-col>
+    </b-row>
 
     <b-row class="mb-2">
       <b-col cols="12" md="4" class="font-weight-bold">Avatar</b-col>
@@ -30,12 +31,12 @@
 <script>
 import { mapActions } from 'vuex';
 import toaster from '@/mixins/toaster';
-import ShowProfile from '@/components/organizer/profile/ShowProfile';
+import Layout from '@/components/organizer/profile/Layout';
 
 export default {
   name: 'EditProfile',
   components: {
-    ShowProfile,
+    Layout,
   },
   mixins: [toaster],
   data() {
@@ -50,7 +51,6 @@ export default {
   },
   watch: {
     'form.avatar'(val) {
-      console.log('watch', val);
       this.$emit('avatar', val);
     },
   },
