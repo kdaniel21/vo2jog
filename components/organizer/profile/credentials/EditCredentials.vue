@@ -19,10 +19,13 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+import toaster from '@/mixins/toaster';
 import Layout from '@/components/organizer/profile/Layout';
 
 export default {
   name: 'EditCredentials',
+  mixins: [toaster],
   components: { Layout },
   data() {
     return {
@@ -35,7 +38,21 @@ export default {
     };
   },
   methods: {
-    save() {},
+    ...mapActions('organizer/profile', ['updateCredentials']),
+    async save() {
+      try {
+        // Copy only the attributes with value
+        const data = {};
+        Object.keys(this.form).forEach(key => {
+          if (this.form[key]) data[key] = this.form[key];
+        });
+
+        await this.updateCredentials(data);
+        this.successToast('Credentials updated successfully!');
+      } catch {
+        this.errorToast('Could not update credentials!');
+      }
+    },
   },
 };
 </script>
