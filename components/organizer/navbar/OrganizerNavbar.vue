@@ -44,7 +44,10 @@ export default {
   },
   computed: {
     avatarPath() {
-      return `${this.$config.staticUrl}/organizers/avatars/${this.$auth.user.avatar}`;
+      const { avatar } = this.$auth.user;
+      if (!avatar) return;
+
+      return `${this.$config.staticUrl}/organizers/avatars/${avatar}`;
     },
   },
 };
