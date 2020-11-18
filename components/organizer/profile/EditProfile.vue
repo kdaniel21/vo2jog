@@ -1,5 +1,5 @@
 <template>
-  <b-form id="edit-profile p-2">
+  <div class="w-100">
     <show-profile>
       <template #header>
         <h3>Edit Profile</h3>
@@ -24,7 +24,7 @@
         <b-file v-model="form.avatar" size="sm"></b-file>
       </b-col>
     </b-row>
-  </b-form>
+  </div>
 </template>
 
 <script>
@@ -83,12 +83,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.b-form-file,
-input,
-textarea {
-  min-width: 25rem;
-  max-width: 30rem;
-}
-</style>
