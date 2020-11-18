@@ -42,7 +42,7 @@ export default {
     ...mapActions('organizer/events', ['deleteItem']),
     async deleteScheduleItem(id, day) {
       try {
-        const eventId = this.$store.state.organizer.selectedEvent._id;
+        const eventId = this.$store.state.organizer.events.selectedEvent._id;
         const url = `/api/events/${eventId}/schedule/${day.day}/${id}`;
         await this.deleteItem({ name: 'schedule', url });
 

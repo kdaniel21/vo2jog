@@ -96,14 +96,14 @@ export default {
   data() {
     return {
       input: {
-        name: this.$store.state.organizer.selectedEvent.name,
-        startDay: this.$store.state.organizer.selectedEvent.startDate,
+        name: this.$store.state.organizer.events.selectedEvent.name,
+        startDay: this.$store.state.organizer.events.selectedEvent.startDate,
         startTime: this.$dateFns.format(
-          this.$store.state.organizer.selectedEvent.startDate,
+          this.$store.state.organizer.events.selectedEvent.startDate,
           'HH:mm'
         ),
-        multiDay: !!this.$store.state.organizer.selectedEvent.endDate,
-        endDay: this.$store.state.organizer.selectedEvent.endDate,
+        multiDay: !!this.$store.state.organizer.events.selectedEvent.endDate,
+        endDay: this.$store.state.organizer.events.selectedEvent.endDate,
         image: null,
       },
     };
@@ -121,7 +121,8 @@ export default {
     imagePath() {
       // Current image is only shown but not loaded to the file uploader input
       const image =
-        this.input.image || this.$store.state.organizer.selectedEvent.image;
+        this.input.image ||
+        this.$store.state.organizer.events.selectedEvent.image;
       if (!image) return;
 
       return typeof image === 'object'

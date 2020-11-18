@@ -30,7 +30,9 @@ export default {
   components: { SetLocation, LocationMap },
   middleware: ['auth', 'event-selected'],
   computed: {
-    ...mapState({ location: state => state.organizer.selectedEvent.location }),
+    ...mapState({
+      location: state => state.organizer.events.selectedEvent.location,
+    }),
   },
 };
 </script>

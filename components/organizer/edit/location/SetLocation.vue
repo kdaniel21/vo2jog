@@ -18,7 +18,7 @@ export default {
   mixins: [toaster],
   data() {
     return {
-      location: this.$store.state.organizer.selectedEvent.location,
+      location: this.$store.state.organizer.events.selectedEvent.location,
     };
   },
   methods: {

@@ -28,7 +28,7 @@ export default {
   mixins: [toaster],
   computed: {
     ...mapState({
-      public: state => state.organizer.selectedEvent.public,
+      public: state => state.organizer.events.selectedEvent.public,
     }),
   },
   methods: {

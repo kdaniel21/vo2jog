@@ -38,7 +38,7 @@ export default {
   },
   computed: {
     documents() {
-      const { documents } = this.$store.state.organizer.selectedEvent;
+      const { documents } = this.$store.state.organizer.events.selectedEvent;
 
       return documents.map(doc => {
         const url = `${this.$config.staticUrl}/events/docs/${doc.file}`;

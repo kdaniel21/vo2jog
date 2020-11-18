@@ -25,7 +25,7 @@ export default {
   mixins: [toaster],
   data() {
     return {
-      description: this.$store.state.organizer.selectedEvent.description,
+      description: this.$store.state.organizer.events.selectedEvent.description,
     };
   },
   methods: {

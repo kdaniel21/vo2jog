@@ -19,7 +19,7 @@ export default {
   components: { DeleteButton },
   computed: {
     ...mapState({
-      questions: state => state.organizer.selectedEvent.faq,
+      questions: state => state.organizer.events.selectedEvent.faq,
     }),
   },
   methods: {

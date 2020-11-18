@@ -43,13 +43,13 @@ export default {
         price: null,
         currency: 'eur',
         startDate: new Date(),
-        endDate: this.$store.state.organizer.selectedEvent.startDate,
+        endDate: this.$store.state.organizer.events.selectedEvent.startDate,
       },
     };
   },
   computed: {
     ...mapState({
-      eventStartDate: state => state.organizer.selectedEvent.startDate,
+      eventStartDate: state => state.organizer.events.selectedEvent.startDate,
     }),
   },
 };

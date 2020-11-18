@@ -21,7 +21,9 @@ export default {
   middleware: ['auth', 'event-selected'],
   components: { CreateQuestion, QuestionsList },
   computed: {
-    ...mapState({ questions: state => state.organizer.selectedEvent.faq }),
+    ...mapState({
+      questions: state => state.organizer.events.selectedEvent.faq,
+    }),
   },
 };
 </script>
