@@ -1,6 +1,6 @@
 <template>
   <div id="faq-item">
-    <div class="d-flex justify-space-between">
+    <div class="d-flex justify-content-between">
       <b-button
         v-b-toggle="'faq' + _uid"
         block
