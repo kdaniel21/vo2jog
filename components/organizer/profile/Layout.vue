@@ -1,12 +1,21 @@
 <template>
   <div id="show-profile">
-    <div class="d-flex justify-content-between mb-3">
+    <div class="d-flex justify-content-between flex-wrap mb-3">
       <h3>{{ title }}</h3>
       <div>
-        <b-button variant="link" @click="$emit(edit ? 'cancel' : 'edit')">
+        <b-button
+          variant="link"
+          class="btn-block-xs-only"
+          @click="$emit(edit ? 'cancel' : 'edit')"
+        >
           {{ edit ? 'Cancel' : 'Edit' }}
         </b-button>
-        <b-button v-if="edit" variant="link" @click="$emit('save')">
+        <b-button
+          v-if="edit"
+          variant="link"
+          class="btn-block-xs-only"
+          @click="$emit('save')"
+        >
           Save
         </b-button>
       </div>

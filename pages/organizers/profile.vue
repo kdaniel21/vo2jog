@@ -6,17 +6,21 @@
     <hr class="mt-5" />
 
     <credentials />
+    <hr class="mt-5" />
+
+    <contact-people />
   </div>
 </template>
 
 <script>
 import Profile from '@/components/organizer/profile/profile/Profile';
 import Credentials from '@/components/organizer/profile/credentials/Credentials';
+import ContactPeople from '@/components/organizer/profile/contact-people/ContactPeople';
 
 export default {
   layout: 'organizer',
   middleware: ['auth'],
-  components: { Profile, Credentials },
+  components: { Profile, Credentials, ContactPeople },
 };
 </script>
 
