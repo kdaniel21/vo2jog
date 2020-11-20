@@ -53,22 +53,35 @@ export default {
     }),
   },
   methods: {
-    ...mapActions('organizer/profile', ['addProfileItem']),
+    ...mapActions('organizer/profile', [
+      'addProfileItem',
+      'updateProfileItem',
+      'deleteProfileItem',
+    ]),
     addPerson() {
       this.$refs.table.addRow();
     },
-    async createContactPerson(person) {
-      try {
-        await this.addProfileItem({ name: 'contactPeople', data: person });
-        this.successToast('Person added successfully!');
-      } catch {
-        this.errorToast('Could not add person. Please try again!');
-      }
+    createContactPerson(person) {
+      this.addProfileItem({ name: 'contactPeople', data: person })
+        .then(() => this.successToast('Person added successfully!'))
+        .catch(() =>
+          this.errorToast('Could not add person. Please try again!')
+        );
     },
-    async updateContactPerson(updatedPerson) {},
-    async deleteContactPerson(id) {},
+    updateContactPerson(updatedPerson) {
+      this.updateProfileItem({ name: 'contactPeople', data: updatedPerson })
+        .then(() => this.successToast('Person updated successfully!'))
+        .catch(() =>
+          this.errorToast('Could not update person. Please try again!')
+        );
+    },
+    deleteContactPerson(id) {
+      this.deleteProfileItem({ name: 'contactPeople', itemId: id })
+        .then(() => this.successToast('Person added successfully!'))
+        .catch(() =>
+          this.errorToast('Could not add person. Please try again!')
+        );
+    },
   },
 };
 </script>
-
-<style></style>

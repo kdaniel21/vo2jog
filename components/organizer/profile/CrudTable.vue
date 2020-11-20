@@ -65,7 +65,6 @@ export default {
       this.editRow(this.newRow);
     },
     editRow(row) {
-      console.log('fired', row);
       this.editedRow = { ...row };
     },
     cancelEdit() {
@@ -79,7 +78,7 @@ export default {
       this.cancelEdit();
     },
     updateRow(updatedRow) {
-      this.$emit('update', updatedRow);
+      this.$emit('update', this.editedRow);
       this.cancelEdit();
     },
     deleteRow(rowId) {

@@ -18,8 +18,9 @@ export const actions = {
     await this.$auth.fetchUser();
   },
   async updateProfileItem(context, { name, data, url, itemId }) {
+    const id = itemId || data._id;
     const endpointName = camelToKebab(name);
-    const endpointUrl = url || `/api/profile/${endpointName}/${itemId}`;
+    const endpointUrl = url || `/api/profile/${endpointName}/${id}`;
     await this.$axios.patch(endpointUrl, data);
     await this.$auth.fetchUser();
   },
