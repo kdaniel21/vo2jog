@@ -39,7 +39,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions('organizer', ['createEvent']),
+    ...mapActions('organizer/events', ['createEvent']),
   },
 };
 </script>

@@ -28,11 +28,11 @@ export default {
   mixins: [toaster],
   computed: {
     ...mapState({
-      public: state => state.organizer.selectedEvent.public,
+      public: state => state.organizer.events.selectedEvent.public,
     }),
   },
   methods: {
-    ...mapActions('organizer', ['updateEvent']),
+    ...mapActions('organizer/events', ['updateEvent']),
     async publish() {
       try {
         await this.updateEvent({ public: !this.public });

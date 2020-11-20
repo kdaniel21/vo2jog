@@ -25,11 +25,11 @@ export default {
   mixins: [toaster],
   data() {
     return {
-      description: this.$store.state.organizer.selectedEvent.description,
+      description: this.$store.state.organizer.events.selectedEvent.description,
     };
   },
   methods: {
-    ...mapActions('organizer', ['updateEvent']),
+    ...mapActions('organizer/events', ['updateEvent']),
     async save() {
       try {
         await this.updateEvent({ descripton: this.description });

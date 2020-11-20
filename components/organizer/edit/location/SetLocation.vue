@@ -18,11 +18,11 @@ export default {
   mixins: [toaster],
   data() {
     return {
-      location: this.$store.state.organizer.selectedEvent.location,
+      location: this.$store.state.organizer.events.selectedEvent.location,
     };
   },
   methods: {
-    ...mapActions('organizer', ['updateEvent']),
+    ...mapActions('organizer/events', ['updateEvent']),
     async saveLocation() {
       try {
         const { location } = this;

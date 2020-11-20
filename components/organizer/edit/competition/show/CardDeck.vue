@@ -17,7 +17,7 @@ export default {
   components: { CompetitionCard },
   computed: {
     ...mapState({
-      competitions: state => state.organizer.selectedEvent.competitions,
+      competitions: state => state.organizer.events.selectedEvent.competitions,
     }),
   },
 };

@@ -33,11 +33,11 @@ export default {
   components: { DeleteButton },
   computed: {
     ...mapState({
-      socialMedia: state => state.organizer.selectedEvent.socialMedia,
+      socialMedia: state => state.organizer.events.selectedEvent.socialMedia,
     }),
   },
   methods: {
-    ...mapActions('organizer', ['deleteItem']),
+    ...mapActions('organizer/events', ['deleteItem']),
   },
 };
 </script>

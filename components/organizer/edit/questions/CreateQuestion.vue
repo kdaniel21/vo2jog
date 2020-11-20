@@ -50,10 +50,10 @@ export default {
     };
   },
   computed: {
-    ...mapState('organizer', ['selectedEvent']),
+    ...mapState('organizer/events', ['selectedEvent']),
   },
   methods: {
-    ...mapActions('organizer', ['addItem']),
+    ...mapActions('organizer/events', ['addItem']),
     async createQuestion() {
       try {
         await this.addItem({ name: 'faq', data: this.faq });

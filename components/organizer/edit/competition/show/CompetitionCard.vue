@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import DeleteButton from '@/components/organizer/edit/competition/show/DeleteButton';
+import DeleteButton from '@/components/organizer/edit/DeleteButton';
 
 export default {
   name: 'CompetitionCard',

@@ -27,7 +27,7 @@ export default {
   components: { DeleteButton },
   mixins: [toaster],
   computed: {
-    ...mapState('organizer', ['selectedEvent']),
+    ...mapState('organizer/events', ['selectedEvent']),
     eventLength() {
       if (!this.selectedEvent.endDate || !this.selectedEvent.startDate)
         return 1;
@@ -39,10 +39,10 @@ export default {
     },
   },
   methods: {
-    ...mapActions('organizer', ['deleteItem']),
+    ...mapActions('organizer/events', ['deleteItem']),
     async deleteScheduleItem(id, day) {
       try {
-        const eventId = this.$store.state.organizer.selectedEvent._id;
+        const eventId = this.$store.state.organizer.events.selectedEvent._id;
         const url = `/api/events/${eventId}/schedule/${day.day}/${id}`;
         await this.deleteItem({ name: 'schedule', url });
 

@@ -19,17 +19,17 @@ export default {
   computed: {
     ...mapState({
       events: state =>
-        state.organizer.events.length
-          ? state.organizer.events
+        state.organizer.events.events.length
+          ? state.organizer.events.events
           : [{ text: 'Please add an event!', disabled: true }],
-      selectedEvent: state => state.organizer.selectedEvent,
+      selectedEvent: state => state.organizer.events.selectedEvent,
     }),
   },
   async created() {
     await this.preSelectEvent();
   },
   methods: {
-    ...mapActions('organizer', ['selectEvent', 'preSelectEvent']),
+    ...mapActions('organizer/events', ['selectEvent', 'preSelectEvent']),
   },
 };
 </script>

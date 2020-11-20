@@ -101,7 +101,7 @@ export default {
     },
   },
   methods: {
-    ...mapActions('organizer', ['addItem']),
+    ...mapActions('organizer/events', ['addItem']),
     async createSocialMedia() {
       try {
         const data = { ...this.form, icon: this.form.icon.icon };

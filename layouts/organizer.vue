@@ -46,10 +46,7 @@ import EventPicker from '@/components/organizer/sidebar/EventPicker';
 import CreateEvent from '@/components/organizer/sidebar/CreateEvent';
 
 export default {
-  async middleware({ store }) {
-    // Initalize store: fetch events
-    await store.dispatch('organizer/fetchEvents');
-  },
+  middleware: ['auth', 'fetch-events'],
   components: {
     OrganizerNavbar,
     EventPicker,
