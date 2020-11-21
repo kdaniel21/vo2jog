@@ -77,7 +77,7 @@ export default {
       this.newRow = null;
       this.cancelEdit();
     },
-    updateRow(updatedRow) {
+    updateRow() {
       this.$emit('update', this.editedRow);
       this.cancelEdit();
     },
