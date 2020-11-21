@@ -71,8 +71,8 @@ export default {
       this.newRow = null;
       this.editedRow = null;
     },
-    createRow(newRow) {
-      this.$emit('create', newRow);
+    createRow() {
+      this.$emit('create', this.editedRow);
 
       this.newRow = null;
       this.cancelEdit();
