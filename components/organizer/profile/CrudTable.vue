@@ -37,7 +37,7 @@
 import DeleteButton from '@/components/organizer/edit/DeleteButton';
 
 export default {
-  name: 'ContactPeopleTable',
+  name: 'CrudTable',
   components: { DeleteButton },
   props: {
     fields: { type: Array, default: () => [] },
