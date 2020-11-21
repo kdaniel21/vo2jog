@@ -1,13 +1,15 @@
 <template>
   <div id="event-picker" class="flex-grow-1 mr-3">
-    <v-select
-      :options="events"
-      :value="selectedEvent"
-      label="name"
-      placeholder="Please select an event."
-      :reduce="event => event._id"
-      @input="selectEvent"
-    />
+    <client-only>
+      <v-select
+        :options="events"
+        :value="selectedEvent"
+        label="name"
+        placeholder="Please select an event."
+        :reduce="event => event._id"
+        @input="selectEvent"
+      />
+    </client-only>
   </div>
 </template>
 
