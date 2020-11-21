@@ -7,21 +7,7 @@
           label="Icon"
           description="This icon will appear before the name."
         >
-          <v-select v-model="form.icon" :options="iconOptions" label="name">
-            <template #option="{ icon }">
-              <fa :icon="icon.length > 1 ? icon : icon[0]" class="fa-fw mr-2" />
-              <span class="text-capitalize">
-                {{ icon[icon.length - 1] }}
-              </span>
-            </template>
-
-            <template #selected-option="{ icon }">
-              <fa :icon="icon.length > 1 ? icon : icon[0]" class="fa-fw mr-2" />
-              <span class="text-capitalize">
-                {{ icon[icon.length - 1] }}
-              </span>
-            </template>
-          </v-select>
+          <icon-select v-model="form.icon" />
         </b-form-group>
       </b-col>
       <b-col md="6">
@@ -71,9 +57,11 @@
 <script>
 import { mapActions } from 'vuex';
 import toaster from '@/mixins/toaster';
+import IconSelect from '@/components/organizer/edit/IconSelect';
 
 export default {
   name: 'CreateSocialMedia',
+  components: { IconSelect },
   mixins: [toaster],
   data() {
     return {
