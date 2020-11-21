@@ -20,7 +20,11 @@
         :autofocus="row.field.key === 'name'"
       />
       <span v-else-if="row.field.key === 'public'">
-        <fa :icon="row.value ? 'check' : 'times'" />
+        <fa
+          v-b-popover.hover.top="row.value ? 'Public' : 'Not public'"
+          class="fa-fw"
+          :icon="row.value ? 'check' : 'times'"
+        />
       </span>
       <span v-else>{{ row.value }}</span>
     </template>

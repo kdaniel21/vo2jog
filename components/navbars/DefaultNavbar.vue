@@ -13,7 +13,7 @@ export default {
   data() {
     return {
       navItems: [
-        { text: 'Sign In', link: '/login' },
+        { text: 'Sign In', link: '/organizers/login' },
         { text: 'Sign Up', link: '/' },
         { text: 'Race Directors', link: '/organizers' },
       ],

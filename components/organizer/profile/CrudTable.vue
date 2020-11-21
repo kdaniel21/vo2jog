@@ -19,14 +19,25 @@
     <template #cell(actions)="{ item }">
       <div v-if="isRowEdited(item._id)">
         <fa
+          v-b-popover.hover.top="'Save'"
           icon="check"
           class="cursor-pointer fa-fw"
           @click="newRow ? createRow() : updateRow()"
         />
-        <fa icon="times" class="cursor-pointer fa-fw" @click="cancelEdit" />
+        <fa
+          v-b-popover.hover.top="'Cancel'"
+          icon="times"
+          class="cursor-pointer fa-fw"
+          @click="cancelEdit"
+        />
       </div>
       <div v-else>
-        <fa icon="edit" class="cursor-pointer fa-fw" @click="editRow(item)" />
+        <fa
+          v-b-popover.hover.top="'Edit'"
+          icon="edit"
+          class="cursor-pointer fa-fw"
+          @click="editRow(item)"
+        />
         <delete-button @delete="deleteRow(item._id)" />
       </div>
     </template>
@@ -37,7 +48,7 @@
 import DeleteButton from '@/components/organizer/edit/DeleteButton';
 
 export default {
-  name: 'ContactPeopleTable',
+  name: 'CrudTable',
   components: { DeleteButton },
   props: {
     fields: { type: Array, default: () => [] },
@@ -71,13 +82,13 @@ export default {
       this.newRow = null;
       this.editedRow = null;
     },
-    createRow(newRow) {
-      this.$emit('create', newRow);
+    createRow() {
+      this.$emit('create', this.editedRow);
 
       this.newRow = null;
       this.cancelEdit();
     },
-    updateRow(updatedRow) {
+    updateRow() {
       this.$emit('update', this.editedRow);
       this.cancelEdit();
     },
