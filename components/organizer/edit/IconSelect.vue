@@ -1,5 +1,10 @@
 <template>
-  <v-select v-model="selectedIcon" :options="options" label="name">
+  <v-select
+    v-model="selectedIcon"
+    :options="options"
+    label="name"
+    v-bind="$attrs"
+  >
     <template #option="{ icon }">
       <selected-icon :icon="icon" />
     </template>
