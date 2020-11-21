@@ -22,7 +22,7 @@ export default {
   name: 'IconSelect',
   components: { SelectedIcon },
   props: {
-    value: { type: Object, default: () => {} },
+    value: { type: [Object, Array], default: () => {} },
     options: {
       type: Array,
       default: () => [
@@ -39,7 +39,13 @@ export default {
   computed: {
     selectedIcon: {
       get() {
-        return this.value;
+        if (!Array.isArray(this.value)) return this.value;
+
+        // Find matching option if only the icon array is passed back
+        const index = this.options.findIndex(
+          option => JSON.stringify(option.icon) === JSON.stringify(this.value)
+        );
+        return this.options[index];
       },
       set(val) {
         this.$emit('input', val);

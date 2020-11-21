@@ -57,6 +57,7 @@ export default {
     },
     async createSocialMedia(newSocialMedia) {
       try {
+        newSocialMedia.icon = newSocialMedia.icon.icon;
         await this.addProfileItem({
           name: 'socialMedia',
           data: newSocialMedia,
