@@ -74,6 +74,9 @@ export default {
 
   // @nuxtjs/auth module configuration
   auth: {
+    redirect: {
+      login: '/organizers/login',
+    },
     strategies: {
       'local-organizer': {
         scheme: 'refresh',
