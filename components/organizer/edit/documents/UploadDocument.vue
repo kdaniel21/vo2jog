@@ -15,20 +15,18 @@
       ></b-form-input>
     </b-form-group>
 
-    <div class="d-flex justify-content-end">
-      <b-button type="submit" variant="primary" class="btn-block-xs-only">
-        Upload Document
-      </b-button>
-    </div>
+    <submit-button submit />
   </b-form>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
 import toaster from '@/mixins/toaster';
+import SubmitButton from '@/components/organizer/edit/SubmitButton';
 
 export default {
   name: 'UploadDocument',
+  components: { SubmitButton },
   mixins: [toaster],
   data() {
     return {

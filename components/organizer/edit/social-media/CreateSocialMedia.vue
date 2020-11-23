@@ -41,16 +41,7 @@
       </b-col>
     </b-row>
 
-    <b-row>
-      <b-col cols="12" md="9">
-        <b-button
-          variant="primary"
-          class="btn-block-xs-only float-right"
-          @click="createSocialMedia"
-          >Add</b-button
-        >
-      </b-col>
-    </b-row>
+    <submit-button text="Add" @click="createSocialMedia" />
   </b-form>
 </template>
 
@@ -58,10 +49,11 @@
 import { mapActions } from 'vuex';
 import toaster from '@/mixins/toaster';
 import IconSelect from '@/components/organizer/edit/IconSelect';
+import SubmitButton from '@/components/organizer/edit/SubmitButton';
 
 export default {
   name: 'CreateSocialMedia',
-  components: { IconSelect },
+  components: { IconSelect, SubmitButton },
   mixins: [toaster],
   data() {
     return {

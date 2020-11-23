@@ -3,12 +3,7 @@
     <h2 class="mb-4">Event Description</h2>
     <ck-editor v-model="description" />
 
-    <b-button
-      variant="primary"
-      class="mt-3 float-right btn-block-xs-only"
-      @click="save"
-      >Save</b-button
-    >
+    <submit-button @click="save" />
   </div>
 </template>
 
@@ -16,12 +11,13 @@
 import { mapActions } from 'vuex';
 import toaster from '@/mixins/toaster';
 import CkEditor from '@/components/organizer/edit/description/CkEditor';
+import SubmitButton from '@/components/organizer/edit/SubmitButton';
 
 export default {
   name: 'description',
   layout: 'organizer',
   middleware: ['auth', 'event-selected'],
-  components: { CkEditor },
+  components: { CkEditor, SubmitButton },
   mixins: [toaster],
   data() {
     return {
