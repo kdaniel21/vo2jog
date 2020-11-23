@@ -39,12 +39,7 @@
     <!-- PRICING -->
     <fee v-model="form.fees" />
 
-    <b-button
-      variant="primary"
-      class="btn-block-xs-only mt-3 float-right"
-      type="submit"
-      >Save</b-button
-    >
+    <submit-button submit />
   </b-form>
 </template>
 
@@ -54,10 +49,11 @@ import toaster from '@/mixins/toaster';
 import DistanceInput from '@/components/organizer/edit/competition/create/DistanceInput';
 import AgeLimitInput from '@/components/organizer/edit/competition/create/AgeLimitInput';
 import Fee from '@/components/organizer/edit/competition/create/Fee';
+import SubmitButton from '@/components/organizer/edit/SubmitButton';
 
 export default {
   name: 'CreateCompetition',
-  components: { DistanceInput, AgeLimitInput, Fee },
+  components: { DistanceInput, AgeLimitInput, Fee, SubmitButton },
   mixins: [toaster],
   props: {
     competition: {

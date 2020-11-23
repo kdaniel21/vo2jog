@@ -23,23 +23,18 @@
       rows="3"
     ></b-form-textarea>
 
-    <div class="d-flex justify-content-end">
-      <b-button
-        type="submit"
-        variant="primary"
-        class="mt-3 pull-right btn-block-xs-only"
-        >Add Q&A</b-button
-      >
-    </div>
+    <submit-button submit text="Add Q&A" class="mt-3" />
   </b-form>
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex';
 import toaster from '@/mixins/toaster';
+import SubmitButton from '@/components/organizer/edit/SubmitButton';
 
 export default {
   name: 'CreateQuestion',
+  components: { SubmitButton },
   mixins: [toaster],
   data() {
     return {
