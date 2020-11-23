@@ -3,7 +3,7 @@
     <h2 class="mb-4">Event Description</h2>
     <ck-editor v-model="description" />
 
-    <submit-button @click="save" />
+    <submit-button class="mt-3" @click="save" />
   </div>
 </template>
 

@@ -23,7 +23,7 @@
       rows="3"
     ></b-form-textarea>
 
-    <submit-button submit text="Add Q&A" />
+    <submit-button submit text="Add Q&A" class="mt-3" />
   </b-form>
 </template>
 
