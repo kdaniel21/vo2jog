@@ -1,5 +1,5 @@
 <template>
-  <div id="submit-button" class="d-flex justify-contend-end">
+  <div id="submit-button" class="d-flex justify-content-end">
     <b-button
       :variant="variant"
       :type="submit ? 'submit' : 'button'"
