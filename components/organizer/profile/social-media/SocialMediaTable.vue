@@ -15,7 +15,15 @@
         v-model="editedRow[row.field.key]"
         class="icon-select"
       />
-      <b-input v-else-if="isEdited" v-model="editedRow[row.field.key]" />
+      <form-group v-else-if="isEdited" :validator="$v.form[row.field.key]">
+        <b-input
+          v-model="editedRow[row.field.key]"
+          slot-scope="{ attrs, listeners }"
+          v-bind="attrs"
+          v-on="listeners"
+          @input="val => (form[row.field.key] = val)"
+        />
+      </form-group>
 
       <!-- VIEW STATE -->
       <span v-else-if="row.field.key === 'icon'">
@@ -28,6 +36,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
+import { required, url } from 'vuelidate/lib/validators';
 import toaster from '@/mixins/toaster';
 import CrudTable from '@/components/organizer/profile/CrudTable';
 import IconSelect from '@/components/organizer/edit/IconSelect';
@@ -39,7 +48,17 @@ export default {
   data() {
     return {
       fields: ['icon', 'name', 'link', { key: 'actions', label: '' }],
+      form: {
+        name: null,
+        link: null,
+      },
     };
+  },
+  validations: {
+    form: {
+      name: { required },
+      link: { required, url },
+    },
   },
   computed: {
     ...mapState({
