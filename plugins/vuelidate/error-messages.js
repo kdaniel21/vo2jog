@@ -1,3 +1,4 @@
 export default {
-  required: 'The {attribute} field is required Foo Bar',
+  required: 'The {attribute} field is required!',
+  passwordConfirmMatch: 'Your two passwords are not matching!',
 };
