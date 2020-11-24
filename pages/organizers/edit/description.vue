@@ -15,10 +15,13 @@ import SubmitButton from '@/components/organizer/edit/SubmitButton';
 
 export default {
   name: 'description',
+  components: {
+    CkEditor,
+    SubmitButton,
+  },
+  mixins: [toaster],
   layout: 'organizer',
   middleware: ['auth', 'event-selected'],
-  components: { CkEditor, SubmitButton },
-  mixins: [toaster],
   data() {
     return {
       description: this.$store.state.organizer.events.selectedEvent.description,
