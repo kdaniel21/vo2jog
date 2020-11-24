@@ -1,50 +1,75 @@
 <template>
   <b-form id="create-competition" @submit.prevent="saveCompetition">
     <!-- NAME -->
-    <b-form-group label="Competition Name" label-for="name-input">
+    <form-group
+      label="Competition Name"
+      label-for="name-input"
+      :validator="$v.form.name"
+    >
       <b-form-input
         id="name-input"
         v-model="form.name"
+        slot-scope="{ attrs, listeners }"
+        v-bind="attrs"
         placeholder="10K Elite Race sponsored by Racircuit"
+        v-on="listeners"
       ></b-form-input>
-    </b-form-group>
+    </form-group>
 
     <!-- DISTANCE -->
-    <distance-input v-model="form.distance" />
+    <distance-input v-model="form.distance" :validator="$v.form.distance" />
 
     <!-- PARTICIPIANTS LIMIT -->
     <b-form-checkbox v-model="limitParticipiants" switch class="mb-1">
       Limit Number of Participiants
     </b-form-checkbox>
-    <b-form-group
+    <form-group
       v-if="limitParticipiants"
       label="Maximum Participiants"
       label-for="max-participiants-input"
+      :validator="$v.form.limit"
     >
       <b-form-input
         id="max-participiants-input"
         v-model.number="form.limit"
+        slot-scope="{ attrs, listeners }"
         type="number"
         min="0"
         step="10"
+        v-bind="attrs"
+        v-on="listeners"
       ></b-form-input>
-    </b-form-group>
+    </form-group>
 
     <!-- AGE LIMIT -->
     <b-form-checkbox v-model="limitAge" switch class="mb-1">
       Limit Age
     </b-form-checkbox>
-    <age-limit-input v-if="limitAge" v-model="form.ageLimit" />
+    <form-group :validator="$v.form.ageLimit">
+      <age-limit-input
+        v-if="limitAge"
+        v-model="form.ageLimit"
+        slot-scope="{ attrs, listeners }"
+        v-bind="attrs"
+        v-on="listeners"
+      />
+    </form-group>
 
     <!-- PRICING -->
     <fee v-model="form.fees" />
 
-    <submit-button submit />
+    <submit-button submit :disabled="$v.form.$anyError" />
   </b-form>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
+import {
+  required,
+  numeric,
+  minValue,
+  maxValue,
+} from 'vuelidate/lib/validators';
 import toaster from '@/mixins/toaster';
 import DistanceInput from '@/components/organizer/edit/competition/create/DistanceInput';
 import AgeLimitInput from '@/components/organizer/edit/competition/create/AgeLimitInput';
@@ -74,6 +99,12 @@ export default {
       },
     };
   },
+  validations: {
+    // No need to validate other fields since they are validated as number input anyways
+    form: {
+      name: { required },
+    },
+  },
   watch: {
     limitAge(val) {
       if (!val) this.form.ageLimit = { minimum: null, maximum: null };
@@ -93,6 +124,9 @@ export default {
   methods: {
     ...mapActions('organizer/events', ['addItem', 'updateItem']),
     async saveCompetition() {
+      this.$v.form.$touch();
+      if (this.$v.form.$anyError) return;
+
       try {
         const actionParams = { name: 'competitions', data: this.form };
         const { _id } = this.form;

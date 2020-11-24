@@ -15,4 +15,5 @@ export default {
   alphaWhiteDiacritic: 'This field can only contain letters!',
   text: 'This field can only contain letters, numbers and punctuation marks!',
   dateLater: 'The date must come later than {min}',
+  numeric: 'This field must contain only numbers!',
 };
