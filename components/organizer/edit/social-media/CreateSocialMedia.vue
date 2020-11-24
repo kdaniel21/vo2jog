@@ -3,50 +3,70 @@
     <h3>Add Social Media</h3>
     <b-row>
       <b-col cols="12" md="3">
-        <b-form-group
+        <form-group
           label="Icon"
           description="This icon will appear before the name."
+          :validator="$v.form.icon"
         >
-          <icon-select v-model="form.icon" />
-        </b-form-group>
+          <icon-select
+            v-model="form.icon"
+            slot-scope="{ attrs, listeners }"
+            v-bind="attrs"
+            v-on="listeners"
+          />
+        </form-group>
       </b-col>
       <b-col md="6">
-        <b-form-group
+        <form-group
           label="Name"
           label-for="name-input"
           description="This will be displayed next to the icon"
+          :validator="$v.form.name"
         >
           <b-form-input
             id="name-input"
             v-model="form.name"
+            slot-scope="{ attrs, listeners }"
             placeholder="Vienna Triathlon on Facebook"
+            v-bind="attrs"
+            v-on="listeners"
           ></b-form-input>
-        </b-form-group>
+        </form-group>
       </b-col>
     </b-row>
 
     <b-row>
       <b-col cols="12" md="9">
-        <b-form-group
+        <form-group
           label="Link"
           label-for="link-input"
           description="The link to the above mentioned page."
+          :validator="$v.form.link"
         >
           <b-form-input
             id="link-input"
             v-model="form.link"
+            slot-scope="{ attrs, listeners }"
             placeholder="https://facebook.com/your-event-page"
+            v-bind="attrs"
+            v-on="listeners"
           ></b-form-input>
-        </b-form-group>
+        </form-group>
       </b-col>
     </b-row>
 
-    <submit-button text="Add" @click="createSocialMedia" />
+    <submit-button
+      text="Add"
+      :disabled="$v.form.$anyError"
+      @click="createSocialMedia"
+    />
   </b-form>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
+import { required, url } from 'vuelidate/lib/validators';
+import { alphaNumWhiteDiacritic } from '@/plugins/vuelidate/custom-validators';
 import toaster from '@/mixins/toaster';
 import IconSelect from '@/components/organizer/edit/IconSelect';
 import SubmitButton from '@/components/organizer/edit/SubmitButton';
@@ -73,6 +93,13 @@ export default {
       },
     };
   },
+  validations: {
+    form: {
+      name: { required, alphaNumWhiteDiacritic },
+      icon: { required },
+      link: { required, url },
+    },
+  },
   watch: {
     // Prefill name from icon if name input hasn't been touched
     'form.icon'(value, oldValue) {
@@ -83,6 +110,9 @@ export default {
   methods: {
     ...mapActions('organizer/events', ['addItem']),
     async createSocialMedia() {
+      this.$v.form.$touch();
+      if (this.$v.form.$anyError) return;
+
       try {
         const data = { ...this.form, icon: this.form.icon.icon };
 
