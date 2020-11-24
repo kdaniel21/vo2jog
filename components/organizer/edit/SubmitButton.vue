@@ -3,6 +3,7 @@
     <b-button
       :variant="variant"
       :type="submit ? 'submit' : 'button'"
+      :disabled="disabled"
       class="btn-block-xs-only"
       @click="$emit('click')"
       >{{ text }}</b-button
@@ -17,6 +18,7 @@ export default {
     text: { type: String, default: 'Save' },
     submit: { type: Boolean, default: false },
     variant: { type: String, default: 'primary' },
+    disabled: { type: Boolean, default: false },
   },
 };
 </script>
