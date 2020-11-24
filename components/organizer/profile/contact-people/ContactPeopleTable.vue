@@ -14,11 +14,19 @@
         v-model="editedRow.public"
         switch
       />
-      <b-input
+      <form-group
         v-else-if="isEdited"
-        v-model="editedRow[row.field.key]"
-        :autofocus="row.field.key === 'name'"
-      />
+        :validator="$v.newPersonForm[row.field.key]"
+      >
+        <b-input
+          v-model="editedRow[row.field.key]"
+          slot-scope="{ attrs, listeners }"
+          v-bind="attrs"
+          :autofocus="row.field.key === 'name'"
+          v-on="listeners"
+          @input="val => (newPersonForm[row.field.key] = val)"
+        />
+      </form-group>
       <span v-else-if="row.field.key === 'public'">
         <fa
           v-b-popover.hover.top="row.value ? 'Public' : 'Not public'"
@@ -33,6 +41,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
+import { required, email } from 'vuelidate/lib/validators';
 import toaster from '@/mixins/toaster';
 import CrudTable from '@/components/organizer/profile/CrudTable';
 
@@ -49,7 +58,20 @@ export default {
         'public',
         { key: 'actions', label: '' },
       ],
+      // Added due to validation
+      newPersonForm: {
+        name: null,
+        email: null,
+        phone: null,
+      },
     };
+  },
+  validations: {
+    newPersonForm: {
+      name: { required },
+      email: { email },
+      phone: {},
+    },
   },
   computed: {
     ...mapState({
