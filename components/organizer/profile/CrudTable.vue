@@ -21,8 +21,12 @@
         <fa
           v-b-popover.hover.top="'Save'"
           icon="check"
-          class="cursor-pointer fa-fw"
-          @click="newRow ? createRow() : updateRow()"
+          :class="[
+            'cursor-pointer',
+            'fa-fw',
+            saveDisabled ? 'fa-disabled' : '',
+          ]"
+          @click="!saveDisabled ? (newRow ? createRow() : updateRow()) : null"
         />
         <fa
           v-b-popover.hover.top="'Cancel'"
@@ -53,6 +57,7 @@ export default {
   props: {
     fields: { type: Array, default: () => [] },
     data: { type: Array, default: () => [] },
+    saveDisabled: { type: Boolean, default: false },
   },
   data() {
     return {

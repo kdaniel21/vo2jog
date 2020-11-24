@@ -4,6 +4,7 @@
     ref="table"
     :fields="fields"
     :data="contactPeople"
+    :save-disabled="$v.newPersonForm.$anyError"
     @create="createContactPerson"
     @update="updateContactPerson"
     @delete="deleteContactPerson"
@@ -88,6 +89,9 @@ export default {
       this.$refs.table.addRow();
     },
     createContactPerson(person) {
+      this.$v.newPersonForm.$touch();
+      if (this.$v.newPersonForm.$anyError) return;
+
       this.addProfileItem({ name: 'contactPeople', data: person })
         .then(() => this.successToast('Person added successfully!'))
         .catch(() =>

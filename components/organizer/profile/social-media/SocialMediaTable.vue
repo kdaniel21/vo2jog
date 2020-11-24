@@ -4,6 +4,7 @@
     ref="table"
     :fields="fields"
     :data="socialMedia"
+    :save-disabled="$v.form.$anyError"
     @create="createSocialMedia"
     @update="updateSocialMedia"
     @delete="deleteSocialMedia"
@@ -76,6 +77,9 @@ export default {
     },
     async createSocialMedia(newSocialMedia) {
       try {
+        this.$v.form.$touch();
+        if (this.$v.form.$anyError) throw new Error('Validation error!');
+
         newSocialMedia.icon = newSocialMedia.icon.icon;
         await this.addProfileItem({
           name: 'socialMedia',
@@ -88,6 +92,9 @@ export default {
     },
     async updateSocialMedia(updatedItem) {
       try {
+        this.$v.form.$touch();
+        if (this.$v.form.$anyError) throw new Error('Validation error!');
+
         await this.updateProfileItem({
           name: 'socialMedia',
           data: updatedItem,

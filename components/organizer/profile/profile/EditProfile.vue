@@ -3,19 +3,36 @@
     <layout
       title="Edit Profile"
       :props="['name', 'motto']"
+      :save-disabled="$v.form.$anyError"
       edit
       @save="save"
       @cancel="$emit('cancel')"
     >
       <template #input="{ prop }">
-        <b-input v-model="form[prop]" size="sm"></b-input>
+        <form-group :validator="$v.form[prop]">
+          <b-input
+            v-model="form[prop]"
+            slot-scope="{ attrs, listeners }"
+            v-bind="attrs"
+            size="sm"
+            v-on="listeners"
+          ></b-input>
+        </form-group>
       </template>
     </layout>
 
     <b-row class="mb-2">
       <b-col cols="12" md="4" class="font-weight-bold">Description</b-col>
       <b-col>
-        <b-textarea v-model="form.description" size="sm"></b-textarea>
+        <form-group :validator="$v.form.description">
+          <b-textarea
+            v-model="form.description"
+            slot-scope="{ attrs, listeners }"
+            v-bind="attrs"
+            size="sm"
+            v-on="listeners"
+          ></b-textarea>
+        </form-group>
       </b-col>
     </b-row>
 
@@ -30,6 +47,8 @@
 
 <script>
 import { mapActions } from 'vuex';
+import { required, maxLength } from 'vuelidate/lib/validators';
+import { alphaNumWhiteDiacritic } from '@/plugins/vuelidate/custom-validators';
 import toaster from '@/mixins/toaster';
 import Layout from '@/components/organizer/profile/Layout';
 
@@ -49,6 +68,13 @@ export default {
       },
     };
   },
+  validations: {
+    form: {
+      name: { required, alphaNumWhiteDiacritic },
+      motto: { required, maxLength: maxLength(50) },
+      description: { required, maxLength: maxLength(800) },
+    },
+  },
   watch: {
     'form.avatar'(val) {
       this.$emit('avatar', val);
@@ -57,6 +83,9 @@ export default {
   methods: {
     ...mapActions('organizer/profile', ['updateProfile']),
     async save() {
+      this.$v.form.$touch();
+      if (this.$v.form.$anyError) return;
+
       try {
         const data = { ...this.form };
         delete data.avatar;

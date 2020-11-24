@@ -59,14 +59,13 @@ export default {
         required: requiredIf(form => !!form.passwordConfirm),
         passwordConfirmMatch: sameAs('newPassword'),
       },
-      currentPassword: { required },
+      currentPassword: { required, minLength: minLength(8) },
     },
   },
   methods: {
     ...mapActions('organizer/profile', ['updateCredentials']),
     validateState(name) {
       const { $dirty, $error } = this.$v.form[name];
-      console.log(name, $dirty ? $error : null);
       return $dirty ? !$error : null;
     },
     async save() {
