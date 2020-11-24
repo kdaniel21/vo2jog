@@ -29,7 +29,7 @@ export default {
     '~/plugins/vue-sidebar-bootstrap.js',
     '~/plugins/axios.js',
     '~/plugins/vue-select.js',
-    '~/plugins/vuelidate.js',
+    '~/plugins/vuelidate/vuelidate.js',
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

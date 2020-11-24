@@ -26,7 +26,8 @@
     "nuxt": "^2.14.7",
     "vue-select": "^3.10.8",
     "vue-sidebar-bootstrap": "^1.0.21",
-    "vuelidate": "^0.7.6"
+    "vuelidate": "^0.7.6",
+    "vuelidate-error-extractor": "^2.4.1"
   },
   "devDependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
