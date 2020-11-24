@@ -10,9 +10,9 @@ import CategoriesSelect from '@/components/organizer/edit/categories/CategoriesS
 
 export default {
   name: 'categories',
+  components: { CategoriesSelect },
   layout: 'organizer',
   middleware: ['auth', 'event-selected'],
-  components: { CategoriesSelect },
 };
 </script>
 
