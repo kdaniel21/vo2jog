@@ -1,29 +1,43 @@
 <template>
   <div id="schedule-generator">
-    <b-form inline @submit.prevent="saveScheduleItem">
+    <b-form inline class="mb-2 mb-md-5" @submit.prevent="saveScheduleItem">
       <b-form-select
         v-if="dayOptions"
         v-model="form.day"
         :options="dayOptions"
-        class="mb-2 mr-sm-2"
+        class="mr-sm-2"
       ></b-form-select>
 
-      <b-form-timepicker
-        id="starttime-input"
-        v-model="form.startTime"
-        placeholder="Time"
-        locale="hu"
-        class="mb-2 mr-sm-2"
-      ></b-form-timepicker>
+      <form-group :validator="$v.form.startTime" class="mr-sm-2">
+        <b-form-timepicker
+          id="starttime-input"
+          v-model="form.startTime"
+          slot-scope="{ attrs, listeners }"
+          v-bind="attrs"
+          placeholder="Time"
+          locale="hu"
+          class="feedback-absolute"
+          v-on="listeners"
+        ></b-form-timepicker>
+      </form-group>
 
-      <b-form-input
-        id="name-input"
-        v-model="form.name"
-        placeholder="Name"
-        class="mb-2 mr-sm-2 flex-grow-1"
-      ></b-form-input>
+      <form-group :validator="$v.form.name" class="flex-grow-1 mr-sm-2">
+        <b-form-input
+          id="name-input"
+          v-model="form.name"
+          slot-scope="{ attrs, listeners }"
+          v-bind="attrs"
+          placeholder="Name"
+          class="w-100 feedback-absolute"
+          v-on="listeners"
+        ></b-form-input>
+      </form-group>
 
-      <b-button variant="primary" class="mb-2 btn-block-xs-only" type="submit"
+      <b-button
+        variant="primary"
+        class="mb-2 btn-block-xs-only"
+        type="submit"
+        :disabled="$v.form.$anyError"
         >Save</b-button
       >
     </b-form>
@@ -32,6 +46,8 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
+import { required } from 'vuelidate/lib/validators';
+import { alphaNumWhiteDiacritic } from '@/plugins/vuelidate/custom-validators';
 import toaster from '@/mixins/toaster';
 
 export default {
@@ -45,6 +61,15 @@ export default {
         name: null,
       },
     };
+  },
+  validations: {
+    form: {
+      startTime: { required },
+      name: {
+        required,
+        alphaNumWhiteDiacritic,
+      },
+    },
   },
   computed: {
     ...mapState('organizer/events', ['selectedEvent']),
@@ -68,6 +93,9 @@ export default {
   methods: {
     ...mapActions('organizer/events', ['addItem']),
     async saveScheduleItem() {
+      this.$v.form.$touch();
+      if (this.$v.form.$anyError) return;
+
       try {
         const { _id } = this.selectedEvent;
         const url = `/api/events/${_id}/schedule/${this.form.day}`;
@@ -84,3 +112,12 @@ export default {
   },
 };
 </script>
+
+<style>
+.form-group.flex-grow-1 > div {
+  width: 100%;
+}
+.feedback-absolute + .invalid-feedback {
+  position: absolute;
+}
+</style>
