@@ -14,4 +14,4 @@ Vue.use(vuelidateErrorExtractor, {
   },
 });
 
-Vue.use('form-group', FormGroup);
+Vue.component('form-group', FormGroup);
