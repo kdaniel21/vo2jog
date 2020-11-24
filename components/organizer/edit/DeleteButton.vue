@@ -12,5 +12,3 @@ export default {
   name: 'DeleteButton',
 };
 </script>
-
-<style></style>
