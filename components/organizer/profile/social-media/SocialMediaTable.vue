@@ -88,6 +88,8 @@ export default {
         this.successToast('Social media platform added successfully!');
       } catch {
         this.errorToast('Could not add platform! Please try again.');
+      } finally {
+        this.$v.form.$reset();
       }
     },
     async updateSocialMedia(updatedItem) {
@@ -102,6 +104,8 @@ export default {
         this.successToast('Social media platform updated successfully!');
       } catch {
         this.errorToast('Could not update! Please try again.');
+      } finally {
+        this.$v.form.$reset();
       }
     },
     async deleteSocialMedia(itemId) {

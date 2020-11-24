@@ -97,6 +97,8 @@ export default {
         .catch(() =>
           this.errorToast('Could not add person. Please try again!')
         );
+
+      this.$v.newPersonForm.$reset();
     },
     updateContactPerson(updatedPerson) {
       this.updateProfileItem({ name: 'contactPeople', data: updatedPerson })
@@ -104,6 +106,7 @@ export default {
         .catch(() =>
           this.errorToast('Could not update person. Please try again!')
         );
+      this.$v.newPersonForm.$reset();
     },
     deleteContactPerson(id) {
       this.deleteProfileItem({ name: 'contactPeople', itemId: id })
