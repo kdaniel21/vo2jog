@@ -1,6 +1,6 @@
 export default {
   email: 'Email',
-  newPassword: 'New Password',
-  confirmPassword: 'Password Confirmation',
+  newPassword: 'new password',
+  confirmPassword: 'password confirmation',
   currentPassword: 'current password',
 };
