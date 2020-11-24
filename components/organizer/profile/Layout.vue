@@ -14,6 +14,7 @@
           v-if="edit"
           variant="link"
           class="btn-block-xs-only"
+          :disabled="saveDisabled"
           @click="$emit('save')"
         >
           Save
@@ -42,6 +43,7 @@ export default {
     data: { type: Object, default: () => {} },
     props: { type: Array, default: () => [] },
     edit: { type: Boolean, default: false },
+    saveDisabled: { type: Boolean, default: false },
   },
   methods: {
     makeHumanReadable(name) {
