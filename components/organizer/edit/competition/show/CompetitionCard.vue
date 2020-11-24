@@ -5,7 +5,7 @@
     </b-card-body>
 
     <!-- DELETE BTN -->
-    <delete-button :id="competition._id" />
+    <delete-competition :id="competition._id" />
 
     <b-list-group>
       <b-list-group-item
@@ -27,11 +27,11 @@
 </template>
 
 <script>
-import DeleteButton from '@/components/organizer/edit/DeleteButton';
+import DeleteCompetition from '@/components/organizer/edit/competition/show/DeleteCompetition';
 
 export default {
   name: 'CompetitionCard',
-  components: { DeleteButton },
+  components: { DeleteCompetition },
   props: {
     competition: {
       type: Object,
@@ -94,5 +94,10 @@ export default {
 <style scoped>
 .card {
   max-width: 350px;
+}
+.float-top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 </style>
