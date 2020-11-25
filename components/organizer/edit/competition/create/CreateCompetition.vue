@@ -64,12 +64,7 @@
 
 <script>
 import { mapActions } from 'vuex';
-import {
-  required,
-  numeric,
-  minValue,
-  maxValue,
-} from 'vuelidate/lib/validators';
+import { required } from 'vuelidate/lib/validators';
 import toaster from '@/mixins/toaster';
 import DistanceInput from '@/components/organizer/edit/competition/create/DistanceInput';
 import AgeLimitInput from '@/components/organizer/edit/competition/create/AgeLimitInput';
@@ -92,7 +87,7 @@ export default {
       limitAge: false,
       form: {
         name: null,
-        distance: { length: null, unit: 'kilometer' },
+        distance: { amount: null, unit: 'kilometer' },
         ageLimit: { minimum: null, maximum: null },
         limit: null,
         fees: [],

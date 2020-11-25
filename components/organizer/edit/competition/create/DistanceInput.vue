@@ -8,7 +8,7 @@
       >
         <b-form-input
           id="distance-input"
-          v-model.number="distance.length"
+          v-model.number="distance.amount"
           type="number"
           :step="0.01"
           class="flex-grow-1"
@@ -30,12 +30,12 @@ export default {
   props: {
     value: {
       type: Object,
-      default: () => ({ length: null, unit: 'kilometer' }),
+      default: () => ({ amount: null, unit: 'kilometer' }),
     },
   },
   data() {
     return {
-      unitOptions: ['kilometer', 'meter', 'mile'],
+      unitOptions: ['kilometer', 'meter', 'mile', 'foot'],
     };
   },
   computed: {
