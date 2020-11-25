@@ -22,7 +22,7 @@ export default {
   name: 'IconSelect',
   components: { SelectedIcon },
   props: {
-    value: { type: [Object, Array], default: () => {} },
+    value: { type: [Object, Array], default: () => this.optioons[0] || {} },
     options: {
       type: Array,
       default: () => [
@@ -39,6 +39,8 @@ export default {
   computed: {
     selectedIcon: {
       get() {
+        if (!this.value && this.options.length) return this.options[0];
+
         if (!Array.isArray(this.value)) return this.value;
 
         // Find matching option if only the icon array is passed back
