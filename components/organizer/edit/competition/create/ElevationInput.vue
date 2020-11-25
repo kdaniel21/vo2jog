@@ -60,5 +60,8 @@ export default {
       },
     },
   },
+  created() {
+    this.isNegativeDifferent = !!this.elevation.negative.amount;
+  },
 };
 </script>

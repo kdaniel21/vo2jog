@@ -125,7 +125,8 @@ export default {
     if (!this.competition) return;
 
     this.form = { ...this.form, ...this.competition };
-    const { ageLimit, limit } = this.competition;
+    const { ageLimit, limit, elevation } = this.competition;
+    this.hasElevation = !!elevation;
     this.hasParticipiantLimit = !!limit;
     this.hasAgeLimit = !!ageLimit.minimum || !!ageLimit.maximum;
   },
