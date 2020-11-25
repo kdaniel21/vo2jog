@@ -33,6 +33,8 @@ export default {
   computed: {
     ageLimit: {
       get() {
+        if (!this.value) return { minimum: null, maximum: null };
+
         return this.value;
       },
       set(val) {

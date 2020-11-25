@@ -63,8 +63,8 @@ export default {
   },
   computed: {
     distanceText() {
-      const { length, unit } = this.competition.distance;
-      return `${length} ${this.unitMap[unit]}`;
+      const { amount, unit } = this.competition.distance;
+      return `${amount} ${this.unitMap[unit]}`;
     },
     ageLimitText() {
       const { minimum, maximum } = this.competition.ageLimit;

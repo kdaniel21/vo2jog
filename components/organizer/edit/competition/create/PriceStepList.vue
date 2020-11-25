@@ -1,5 +1,5 @@
 <template>
-  <b-list-group id="price-step-list">
+  <b-list-group id="price-step-list" class="mb-3">
     <p v-if="!priceSteps.length" class="text-muted text-center">
       No pricing step added yet. Please add one!
     </p>

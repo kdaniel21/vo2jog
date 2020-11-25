@@ -1,7 +1,5 @@
 <template>
-  <div id="_id">
-    <create-competition :competition="competition" />
-  </div>
+  <create-competition :competition="competition" />
 </template>
 
 <script>
@@ -9,10 +7,9 @@ import { mapState } from 'vuex';
 import CreateCompetition from '@/components/organizer/edit/competition/create/CreateCompetition';
 
 export default {
-  name: '_id',
+  components: { CreateCompetition },
   layout: 'organizer',
   middleware: ['auth', 'event-selected'],
-  components: { CreateCompetition },
   computed: {
     ...mapState({
       competition(state) {
