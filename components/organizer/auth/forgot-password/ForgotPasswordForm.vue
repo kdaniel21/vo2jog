@@ -10,6 +10,7 @@
         id="email-input"
         v-model="form.email"
         slot-scope="{ attrs, listeners }"
+        placeholder="Email Address"
         v-bind="attrs"
         v-on="listeners"
       ></b-form-input>
