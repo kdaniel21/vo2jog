@@ -15,15 +15,23 @@
 </template>
 
 <script>
-import RaceDescription from '@/components/race-page/RaceDescription';
-import RightCard from '@/components/race-page/RightCard';
-import LeftCard from '@/components/race-page/LeftCard';
+import { mapActions } from 'vuex';
+import RaceDescription from '@/components/race-finder/event-page/RaceDescription';
+import RightCard from '@/components/race-finder/event-page/RightCard';
+import LeftCard from '@/components/race-finder/event-page/LeftCard';
 
 export default {
   components: {
     RaceDescription,
     RightCard,
     LeftCard,
+  },
+  async fetch() {
+    const { id } = this.$route.params;
+    await this.fetchEvent(id);
+  },
+  methods: {
+    ...mapActions('events', ['fetchEvent']),
   },
 };
 </script>

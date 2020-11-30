@@ -17,10 +17,10 @@
 </template>
 
 <script>
-import SocialMedia from '@/components/race-page/SocialMedia';
-import Schedule from '@/components/race-page/Schedule';
-import Location from '@/components/race-page/Location';
-import Documents from '@/components/race-page/Documents';
+import SocialMedia from '@/components/race-finder/event-page/SocialMedia';
+import Schedule from '@/components/race-finder/event-page/Schedule';
+import Location from '@/components/race-finder/event-page/Location';
+import Documents from '@/components/race-finder/event-page/Documents';
 
 export default {
   name: 'LeftCard',

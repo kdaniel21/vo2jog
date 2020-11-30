@@ -3,7 +3,7 @@
     <h5>Organizer</h5>
     <organizer-profile />
 
-    <hr>
+    <hr />
 
     <h5>Sign Up</h5>
     <signup />
@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import OrganizerProfile from '@/components/race-page/OrganizerProfile';
-import Signup from '@/components/race-page/Signup';
+import OrganizerProfile from '@/components/race-finder/event-page/OrganizerProfile';
+import Signup from '@/components/race-finder/event-page/Signup';
 
 export default {
   name: 'RightCard',
@@ -23,5 +23,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
