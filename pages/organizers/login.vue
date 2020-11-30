@@ -73,7 +73,12 @@ export default {
         await this.$auth.loginWith('local-organizer', {
           data: { email, password },
         });
-      } catch {
+      } catch ({ response }) {
+        if (response.status === 403)
+          return this.errorToast(
+            'This account has not been approved yet. Please try again later or contact us!'
+          );
+
         this.errorToast(
           'Your email or password is not correct. Please try again!'
         );
