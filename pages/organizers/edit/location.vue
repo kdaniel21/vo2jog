@@ -26,8 +26,8 @@ import LocationMap from '@/components/organizer/edit/location/LocationMap';
 
 export default {
   name: 'location',
-  layout: 'organizer',
   components: { SetLocation, LocationMap },
+  layout: 'organizer',
   middleware: ['auth', 'event-selected'],
   computed: {
     ...mapState({

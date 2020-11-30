@@ -16,6 +16,17 @@ export default {
       H: null,
     };
   },
+  head() {
+    return {
+      script: [
+        {
+          src: 'https://js.api.here.com/v3/3.1/mapsjs.bundle.js',
+          type: 'module',
+          callback: this.initHereService,
+        },
+      ],
+    };
+  },
   watch: {
     lat() {
       this.createMarker();
@@ -61,17 +72,6 @@ export default {
       this.map.addObject(marker);
       this.map.setCenter({ lat, lng });
     },
-  },
-  head() {
-    return {
-      script: [
-        {
-          src: 'https://js.api.here.com/v3/3.1/mapsjs.bundle.js',
-          type: 'module',
-          callback: this.initHereService,
-        },
-      ],
-    };
   },
 };
 </script>
