@@ -39,7 +39,7 @@
 
                 <hr />
                 <div class="d-flex justify-content-end flex-wrap">
-                  <nuxt-link to="/" class="small">
+                  <nuxt-link to="/organizers/forgot-password" class="small">
                     Forgotten Password?
                   </nuxt-link>
                 </div>
