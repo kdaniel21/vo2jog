@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex';
 import EventListItem from '@/components/race-finder/event-list/EventListItem';
 
 export default {
@@ -14,38 +15,14 @@ export default {
   components: {
     EventListItem,
   },
-  data() {
-    return {
-      events: [
-        {
-          id: 1,
-          location: 'London',
-          distances: ['10km', '5km', '7.5km'],
-          startDate: new Date(),
-          endDate: new Date(),
-          name: 'London Marathon',
-          description: 'Lorem ipsum lorem ipsum lorem ipsum',
-        },
-        {
-          id: 1,
-          location: 'London',
-          distances: ['10km', '5km', '7.5km'],
-          startDate: new Date(),
-          endDate: new Date(),
-          name: 'London Marathon',
-          description: 'Lorem ipsum lorem ipsum lorem ipsum',
-        },
-        {
-          id: 1,
-          location: 'London',
-          distances: ['10km', '5km', '7.5km'],
-          startDate: new Date(),
-          endDate: new Date(),
-          name: 'London Marathon',
-          description: 'Lorem ipsum lorem ipsum lorem ipsum',
-        },
-      ],
-    };
+  async fetch() {
+    await this.fetchEvents();
+  },
+  computed: {
+    ...mapState('events', ['events']),
+  },
+  methods: {
+    ...mapActions('events', ['fetchEvents']),
   },
 };
 </script>
