@@ -1,7 +1,7 @@
 <template>
   <b-list-group id="document-list">
     <b-list-group-item
-      v-for="doc in documents"
+      v-for="doc in documentsWithIcons"
       :key="doc.name"
       class="d-flex justify-content-between"
     >
@@ -17,39 +17,19 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 import toaster from '@/mixins/toaster';
+import documentList from '@/mixins/document-list';
 import DeleteButton from '@/components/organizer/edit/DeleteButton';
 
 export default {
   name: 'DocumentList',
   components: { DeleteButton },
-  mixins: [toaster],
-  data() {
-    return {
-      defaultIcon: { icon: 'file' },
-      iconMap: [
-        { icon: 'file-word', extensions: ['.doc', '.docx', '.odt'] },
-        { icon: 'file-pdf', extensions: ['.pdf'] },
-        { icon: 'file-excel', extensions: ['.xls', '.xlsx', '.ods'] },
-        { icon: 'file-powerpoint', extensions: ['.ppt', '.pptx'] },
-      ],
-    };
-  },
+  mixins: [toaster, documentList],
   computed: {
-    documents() {
-      const { documents } = this.$store.state.organizer.events.selectedEvent;
-
-      return documents.map(doc => {
-        const url = `${this.$config.staticUrl}/events/docs/${doc.file}`;
-        const extension = '.' + doc.file.split('.').pop();
-        const icon =
-          this.iconMap.find(icon => icon.extensions.includes(extension)) ||
-          this.defaultIcon;
-
-        return { ...doc, icon, url };
-      });
-    },
+    ...mapState({
+      documents: state => state.organizer.events.selectedEvent.documents,
+    }),
   },
   methods: {
     ...mapActions('organizer/events', ['deleteItem']),
