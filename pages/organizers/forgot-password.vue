@@ -15,13 +15,11 @@
 </template>
 
 <script>
-import toaster from '@/mixins/toaster';
 import ForgotPasswordForm from '@/components/organizer/auth/forgot-password/ForgotPasswordForm';
 import SuccessPanel from '@/components/organizer/auth/forgot-password/SuccessPanel';
 
 export default {
   components: { ForgotPasswordForm, SuccessPanel },
-  mixins: [toaster],
   data() {
     return {
       emailSent: false,

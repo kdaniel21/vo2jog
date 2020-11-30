@@ -24,9 +24,11 @@
 
 <script>
 import { required, email } from 'vuelidate/lib/validators';
+import toaster from '@/mixins/toaster';
 
 export default {
   name: 'ForgotPasswordForm',
+  mixins: [toaster],
   data() {
     return {
       form: {
