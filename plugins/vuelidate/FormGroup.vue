@@ -3,6 +3,7 @@
     :invalid-feedback="firstErrorMessage"
     :state="isValid"
     :label="label"
+    :description="description"
   >
     <slot
       :attrs="{ state: isValid }"
@@ -17,5 +18,6 @@ import { singleErrorExtractorMixin } from 'vuelidate-error-extractor';
 export default {
   name: 'FormElement',
   extends: singleErrorExtractorMixin,
+  props: { description: { type: String, default: null } },
 };
 </script>
