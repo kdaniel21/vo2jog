@@ -1,5 +1,7 @@
 <template>
   <div id="reset-password">
+    <h3>Set your new password</h3>
+    <p>You can now select a new password that will replace the existing one.</p>
     <reset-password-form
       v-if="passwordResetToken"
       :token="passwordResetToken"

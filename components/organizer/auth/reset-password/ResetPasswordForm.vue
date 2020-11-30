@@ -84,3 +84,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.form-group {
+  max-width: 30rem;
+}
+</style>
