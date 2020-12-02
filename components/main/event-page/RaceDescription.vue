@@ -10,13 +10,9 @@
 
 <script>
 import { mapState } from 'vuex';
-import Faq from '@/components/race-finder/event-page/Faq';
 
 export default {
   name: 'RaceDescription',
-  components: {
-    Faq,
-  },
   computed: {
     ...mapState('events', ['viewedEvent']),
     escapedDescription() {

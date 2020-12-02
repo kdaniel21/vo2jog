@@ -6,15 +6,8 @@
 </template>
 
 <script>
-import FilterModal from '@/components/race-finder/event-filter/FilterModal';
-import FilterMap from '@/components/race-finder/event-filter/FilterMap';
-
 export default {
   name: 'ButtonRow',
-  components: {
-    FilterModal,
-    FilterMap,
-  },
 };
 </script>
 

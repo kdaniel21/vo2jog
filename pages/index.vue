@@ -17,18 +17,7 @@
 </template>
 
 <script>
-import FilterCard from '@/components/race-finder/event-filter/FilterCard';
-import FilterModal from '@/components/race-finder/event-filter/FilterModal';
-import EventList from '@/components/race-finder/event-list/EventList';
-import ButtonRow from '@/components/race-finder/button-row/ButtonRow';
-
 export default {
   name: 'Index',
-  components: {
-    FilterCard,
-    FilterModal,
-    EventList,
-    ButtonRow,
-  },
 };
 </script>

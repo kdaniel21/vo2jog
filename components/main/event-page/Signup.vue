@@ -14,13 +14,9 @@
 
 <script>
 import { mapState } from 'vuex';
-import SignupItem from '@/components/race-finder/event-page/SignupItem';
 
 export default {
   name: 'Signup',
-  components: {
-    SignupItem,
-  },
   computed: {
     ...mapState({
       competitions: state => state.events.viewedEvent.competitions,

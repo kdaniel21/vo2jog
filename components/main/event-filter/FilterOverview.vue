@@ -17,14 +17,7 @@
 </template>
 
 <script>
-import Location from '@/components/race-finder/event-filter/Location';
-import FilterCheckbox from '@/components/race-finder/event-filter/FilterCheckbox';
-
 export default {
   name: 'FilterOverview',
-  components: {
-    Location,
-    FilterCheckbox,
-  },
 };
 </script>

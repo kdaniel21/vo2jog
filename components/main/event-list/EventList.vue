@@ -8,13 +8,9 @@
 
 <script>
 import { mapActions, mapState } from 'vuex';
-import EventListItem from '@/components/race-finder/event-list/EventListItem';
 
 export default {
   name: 'EventList',
-  components: {
-    EventListItem,
-  },
   async fetch() {
     await this.fetchEvents();
   },

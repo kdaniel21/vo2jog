@@ -22,13 +22,8 @@
 </template>
 
 <script>
-import FilterItem from '@/components/race-finder/event-filter/FilterItem';
-
 export default {
   name: 'Location',
-  components: {
-    FilterItem,
-  },
   data() {
     return {
       locationInput: null,

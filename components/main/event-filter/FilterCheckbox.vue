@@ -8,13 +8,8 @@
 </template>
 
 <script>
-import FilterItem from '@/components/race-finder/event-filter/FilterItem';
-
 export default {
   name: 'FilterCheckbox',
-  components: {
-    FilterItem,
-  },
   props: {
     name: {
       type: String,

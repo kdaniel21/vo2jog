@@ -11,15 +11,8 @@
 </template>
 
 <script>
-import OrganizerProfile from '@/components/race-finder/event-page/OrganizerProfile';
-import Signup from '@/components/race-finder/event-page/Signup';
-
 export default {
   name: 'RightCard',
-  components: {
-    OrganizerProfile,
-    Signup,
-  },
 };
 </script>
 

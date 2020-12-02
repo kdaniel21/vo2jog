@@ -8,13 +8,8 @@
 </template>
 
 <script>
-import FilterOverview from '@/components/race-finder/event-filter/FilterOverview';
-
 export default {
   name: 'FilterModal',
-  components: {
-    FilterOverview,
-  },
 };
 </script>
 

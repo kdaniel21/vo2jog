@@ -23,11 +23,9 @@
 
 <script>
 import { mapState } from 'vuex';
-import LocationMap from '@/components/organizer/edit/location/LocationMap';
 
 export default {
   name: 'LocationModal',
-  components: { LocationMap },
   computed: {
     ...mapState({
       location: state => state.events.viewedEvent.location,

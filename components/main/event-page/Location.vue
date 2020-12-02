@@ -7,11 +7,9 @@
 
 <script>
 import { mapState } from 'vuex';
-import LocationModal from '@/components/race-finder/event-page/LocationModal';
 
 export default {
   name: 'Location',
-  components: { LocationModal },
   computed: {
     ...mapState({
       location: state =>

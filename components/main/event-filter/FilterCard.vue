@@ -6,13 +6,8 @@
 </template>
 
 <script>
-import FilterOverview from '@/components/race-finder/event-filter/FilterOverview';
-
 export default {
   name: 'FilterCard',
-  components: {
-    FilterOverview,
-  },
 };
 </script>
 
