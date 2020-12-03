@@ -23,7 +23,7 @@
     "core-js": "^3.7.0",
     "deep-map-object": "0.0.5",
     "is-iso-date": "0.0.1",
-    "nuxt": "^2.14.7",
+    "nuxt": "^2.14.9",
     "vue-select": "^3.10.8",
     "vue-sidebar-bootstrap": "^1.0.21",
     "vuelidate": "^0.7.6",
