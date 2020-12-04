@@ -4,7 +4,7 @@
       <nuxt-link to="/" class="text-white">Racircuit</nuxt-link>
     </b-navbar-brand>
 
-    <b-navbar-toggle id="navbar-toggle" @click="toggleNavbar">
+    <b-navbar-toggle id="navbar-toggle" target @click="toggleNavbar">
       <fa icon="bars" fixed-width />
     </b-navbar-toggle>
 
