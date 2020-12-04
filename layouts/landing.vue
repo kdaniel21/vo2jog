@@ -31,4 +31,7 @@ export default {
   color: #fff !important;
   font-weight: 700 !important;
 }
+.nav-link:hover {
+  text-decoration: underline !important;
+}
 </style>
