@@ -16,6 +16,7 @@
         <div v-if="categories" class="mt-3 d-flex flex-wrap">
           <b-badge
             v-for="category in categories"
+            :key="category"
             class="text-capitalize mr-1 mb-1"
             variant="primary"
             >{{ category }}
