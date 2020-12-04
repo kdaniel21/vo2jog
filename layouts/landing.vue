@@ -11,27 +11,32 @@ import DefaultLayout from './default';
 
 export default {
   components: { DefaultLayout },
+  head: {
+    bodyAttrs: {
+      class: 'transparent-nav',
+    },
+  },
 };
 </script>
 
 <style>
 /* CHANGE NAVBAR TO TRANSPARENT */
-#main-navbar {
+.transparent-nav #main-navbar {
   background-color: #000 !important;
   background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0)) !important;
   color: #fff !important;
 }
-.navbar-brand a {
+.transparent-nav .navbar-brand a {
   font-weight: 700 !important;
 }
-#navbar-toggle {
+.transparent-nav #navbar-toggle {
   color: #fff !important;
 }
-.nav-link {
+.transparent-nav .nav-link {
   color: #fff !important;
   font-weight: 700 !important;
 }
-.nav-link:hover {
+.transparent-nav .nav-link:hover {
   text-decoration: underline !important;
 }
 </style>
