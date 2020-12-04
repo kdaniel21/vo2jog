@@ -1,6 +1,6 @@
 <template>
   <vsb-layout :items="navItems" mobile-fullscreen>
-    <template v-slot:toggle-icon
+    <template #toggle-icon
       ><fa
         v-b-toggle="'sidebar'"
         icon="bars"
@@ -41,17 +41,8 @@
 </template>
 
 <script>
-import OrganizerNavbar from '@/components/organizer/navbar/OrganizerNavbar';
-import EventPicker from '@/components/organizer/sidebar/EventPicker';
-import CreateEvent from '@/components/organizer/sidebar/CreateEvent';
-
 export default {
   middleware: ['auth', 'fetch-events'],
-  components: {
-    OrganizerNavbar,
-    EventPicker,
-    CreateEvent,
-  },
   data() {
     return {
       navItems: [

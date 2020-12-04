@@ -1,16 +1,34 @@
 <template>
-  <div id="landing-layout" class="min-vh-100 d-flex flex-column">
-    <landing-navbar />
-
+  <default-layout>
     <b-container fluid class="p-0 flex-grow-1">
       <Nuxt />
     </b-container>
-    <the-footer />
-  </div>
+  </default-layout>
 </template>
 
 <script>
-export default {};
+import DefaultLayout from './default';
+
+export default {
+  components: { DefaultLayout },
+};
 </script>
 
-<style></style>
+<style>
+/* CHANGE NAVBAR TO TRANSPARENT */
+#main-navbar {
+  background-color: #000 !important;
+  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0)) !important;
+  color: #fff !important;
+}
+.navbar-brand a {
+  font-weight: 700 !important;
+}
+#navbar-toggle {
+  color: #fff !important;
+}
+.nav-link {
+  color: #fff !important;
+  font-weight: 700 !important;
+}
+</style>

@@ -5,10 +5,10 @@
   >
     <b-card id="event-card" :img-src="image" no-body>
       <b-card-body class="px-3 pb-2 pt-2">
-        <h6 v-if="event.startDate" class="mb-0">
+        <h6 v-if="event.startDate" class="my-0">
           {{ $dateFns.format(event.startDate, 'do LLLL yyyy') }}
         </h6>
-        <h3 class="font-weight-bold mb-0">{{ event.name }}</h3>
+        <h5 class="font-weight-bold mb-0">{{ event.name }}</h5>
         <div v-if="location">
           <fa icon="map-marker-alt" />
           <span>{{ location }}</span>
