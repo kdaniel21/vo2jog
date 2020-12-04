@@ -73,7 +73,7 @@ export default {
         const { token } = this;
         const { password, passwordConfirm } = this.form;
         const data = { token, password, passwordConfirm };
-        await this.$axios.post('/api/organizers/reset-password', data);
+        await this.$axios.post('/api/auth/reset-password', data);
 
         this.successToast('Password successfully changed. Now you can log in!');
         setTimeout(() => this.$router.push('/organizers/login'), 2000);

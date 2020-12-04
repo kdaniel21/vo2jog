@@ -94,10 +94,10 @@ export default {
           property: 'profile',
         },
         endpoints: {
-          login: { url: '/api/organizers/login', method: 'post' },
-          refresh: { url: '/api/organizers/refresh', method: 'post' },
+          login: { url: '/api/auth/login', method: 'post' },
+          refresh: { url: '/api/auth/refresh', method: 'post' },
           user: { url: '/api/profile', method: 'get' },
-          logout: { url: '/api/organizers/logout', method: 'post' },
+          logout: { url: '/api/auth/logout', method: 'post' },
         },
       },
     },

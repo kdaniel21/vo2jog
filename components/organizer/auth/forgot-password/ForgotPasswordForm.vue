@@ -48,7 +48,7 @@ export default {
     async sendPasswordReset() {
       try {
         const { email } = this.form;
-        await this.$axios.post('/api/organizers/forgot-password', { email });
+        await this.$axios.post('/api/auth/forgot-password', { email });
 
         this.successToast(
           `Password reset email sent successfully! It will arrive within a few minutes.`
