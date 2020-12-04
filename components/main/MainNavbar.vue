@@ -11,7 +11,9 @@
     <!-- NORMAL NAVBAR CONTENT -->
     <b-navbar-nav class="d-none d-md-flex ml-auto">
       <b-nav-item v-for="{ name, link } in navItems" :key="name" :to="link">
-        {{ name }}
+        <nuxt-link :to="link" class="text-white">
+          {{ name }}
+        </nuxt-link>
       </b-nav-item>
     </b-navbar-nav>
 
