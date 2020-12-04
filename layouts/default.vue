@@ -1,5 +1,5 @@
 <template>
-  <div class="min-vh-100 d-flex flex-column">
+  <div class="min-vh-100 d-flex flex-column navbar-margin">
     <main-navbar />
 
     <slot>
@@ -17,3 +17,11 @@ export default {
   name: 'Default',
 };
 </script>
+
+<style scoped>
+/* same amount as navbar height */
+.navbar-margin {
+  padding-top: 60px;
+}
+</style>
+>

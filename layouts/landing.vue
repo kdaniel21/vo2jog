@@ -21,6 +21,9 @@ export default {
 
 <style>
 /* CHANGE NAVBAR TO TRANSPARENT */
+.transparent-nav .navbar-margin {
+  padding-top: 0 !important;
+}
 .transparent-nav #main-navbar {
   background-color: #000 !important;
   background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0)) !important;
