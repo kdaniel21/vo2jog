@@ -3,7 +3,10 @@
     <main-navbar />
 
     <slot>
-      <b-container fluid class="flex-grow-1 d-flex flex-column p-3 p-md-5">
+      <b-container
+        fluid="md"
+        class="flex-grow-1 d-flex flex-column py-3 py-md-5"
+      >
         <Nuxt class="align-self-stretch flex-grow-1" />
       </b-container>
     </slot>

@@ -26,6 +26,7 @@
     "nuxt": "^2.14.9",
     "vue-select": "^3.10.8",
     "vue-sidebar-bootstrap": "^1.0.21",
+    "vue-slick-carousel": "^1.0.6",
     "vuelidate": "^0.7.6",
     "vuelidate-error-extractor": "^2.4.1"
   },

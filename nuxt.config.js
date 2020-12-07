@@ -4,6 +4,14 @@ export default {
     host: '0.0.0.0',
   },
 
+  loaders: {
+    vue: {
+      compilerOptions: {
+        preserveWhitespace: false,
+      },
+    },
+  },
+
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'racircuit',

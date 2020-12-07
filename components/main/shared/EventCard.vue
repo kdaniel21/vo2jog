@@ -1,5 +1,6 @@
 <template>
   <nuxt-link
+    v-if="event"
     :to="`/events/${event._id}`"
     class="text-dark text-decoration-none"
   >
@@ -48,7 +49,7 @@ export default {
       return this.event.image || this.placehodlerImage;
     },
     location() {
-      if (!this.event.location) return;
+      if (!this.event || !this.event.location) return;
 
       const {
         address: { city, countryCode },
@@ -56,8 +57,10 @@ export default {
       return `${city}, ${countryCode}`;
     },
     categories() {
+      if (!this.event) return;
+
       const { categories } = this.event;
-      if (!categories.length) return;
+      if (!categories || !categories.length) return;
 
       const { priorityCategories } = this;
       let listedCategories = [];
@@ -83,7 +86,7 @@ export default {
 
 <style scoped>
 #event-card {
-  width: min(80vw, 20rem);
+  width: min(80vw, 18rem);
 }
 .card-img {
   max-height: 150px;
