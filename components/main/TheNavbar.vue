@@ -1,5 +1,5 @@
 <template>
-  <b-navbar id="main-navbar" toggleable="md" variant="primary">
+  <b-navbar id="the-navbar" toggleable="md" variant="primary">
     <b-navbar-brand>
       <nuxt-link to="/" class="text-white">Racircuit</nuxt-link>
     </b-navbar-brand>
@@ -44,7 +44,7 @@
 
 <script>
 export default {
-  name: 'MainNavbar',
+  name: 'TheNavbar',
   data() {
     return {
       navOpen: false,
@@ -64,7 +64,7 @@ export default {
 </script>
 
 <style scoped>
-#main-navbar {
+#the-navbar {
   position: absolute;
   top: 0;
   left: 0;

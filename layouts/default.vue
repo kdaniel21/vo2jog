@@ -1,6 +1,6 @@
 <template>
   <div class="min-vh-100 d-flex flex-column navbar-margin">
-    <main-navbar />
+    <the-navbar />
 
     <slot>
       <b-container

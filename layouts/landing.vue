@@ -24,7 +24,7 @@ export default {
 .transparent-nav .navbar-margin {
   padding-top: 0 !important;
 }
-.transparent-nav #main-navbar {
+.transparent-nav #the-navbar {
   background-color: #000 !important;
   background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0)) !important;
   color: #fff !important;
