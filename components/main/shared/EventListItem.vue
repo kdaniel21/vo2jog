@@ -6,9 +6,11 @@
       class="d-flex flex-column flex-sm-row justify-content-between py-1"
     >
       <div class="d-flex flex-column justify-content-between">
-        <h6 class="text-uppercase text-muted mb-0">{{ mainCategory }}</h6>
+        <h6 v-if="mainCategory" class="text-uppercase text-muted mb-0">
+          {{ mainCategory }}
+        </h6>
         <h5 class="font-weight-bold mb-0">{{ event.name }}</h5>
-        <h6 class="start-date">{{ startDate }}</h6>
+        <h6 v-if="startDate" class="start-date">{{ startDate }}</h6>
 
         <!-- CATEGORIES -->
         <div
@@ -29,7 +31,7 @@
         class="mt-2 mb-2 d-flex flex-row flex-sm-column justify-content-between align-items-end"
       >
         <h6 class="text-right">
-          <fa icon="map-marker-alt" fixed-width />
+          <fa v-if="location" icon="map-marker-alt" fixed-width />
           <span>{{ location }}</span>
         </h6>
 
