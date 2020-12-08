@@ -2,14 +2,7 @@
   <div id="popular-event-list">
     <h3>Most Popular Events</h3>
 
-    <div class="d-flex flex-nowrap overflow-auto justify-content-md-between">
-      <event-card
-        v-for="event in events"
-        :key="event._id"
-        :event="event"
-        class="flex-row-item"
-      />
-    </div>
+    <event-card-carousel :events="events" />
   </div>
 </template>
 
