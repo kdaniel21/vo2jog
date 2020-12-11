@@ -14,7 +14,9 @@
       :target="`popover-${filterName}`"
       placement="bottom"
       :triggers="['click']"
-      :custom-class="fullWidth ? 'full-width' : ''"
+      :custom-class="
+        (fullWidth ? 'full-width' : '') + ' ' + (wide ? 'wide' : '')
+      "
     >
       <slot :attrs="{ text, filterName }"></slot>
     </b-popover>
@@ -28,6 +30,7 @@ export default {
     text: { type: String, default: null },
     filterName: { type: String, default: null },
     fullWidth: { type: Boolean, default: false },
+    wide: { type: Boolean, default: false },
   },
 };
 </script>
@@ -38,5 +41,8 @@ export default {
 }
 .full-width {
   max-width: 100% !important;
+}
+.wide {
+  width: min(95vw, 30rem) !important;
 }
 </style>

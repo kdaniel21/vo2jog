@@ -1,12 +1,12 @@
 <template>
   <div>
     <v-date-picker
-      :value="range"
+      v-model="range"
       v-bind="settings"
       :columns="$screens({ default: 1, lg: 2 })"
     />
 
-    <button-row @apply="applyFilter" @close="close" />
+    <button-row @apply="applyFilter" @cancel="close" />
   </div>
 </template>
 
@@ -22,22 +22,31 @@ export default {
         isRange: true,
       },
       range: {
-        start: new Date(),
-        end: new Date(),
+        start: this.$dateFns.set(new Date(), {
+          hours: 0,
+          minutes: 1,
+          seconds: 0,
+        }),
+        end: this.$dateFns.set(new Date(), {
+          hours: 23,
+          minutes: 59,
+          seconds: 59,
+        }),
       },
     };
+  },
+  created() {
+    const { start, end } = this.$route.query;
+    if (start) this.range.start = new Date(start);
+    if (end) this.range.end = new Date(end);
   },
   methods: {
     ...mapActions('events', ['setFilter']),
     async applyFilter() {
-      const { start, end } = this.range;
-      this.$router.push({
-        query: { ...this.$route.query, start: start.toISOString() },
-      });
+      const start = this.range.start.toISOString();
+      const end = this.range.end.toISOString();
 
-      setTimeout(() => {
-        console.log(this.$route.query);
-      }, 3000);
+      await this.setFilter({ start, end });
 
       this.close();
     },

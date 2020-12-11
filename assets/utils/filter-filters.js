@@ -8,12 +8,15 @@ export default function (filters, availableSubcategories) {
 
   const filteredQuery = {};
 
+  // These fields are not getting filtered
+  const excludedSubcategories = ['main', 'start', 'end'];
+
   Object.keys(filters).forEach(subcategory => {
     const items = filters[subcategory];
 
-    const isMain = subcategory === 'main';
+    const isExcluded = excludedSubcategories.includes(subcategory);
     const isCategoryIncluded = availableItems.has(subcategory);
-    if (isMain) return (filteredQuery[subcategory] = items);
+    if (isExcluded) return (filteredQuery[subcategory] = items);
     if (!isCategoryIncluded) return;
 
     const isArray = Array.isArray(items);

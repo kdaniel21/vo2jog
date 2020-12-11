@@ -52,29 +52,18 @@ export const actions = {
   loadFilters({ commit }) {
     if (process.client) commit('setFilters', $nuxt._route.query);
   },
-  setFilter({ commit, getters, state }, { filterName, values }) {
+  setFilter({ commit, getters, state }, filter) {
     // Set query params
-    console.log('setting filter');
-    console.log('current query', $nuxt._route.query);
-    console.log('current state', state.filters);
-    let query = { ...state.filters, [filterName]: values };
+    let query = { ...state.filters, ...filter };
 
     // Clean unavailable filters due to main category change
-    if (filterName === 'main') {
+    if (Object.keys(filter).includes('main')) {
       commit('setFilters', query);
       query = filterFilters(query, getters.subcategories);
     }
 
-    if (filterName === 'start') {
-      query.start = query.start.toISOString();
-      console.log('STRING!!', query.start);
-    }
-
     commit('setFilters', query);
-    console.log('set', query);
     $nuxt._router.push({ query });
-    console.log('pushed', $nuxt._route.query);
-    console.log('----------------');
 
     // Fetch events TODO:
   },

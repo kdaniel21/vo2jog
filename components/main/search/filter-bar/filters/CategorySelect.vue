@@ -13,7 +13,7 @@
       <fa v-if="isSelected" icon="check" fixed-width />
     </b-badge>
 
-    <button-row v-if="!isMobile" @apply="applyFilter" @close="close" />
+    <button-row v-if="!isMobile" @apply="applyFilter" @cancel="close" />
   </div>
 </template>
 
@@ -69,8 +69,9 @@ export default {
     async applyFilter() {
       const { filterName, selectedCategoryItems } = this;
       await this.setFilter({
-        filterName,
-        values: selectedCategoryItems.length ? selectedCategoryItems : null,
+        [filterName]: selectedCategoryItems.length
+          ? selectedCategoryItems
+          : null,
       });
 
       this.close();

@@ -10,6 +10,16 @@
     </filter-popover>
 
     <filter-popover
+      text="Location"
+      filter-name="location"
+      full-width
+      wide
+      class="mr-2"
+    >
+      <location-filter />
+    </filter-popover>
+
+    <filter-popover
       v-for="filter in filters"
       :key="filter"
       :text="filter"
@@ -18,8 +28,6 @@
     >
       <category-select slot-scope="{ attrs }" v-bind="attrs" />
     </filter-popover>
-
-    <pre>{{ $route.query }}</pre>
 
     <clear-filters />
   </b-navbar>
