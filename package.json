@@ -11,7 +11,7 @@
     "lint": "npm run lint:js"
   },
   "dependencies": {
-    "@ckeditor/ckeditor5-build-classic": "^23.1.0",
+    "@ckeditor/ckeditor5-build-classic": "^24.0.0",
     "@ckeditor/ckeditor5-vue2": "^1.0.5",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@nuxtjs/auth-next": "^5.0.0-1607335658.590bfae",
