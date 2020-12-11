@@ -1,38 +1,34 @@
 export default function (filters, availableSubcategories) {
   const availableItems = new Map(
-    availableSubcategories.map(subcategory => [
-      subcategory.name,
-      subcategory.categoryItems,
-    ])
+    availableSubcategories.map(filter => [filter.name, filter.categoryItems])
   );
 
   const filteredQuery = {};
 
   // These fields are not getting filtered
-  const excludedSubcategories = ['main', 'start', 'end'];
+  const excludedFilters = ['main', 'start', 'end', 'lat', 'lng', 'radius'];
 
-  Object.keys(filters).forEach(subcategory => {
-    const items = filters[subcategory];
+  Object.keys(filters).forEach(filter => {
+    const items = filters[filter];
 
-    const isExcluded = excludedSubcategories.includes(subcategory);
-    const isCategoryIncluded = availableItems.has(subcategory);
-    if (isExcluded) return (filteredQuery[subcategory] = items);
+    const isExcluded = excludedFilters.includes(filter);
+    const isCategoryIncluded = availableItems.has(filter);
+    if (isExcluded) return (filteredQuery[filter] = items);
     if (!isCategoryIncluded) return;
 
     const isArray = Array.isArray(items);
-    const isItemIncluded =
-      availableItems.get(subcategory).includes(items) || false;
+    const isItemIncluded = availableItems.get(filter).includes(items) || false;
 
-    if (!isArray && isItemIncluded) return (filteredQuery[subcategory] = items);
+    if (!isArray && isItemIncluded) return (filteredQuery[filter] = items);
 
     if (!isArray) return;
 
     const filteredItems = items.filter(item =>
-      availableItems.get(subcategory).includes(item)
+      availableItems.get(filter).includes(item)
     );
     if (!filteredItems.length) return;
 
-    filteredQuery[subcategory] = filteredItems;
+    filteredQuery[filter] = filteredItems;
   });
 
   return filteredQuery;
