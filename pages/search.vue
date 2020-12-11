@@ -1,5 +1,6 @@
 <template>
   <div id="search">
+    <filter-bar />
     <event-list-item :event="event" />
   </div>
 </template>

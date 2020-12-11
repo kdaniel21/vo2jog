@@ -24,6 +24,8 @@
     "deep-map-object": "0.0.5",
     "is-iso-date": "0.0.1",
     "nuxt": "^2.14.10",
+    "qs": "^6.9.4",
+    "v-calendar": "^2.1.1",
     "vue-select": "^3.10.8",
     "vue-sidebar-bootstrap": "^1.0.21",
     "vue-slick-carousel": "^1.0.6",

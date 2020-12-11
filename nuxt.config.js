@@ -38,6 +38,7 @@ export default {
     '~/plugins/axios.js',
     '~/plugins/vue-select.js',
     '~/plugins/vuelidate/vuelidate.js',
+    { src: '~/plugins/v-calendar', mode: 'client' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -113,6 +114,17 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
+
+  router: {
+    parseQuery: q => require('qs').parse(q, { comma: true }),
+    stringifyQuery: q =>
+      '?' +
+      require('qs').stringify(q, {
+        arrayFormat: 'comma',
+        skipNulls: true,
+        encode: false,
+      }),
+  },
 
   // Fontawesome module configuration
   fontawesome: {
