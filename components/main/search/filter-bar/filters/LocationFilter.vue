@@ -3,17 +3,17 @@
     <location-search v-model="location" />
 
     <h5 class="mb-0">Select Radius</h5>
-    <div class="d-flex flex-wrap w-100">
-      <b-button
+    <div id="radius-select" class="d-flex flex-wrap w-100">
+      <b-badge
         v-for="radiusOption in radiusOptions"
         :key="radiusOption"
-        size="sm"
+        pill
         :variant="radius === radiusOption ? 'primary' : 'secondary'"
-        class="mr-1 mt-1 flex-shrink-0"
+        class="mr-1 mt-1 flex-shrink-0 cursor-pointer"
         @click="radius = radiusOption"
       >
         {{ radiusOption }} km
-      </b-button>
+      </b-badge>
     </div>
 
     <button-row @cancel="close" @apply="applyFilter" />
@@ -51,4 +51,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#radius-select {
+  font-size: 1.2rem;
+}
+</style>

@@ -1,6 +1,7 @@
 <template>
   <div id="search">
-    <filter-bar />
+    <search-area class="mb-3" />
+
     <event-list-item :event="event" />
   </div>
 </template>

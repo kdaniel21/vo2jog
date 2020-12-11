@@ -1,36 +1,41 @@
 <template>
-  <b-navbar id="filter-bar" variant="light" class="d-flex">
-    <!-- MAIN CATEGORY -->
-    <filter-popover ref="foo" text="Sport" filter-name="main" class="mr-2">
-      <category-select slot-scope="{ attrs }" v-bind="attrs" />
-    </filter-popover>
+  <div id="filter-bar" class="d-flex mb-2 justify-content-between">
+    <div class="d-flex">
+      <!-- MAIN CATEGORY -->
+      <filter-popover ref="foo" text="Sport" filter-name="main" class="mr-2">
+        <category-select slot-scope="{ attrs }" v-bind="attrs" />
+      </filter-popover>
 
-    <filter-popover text="Date" filter-name="date" full-width class="mr-2">
-      <date-filter />
-    </filter-popover>
+      <filter-popover text="Date" filter-name="date" full-width class="mr-2">
+        <date-filter />
+      </filter-popover>
 
-    <filter-popover
-      text="Location"
-      filter-name="location"
-      full-width
-      wide
-      class="mr-2"
-    >
-      <location-filter />
-    </filter-popover>
+      <filter-popover
+        text="Location"
+        filter-name="location"
+        full-width
+        wide
+        class="mr-2"
+      >
+        <location-filter />
+      </filter-popover>
 
-    <filter-popover
-      v-for="filter in filters"
-      :key="filter"
-      :text="filter"
-      :filter-name="filter"
-      class="mr-2"
-    >
-      <category-select slot-scope="{ attrs }" v-bind="attrs" />
-    </filter-popover>
+      <filter-popover
+        v-for="filter in filters"
+        :key="filter"
+        :text="filter"
+        :filter-name="filter"
+        class="mr-2 d-none d-sm-block"
+      >
+        <category-select slot-scope="{ attrs }" v-bind="attrs" />
+      </filter-popover>
+    </div>
 
-    <clear-filters />
-  </b-navbar>
+    <div>
+      <mobile-filter-modal />
+      <clear-filters class="d-none d-sm-block" />
+    </div>
+  </div>
 </template>
 
 <script>

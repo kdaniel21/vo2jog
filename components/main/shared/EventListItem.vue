@@ -5,7 +5,9 @@
     <b-card-body
       class="d-flex flex-column flex-sm-row justify-content-between py-1"
     >
-      <div class="d-flex flex-column justify-content-between">
+      <div
+        class="d-flex flex-column justify-content-start justify-content-md-between"
+      >
         <h6 v-if="mainCategory" class="text-uppercase text-muted mb-0">
           {{ mainCategory }}
         </h6>
