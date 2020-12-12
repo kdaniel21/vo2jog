@@ -2,15 +2,16 @@
   <div id="search">
     <search-area class="mb-3" />
 
-    <event-list-item :event="event" />
+    <event-list-item v-for="event in events" :key="event._id" :event="event" />
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
-  async asyncData({ $axios }) {
-    const res = await $axios.get('/api/events/5fa4e65399fadd4f0ebf1d8c');
-    return { event: res.data.data };
+  computed: {
+    ...mapState('events', ['events']),
   },
 };
 </script>

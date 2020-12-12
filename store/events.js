@@ -1,8 +1,10 @@
 /* eslint-disable no-undef */
+import qs from 'qs';
 import flattenAndMergeCategories from '@/assets/utils/flatten-merge-categories';
 import filterFilters from '@/assets/utils/filter-filters';
 
 export const state = () => ({
+  events: [],
   filters: {},
   categories: [],
 });
@@ -34,6 +36,9 @@ export const getters = {
 };
 
 export const mutations = {
+  setEvents(state, events) {
+    state.events = events;
+  },
   setCategories(state, categories) {
     state.categories = [...categories];
   },
@@ -43,16 +48,28 @@ export const mutations = {
 };
 
 export const actions = {
+  async fetchEvents({ commit, state }) {
+    const queryString = qs.stringify(state.filters, {
+      arrayFormat: 'comma',
+      skipNulls: true,
+      encode: false,
+    });
+    const res = await this.$axios.get(`/api/events?${queryString}`);
+
+    if (res.data.data) commit('setEvents', res.data.data);
+  },
   async fetchCategories({ commit }) {
     const res = await this.$axios.get('/api/categories');
     if (!res.data.data.length) return;
 
     commit('setCategories', res.data.data);
   },
-  loadFilters({ commit }) {
+  loadFilters({ commit, dispatch }) {
     if (process.client) commit('setFilters', $nuxt._route.query);
+
+    dispatch('fetchEvents');
   },
-  setFilter({ commit, getters, state }, filter) {
+  setFilter({ commit, getters, state, dispatch }, filter) {
     // Set query params
     let query = { ...state.filters, ...filter };
 
@@ -66,6 +83,7 @@ export const actions = {
     $nuxt._router.push({ query });
 
     // Fetch events TODO:
+    dispatch('fetchEvents');
   },
   resetFilters({ commit }) {
     $nuxt._router.push({ query: null });
