@@ -1,5 +1,5 @@
 <template>
-  <b-form id="search-bar" inline>
+  <b-form id="search-bar" inline @submit.prevent="applyFilters">
     <b-input
       id="search-input"
       v-model="searchQuery"
@@ -9,21 +9,30 @@
 
     <b-input-group
       id="location-input-group"
-      class="d-none d-sm-flex flex-grow-1"
+      class="d-none d-sm-flex flex-grow-1 align-items-stretch flex-wrap-0"
     >
       <b-input-group-prepend is-text>
         <fa icon="map-marker-alt" />
       </b-input-group-prepend>
 
-      <b-input
+      <location-search
         id="location-input"
         v-model="location"
         placeholder="Location"
-        class="mr-sm-1"
-      ></b-input>
+        class="mr-sm-1 flex-grow-1"
+      >
+        <template #option="{ location: { address } }">
+          <span>{{ `${address.city}, ${address.countryCode}` }}</span>
+        </template>
+        <template #selected-option="{ location: { address } }">
+          <span>{{ `${address.city}, ${address.countryCode}` }}</span>
+        </template>
+      </location-search>
 
       <b-input-group-append>
-        <b-button variant="primary"><fa icon="search" /></b-button>
+        <b-button type="submit" variant="primary">
+          <fa icon="search" />
+        </b-button>
       </b-input-group-append>
     </b-input-group>
 
@@ -39,6 +48,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: 'SearchBar',
   data() {
@@ -46,6 +57,19 @@ export default {
       searchQuery: null,
       location: null,
     };
+  },
+  methods: {
+    ...mapActions('events', ['setFilter']),
+    applyFilters() {
+      let lat, lng;
+      if (this.location) {
+        const { position } = this.location;
+        lat = position.lat;
+        lng = position.lng;
+      }
+
+      return this.setFilter({ q: this.searchQuery, lat, lng });
+    },
   },
 };
 </script>
@@ -70,6 +94,7 @@ export default {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border: none;
+    width: 15rem;
   }
   #location-input-group > .input-group-prepend {
     background-color: #fff;
@@ -85,6 +110,19 @@ export default {
   }
   #location-input-group > .input-group-append > .btn {
     border-radius: 10px;
+  }
+}
+</style>
+
+<style lang="scss">
+@import '~/node_modules/bootstrap/scss/_functions.scss';
+@import '~/node_modules/bootstrap/scss/_variables.scss';
+@import '~/node_modules/bootstrap/scss/_mixins.scss';
+
+@include media-breakpoint-up(sm) {
+  #location-input > .vs__dropdown-toggle {
+    border: none !important;
+    height: 100% !important;
   }
 }
 </style>

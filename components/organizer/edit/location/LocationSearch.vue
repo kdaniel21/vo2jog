@@ -3,14 +3,23 @@
     id="location-search"
     label="title"
     placeholder="Search Location"
-    class="mb-3"
     :value="value"
     :filterable="false"
     :options="options"
     @search="onSearch"
     @input="val => $emit('input', val)"
   >
-    <template #no-options> Type to search location... </template>
+    <template #no-options>
+      <span>Type to search location...</span>
+    </template>
+
+    <template #option="location">
+      <slot name="option" :location="location"></slot>
+    </template>
+
+    <template #selected-option="location">
+      <slot name="selected-option" :location="location"></slot>
+    </template>
   </v-select>
 </template>
 
