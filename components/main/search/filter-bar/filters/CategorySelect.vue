@@ -24,9 +24,10 @@ export default {
   name: 'CategorySelect',
   props: {
     text: { type: String, default: null },
-    options: { type: Array, default: null },
     filterName: { type: String, default: null },
+    // Optional v-model support
     isMobile: { type: Boolean, defaults: false },
+    value: { type: Array, default: null },
   },
   data() {
     return {
@@ -45,6 +46,11 @@ export default {
         name: item,
         isSelected: this.selectedCategoryItems.includes(item),
       }));
+    },
+  },
+  watch: {
+    selectedCategoryItems(val) {
+      this.$emit('input', val);
     },
   },
   created() {

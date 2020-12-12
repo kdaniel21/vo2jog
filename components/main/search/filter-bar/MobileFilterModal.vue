@@ -5,15 +5,68 @@
       <span>Filters</span>
     </b-button>
 
-    <b-modal id="filter-modal" class="p-0">
-      <h3>Filters</h3>
+    <b-modal
+      id="filter-modal"
+      title="Filters"
+      class="p-0"
+      @hidden="resetSelected"
+    >
+      <category-select
+        v-for="{ name } in subcategories"
+        :key="name"
+        v-model="selectedSubcategories[name]"
+        :filter-name="name"
+        is-mobile
+      />
+
+      <clear-filters class="mt-3" />
+
+      <template #modal-footer>
+        <b-button
+          class="btn-block-xs-only"
+          variant="primary"
+          @click="applyFilters"
+        >
+          Apply Filters
+        </b-button>
+      </template>
     </b-modal>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
+
 export default {
   name: 'MobileFilterModal',
+  data() {
+    return {
+      selectedSubcategories: {},
+    };
+  },
+  computed: {
+    ...mapGetters('events', ['subcategories']),
+  },
+  methods: {
+    ...mapActions('events', ['setFilter']),
+    async applyFilters() {
+      // Remove empty arrays
+      Object.keys(this.selectedSubcategories).forEach(selected => {
+        if (!this.selectedSubcategories[selected].length)
+          this.selectedSubcategories[selected] = null;
+      });
+
+      await this.setFilter(this.selectedSubcategories);
+
+      this.close();
+    },
+    close() {
+      this.$bvModal.hide('filter-modal');
+    },
+    resetSelected() {
+      this.selectedSubcategories = {};
+    },
+  },
 };
 </script>
 
