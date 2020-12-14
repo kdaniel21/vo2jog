@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-import qs from 'qs';
 import flattenAndMergeCategories from '@/assets/utils/flatten-merge-categories';
 import filterFilters from '@/assets/utils/filter-filters';
 
@@ -14,6 +13,7 @@ export const getters = {
     return state.categories.map(category => category.name);
   },
   subcategories(state) {
+    if (!state.categories) return;
     const { filters } = state;
 
     let categories = [...state.categories];
@@ -49,12 +49,7 @@ export const mutations = {
 
 export const actions = {
   async fetchEvents({ commit, state }) {
-    const queryString = qs.stringify(state.filters, {
-      arrayFormat: 'comma',
-      skipNulls: true,
-      encode: false,
-    });
-    const res = await this.$axios.get(`/api/events?${queryString}`);
+    const res = await this.$axios.get('/api/events', { params: state.filters });
 
     if (res.data.data) commit('setEvents', res.data.data);
   },

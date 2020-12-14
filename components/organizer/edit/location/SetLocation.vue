@@ -25,15 +25,12 @@ export default {
     ...mapActions('organizer/events', ['updateEvent']),
     async saveLocation() {
       try {
-        const { address, position } = this.location;
-        await this.updateEvent({
-          address: { ...address },
-          coordinates: [position.lng, position.lat],
-        });
+        const { location } = this;
+        await this.updateEvent({ location });
 
         this.successToast('Location updated!');
       } catch {
-        this.successToast('Something went wrong. Could not update location!');
+        this.errorToast('Something went wrong. Could not update location!');
       }
     },
   },

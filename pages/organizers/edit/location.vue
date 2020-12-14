@@ -5,14 +5,15 @@
       It's handy to use the location of your race center. Users might filter
       events using this location.
     </p>
+
     <set-location />
 
     <client-only>
       <h3>Selected Location</h3>
       <location-map
-        v-if="location && location.position"
-        :lat="location.position.lat"
-        :lng="location.position.lng"
+        v-if="location && location.coordinates"
+        :lng="location.coordinates[0]"
+        :lat="location.coordinates[1]"
       />
       <p v-else>Plese add a location to display on the map!</p>
     </client-only>
@@ -25,7 +26,6 @@ import SetLocation from '@/components/organizer/edit/location/SetLocation';
 import LocationMap from '@/components/organizer/edit/location/LocationMap';
 
 export default {
-  name: 'location',
   components: { SetLocation, LocationMap },
   layout: 'organizer',
   middleware: ['auth', 'event-selected'],

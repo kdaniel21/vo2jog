@@ -42,7 +42,6 @@ export default {
     },
     renderMap() {
       if (!this.lat || !this.lng) return;
-      console.log('rendered');
 
       const { lat, lng } = this;
       const mapTypes = this.platform.createDefaultLayers();

@@ -1,7 +1,7 @@
 <template>
   <v-select
     id="location-search"
-    label="title"
+    :get-option-label="val => val.address.label"
     placeholder="Search Location"
     :value="value"
     :filterable="false"
@@ -69,18 +69,17 @@ export default {
         });
 
         if (res.data.items)
-          this.options = this.filterLocationData(res.data.items);
+          this.options = this.transformLocationData(res.data.items);
       } catch {
         this.errorToast('Something went wrong!');
       }
     },
-    filterLocationData(locationData) {
-      return locationData.map(data => {
-        delete data.access;
-        delete data.scoring;
-        delete data.mapView;
-        return data;
-      });
+    transformLocationData(locationData) {
+      return locationData.map(({ address, position }) => ({
+        type: 'Point',
+        address,
+        coordinates: [position.lng, position.lat],
+      }));
     },
   },
 };
