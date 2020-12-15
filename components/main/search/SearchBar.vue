@@ -63,9 +63,9 @@ export default {
     applyFilters() {
       let lat, lng;
       if (this.location) {
-        const { position } = this.location;
-        lat = position.lat;
-        lng = position.lng;
+        const { coordinates } = this.location;
+        lng = coordinates[0];
+        lat = coordinates[1];
       }
 
       return this.setFilter({ q: this.searchQuery, lat, lng });

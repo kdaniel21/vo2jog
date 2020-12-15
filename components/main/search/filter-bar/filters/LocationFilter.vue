@@ -35,10 +35,11 @@ export default {
   methods: {
     ...mapActions('events', ['setFilter']),
     async applyFilter() {
-      const { position } = this.location;
-      if (!position) return;
+      const { coordinates } = this.location;
+      if (!coordinates) return;
 
-      const { lat, lng } = position;
+      const lng = coordinates[0];
+      const lat = coordinates[1];
       await this.setFilter({ lat, lng, radius: this.radius });
 
       this.close();
