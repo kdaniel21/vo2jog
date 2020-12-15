@@ -37,7 +37,7 @@
           <span>{{ location }}</span>
         </h6>
 
-        <b-button :to="`/events/${event._id}`" variant="primary" size="sm" pill
+        <b-button :to="`/e/${event._id}`" variant="primary" size="sm" pill
           >Learn More</b-button
         >
       </div>

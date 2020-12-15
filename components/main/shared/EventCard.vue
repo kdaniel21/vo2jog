@@ -1,7 +1,7 @@
 <template>
   <nuxt-link
     v-if="event"
-    :to="`/events/${event._id}`"
+    :to="`/e/${event._id}`"
     class="text-dark text-decoration-none"
   >
     <b-card id="event-card" :img-src="image" no-body>
