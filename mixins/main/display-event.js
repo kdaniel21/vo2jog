@@ -3,7 +3,8 @@ export default {
     return {
       maxNumOfCategories: 8,
       priorityCategories: ['main', 'terrain', 'distance'],
-      placeholderImage: '',
+      placeholderImage:
+        'http://localhost:4000/events/img/event-5fa4e65399fadd4f0ebf1d8c-1605541380244.jpeg',
     };
   },
   computed: {
@@ -11,12 +12,12 @@ export default {
       return this.event.image || this.placeholderImage;
     },
     startDate() {
-      if (!this.event.startDate) return;
+      if (!this.event.startDate) return 'No date yet.';
 
       return this.$dateFns.format(this.event.startDate, 'do LLLL yyyy');
     },
     location() {
-      if (!this.event || !this.event.location) return;
+      if (!this.event || !this.event.location) return 'Unknown Location';
 
       const {
         address: { city, countryCode },

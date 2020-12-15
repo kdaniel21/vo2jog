@@ -46,6 +46,7 @@ export default {
 <style scoped>
 #event-card {
   width: min(80vw, 18rem);
+  height: 100%;
 }
 .card-img {
   max-height: 150px;

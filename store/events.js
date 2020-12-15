@@ -3,6 +3,9 @@ import flattenAndMergeCategories from '@/assets/utils/flatten-merge-categories';
 import filterFilters from '@/assets/utils/filter-filters';
 
 export const state = () => ({
+  currentPage: 1,
+  resultsPerPage: 1,
+  totalNumOfResults: null,
   events: [],
   filters: {},
   categories: [],
@@ -36,8 +39,9 @@ export const getters = {
 };
 
 export const mutations = {
-  setEvents(state, events) {
+  setEvents(state, { events, length }) {
     state.events = events;
+    state.totalNumOfResults = length;
   },
   setCategories(state, categories) {
     state.categories = [...categories];
@@ -45,13 +49,25 @@ export const mutations = {
   setFilters(state, filters) {
     state.filters = { ...filters };
   },
+  setPage(state, page) {
+    state.currentPage = page;
+  },
 };
 
 export const actions = {
   async fetchEvents({ commit, state }) {
-    const res = await this.$axios.get('/api/events', { params: state.filters });
+    const { filters, currentPage, resultsPerPage } = state;
+    const res = await this.$axios.get('/api/events', {
+      params: { ...filters, page: currentPage, limit: resultsPerPage },
+    });
 
-    if (res.data.data) commit('setEvents', res.data.data);
+    const { data, length } = res.data;
+    if (data) commit('setEvents', { events: data, length });
+  },
+  async setPage({ commit, dispatch }, page) {
+    commit('setPage', page);
+    await dispatch('setRouteQuery');
+    dispatch('fetchEvents');
   },
   async fetchCategories({ commit }) {
     const res = await this.$axios.get('/api/categories');
@@ -60,7 +76,11 @@ export const actions = {
     commit('setCategories', res.data.data);
   },
   loadFilters({ commit, dispatch }) {
-    if (process.client) commit('setFilters', $nuxt._route.query);
+    if (process.client) {
+      commit('setFilters', $nuxt._route.query);
+      const { page } = $nuxt._route.query;
+      if (page) commit('setPage', page);
+    }
 
     dispatch('fetchEvents');
   },
@@ -75,13 +95,17 @@ export const actions = {
     }
 
     commit('setFilters', query);
-    $nuxt._router.push({ query });
-
-    // Fetch events TODO:
+    dispatch('setRouteQuery');
     dispatch('fetchEvents');
   },
-  resetFilters({ commit }) {
-    $nuxt._router.push({ query: null });
+  resetFilters({ commit, dispatch }) {
     commit('setFilters', null);
+    dispatch('setRouteQuery');
+    dispatch('fetchEvents');
+  },
+  setRouteQuery({ state }) {
+    const query = { ...state.filters, page: state.currentPage };
+
+    $nuxt._router.push({ query });
   },
 };
