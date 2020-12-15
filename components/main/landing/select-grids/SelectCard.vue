@@ -2,7 +2,7 @@
   <nuxt-link
     id="select-card"
     class="mr-3"
-    to="/hi"
+    :to="to"
     :style="{ backgroundImage }"
   >
     <h3
@@ -19,6 +19,7 @@ export default {
   props: {
     text: { type: String, default: null },
     image: { type: String, default: null },
+    to: { type: String, default: null },
   },
   computed: {
     backgroundImage() {
