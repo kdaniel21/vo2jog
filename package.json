@@ -19,7 +19,7 @@
     "@nuxtjs/proxy": "^2.0.1",
     "@nuxtjs/style-resources": "^1.0.0",
     "bootstrap": "^4.5.3",
-    "bootstrap-vue": "^2.20.1",
+    "bootstrap-vue": "^2.21.0",
     "core-js": "^3.8.1",
     "deep-map-object": "0.0.5",
     "is-iso-date": "0.0.1",
