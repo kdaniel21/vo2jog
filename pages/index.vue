@@ -1,6 +1,6 @@
 <template>
   <div>
-    <search-area />
+    <landing-search-area />
 
     <b-container class="py-5 py-md-3">
       <sport-select class="mt-5 mt-md-1" />

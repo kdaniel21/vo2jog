@@ -18,7 +18,7 @@
       </template>
 
       <div class="d-flex justify-content-center">
-        <search-bar />
+        <landing-search-bar />
       </div>
     </b-jumbotron>
   </div>
@@ -26,7 +26,7 @@
 
 <script>
 export default {
-  name: 'SearchArea',
+  name: 'LandingSearchArea',
 };
 </script>
 
