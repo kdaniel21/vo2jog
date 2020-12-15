@@ -19,7 +19,7 @@
 import { mapActions } from 'vuex';
 
 export default {
-  name: 'EventCard',
+  name: 'OrganizerEventCard',
   props: {
     event: {
       type: Object,
