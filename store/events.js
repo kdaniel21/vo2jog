@@ -4,7 +4,7 @@ import filterFilters from '@/assets/utils/filter-filters';
 
 export const state = () => ({
   currentPage: 1,
-  resultsPerPage: 1,
+  resultsPerPage: 10,
   totalNumOfResults: null,
   events: [],
   filters: {},
