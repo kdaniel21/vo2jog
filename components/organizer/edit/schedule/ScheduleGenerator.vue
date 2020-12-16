@@ -97,8 +97,8 @@ export default {
       if (this.$v.form.$anyError) return;
 
       try {
-        const { _id } = this.selectedEvent;
-        const url = `/api/events/${_id}/schedule/${this.form.day}`;
+        const { id } = this.selectedEvent;
+        const url = `/api/events/${id}/schedule/${this.form.day}`;
         const { name, startTime } = this.form;
         const data = { name, startTime };
 

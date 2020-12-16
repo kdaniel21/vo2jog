@@ -3,7 +3,7 @@
     <h3>Current Social Media References</h3>
     <b-list-group>
       <b-list-group-item
-        v-for="{ icon, name, link, _id } in socialMedia"
+        v-for="{ icon, name, link, id } in socialMedia"
         :key="name"
         class="d-flex justify-content-between align-items-center"
       >
@@ -17,7 +17,7 @@
 
         <!-- DELETE BUTTON -->
         <delete-button
-          @delete="deleteItem({ name: 'socialMedia', itemId: _id })"
+          @delete="deleteItem({ name: 'socialMedia', itemId: id })"
         />
       </b-list-group-item>
     </b-list-group>

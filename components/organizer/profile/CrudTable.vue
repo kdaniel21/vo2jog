@@ -1,14 +1,14 @@
 <template>
   <b-table-lite :items="tableData" :fields="fields" striped hover>
-    <template #cell()="{ value, field: { key }, item: { _id } }">
+    <template #cell()="{ value, field: { key }, item: { id } }">
       <!-- EDITED STATE -->
       <slot
-        :isEdited="isRowEdited(_id)"
+        :isEdited="isRowEdited(id)"
         :editedRow="editedRow"
-        :row="{ value, field: { key }, item: { _id } }"
+        :row="{ value, field: { key }, item: { id } }"
       >
         <b-input
-          v-if="isRowEdited(_id)"
+          v-if="isRowEdited(id)"
           v-model="editedRow[key]"
           :autofocus="key === fields[0]"
         ></b-input>
@@ -17,7 +17,7 @@
     </template>
 
     <template #cell(actions)="{ item }">
-      <div v-if="isRowEdited(item._id)">
+      <div v-if="isRowEdited(item.id)">
         <fa
           v-b-popover.hover.top="'Save'"
           icon="check"
@@ -42,7 +42,7 @@
           class="cursor-pointer fa-fw"
           @click="editRow(item)"
         />
-        <delete-button @delete="deleteRow(item._id)" />
+        <delete-button @delete="deleteRow(item.id)" />
       </div>
     </template>
   </b-table-lite>
@@ -74,10 +74,10 @@ export default {
   },
   methods: {
     isRowEdited(id) {
-      return this.editedRow && this.editedRow._id === id;
+      return this.editedRow && this.editedRow.id === id;
     },
     addRow() {
-      this.newRow = { _id: `${Date.now()}` };
+      this.newRow = { id: `${Date.now()}` };
       this.editRow(this.newRow);
     },
     editRow(row) {

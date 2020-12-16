@@ -6,7 +6,7 @@
         :value="selectedEvent"
         label="name"
         placeholder="Please select an event."
-        :reduce="event => event._id"
+        :reduce="event => event.id"
         @input="selectEvent"
       />
     </client-only>

@@ -5,7 +5,7 @@
     </b-card-body>
 
     <!-- DELETE BTN -->
-    <delete-competition :id="competition._id" />
+    <delete-competition :id="competition.id" />
 
     <b-list-group>
       <b-list-group-item
@@ -19,7 +19,7 @@
     </b-list-group>
 
     <b-card-footer>
-      <nuxt-link :to="`competitions/${competition._id}`">
+      <nuxt-link :to="`competitions/${competition.id}`">
         <b-button block variant="outline-primary">Edit</b-button>
       </nuxt-link>
     </b-card-footer>

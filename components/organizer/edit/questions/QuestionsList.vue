@@ -2,10 +2,10 @@
   <div id="questions-list">
     <faq-item
       v-for="faq in questions.slice().reverse()"
-      :key="faq._id"
+      :key="faq.id"
       :faq="faq"
     >
-      <delete-button @delete="deleteItem({ name: 'faq', id: faq._id })" />
+      <delete-button @delete="deleteItem({ name: 'faq', id: faq.id })" />
     </faq-item>
   </div>
 </template>

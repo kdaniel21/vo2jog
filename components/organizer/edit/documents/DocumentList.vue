@@ -11,7 +11,7 @@
       </a>
 
       <!-- DELETE BUTTON -->
-      <delete-button @delete="deleteDocument(doc._id)" />
+      <delete-button @delete="deleteDocument(doc.id)" />
     </b-list-group-item>
   </b-list-group>
 </template>

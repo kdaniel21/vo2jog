@@ -2,14 +2,14 @@
   <div id="search-results">
     <!-- CARD DECK -->
     <b-card-group v-if="resultComponent === 'card'" deck>
-      <event-card v-for="event in events" :key="event._id" :event="event" />
+      <event-card v-for="event in events" :key="event.id" :event="event" />
     </b-card-group>
 
     <!-- LIST VIEW -->
     <event-list-item
       v-for="event in events"
       v-else
-      :key="event._id"
+      :key="event.id"
       :event="event"
       class="mb-3"
     />

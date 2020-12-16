@@ -12,7 +12,7 @@
     <b-card-group deck>
       <organizer-event-card
         v-for="event in events"
-        :key="event._id"
+        :key="event.id"
         :event="event"
       />
     </b-card-group>

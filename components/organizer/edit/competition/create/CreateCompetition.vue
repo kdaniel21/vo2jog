@@ -143,10 +143,10 @@ export default {
 
       try {
         const actionParams = { name: 'competitions', data: this.form };
-        const { _id } = this.form;
+        const { id } = this.form;
 
-        if (_id) {
-          await this.updateItem({ ...actionParams, itemId: _id });
+        if (id) {
+          await this.updateItem({ ...actionParams, itemId: id });
         } else {
           await this.addItem(actionParams);
         }

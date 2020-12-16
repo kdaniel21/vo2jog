@@ -14,7 +14,7 @@ export default {
     ...mapState({
       competition(state) {
         return state.organizer.events.selectedEvent.competitions.find(
-          competition => competition._id === this.$route.params.id
+          competition => competition.id === this.$route.params.id
         );
       },
     }),

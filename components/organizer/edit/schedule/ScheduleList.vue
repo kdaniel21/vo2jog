@@ -4,13 +4,13 @@
       <h5 v-if="eventLength > 1 && day.items.length > 0">Day {{ day.day }}</h5>
       <b-list-group>
         <b-list-group-item
-          v-for="{ name, startTime, _id } in day.items"
+          v-for="{ name, startTime, id } in day.items"
           :key="name"
           class="d-flex justify-content-between"
         >
           <span>{{ $dateFns.format(startTime, 'HH:mm') }} - {{ name }}</span>
 
-          <delete-button @delete="deleteScheduleItem(_id, day)" />
+          <delete-button @delete="deleteScheduleItem(id, day)" />
         </b-list-group-item>
       </b-list-group>
     </div>
@@ -42,7 +42,7 @@ export default {
     ...mapActions('organizer/events', ['deleteItem']),
     async deleteScheduleItem(id, day) {
       try {
-        const eventId = this.$store.state.organizer.events.selectedEvent._id;
+        const eventId = this.$store.state.organizer.events.selectedEvent.id;
         const url = `/api/events/${eventId}/schedule/${day.day}/${id}`;
         await this.deleteItem({ name: 'schedule', url });
 

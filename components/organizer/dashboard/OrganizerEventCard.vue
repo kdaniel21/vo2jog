@@ -29,7 +29,7 @@ export default {
   methods: {
     ...mapActions('organizer/events', ['selectEvent']),
     async selectAndEdit() {
-      await this.selectEvent(this.event._id);
+      await this.selectEvent(this.event.id);
       this.$router.push('/organizers/edit/basic');
     },
   },
