@@ -1,35 +1,47 @@
 <template>
-  <VueSlickCarousel
-    v-if="events.length"
-    id="event-card-carousel"
-    v-bind="settings"
-  >
-    <event-card
-      v-for="(event, i) in events"
-      :key="event._id + i"
-      :event="event"
-      :index="i"
-    />
-  </VueSlickCarousel>
+  <div>
+    <vue-glide
+      v-if="events.length"
+      id="event-card-carousel"
+      v-bind="settings"
+      :rewind="false"
+    >
+      <vue-glide-slide v-for="event in events" :key="event.id">
+        <event-card :event="event" class="h-100" />
+      </vue-glide-slide>
+
+      <template slot="control">
+        <b-button data-glide-dir="<" variant="light">
+          <fa icon="chevron-left" />
+        </b-button>
+        <b-button data-glide-dir=">" variant="light">
+          <fa icon="chevron-right" />
+        </b-button>
+      </template>
+    </vue-glide>
+  </div>
 </template>
 
 <script>
-import VueSlickCarousel from 'vue-slick-carousel';
-import 'vue-slick-carousel/dist/vue-slick-carousel.css';
-import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
-
 export default {
   name: 'EventCardCarousel',
-  components: { VueSlickCarousel },
   props: {
     events: { type: Array, default: () => [] },
   },
   data() {
     return {
       settings: {
-        dots: false,
-        infinite: false,
-        slidesPerRow: 2,
+        type: 'slider',
+        gap: 5,
+        rewind: false,
+        perView: 3.5,
+        bound: true,
+        breakpoints: {
+          675: { perView: 1 },
+          900: { perView: 1.5 },
+          1050: { perView: 2.3 },
+          1350: { perView: 3 },
+        },
       },
     };
   },
@@ -37,8 +49,24 @@ export default {
 </script>
 
 <style>
-.slick-prev::before,
-.slick-next::before {
-  color: #000 !important;
+div[data-glide-el='controls'] {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 40%;
+}
+button[data-glide-dir='<'],
+button[data-glide-dir='>'] {
+  position: absolute;
+  border: 0;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+}
+button[data-glide-dir='<'] {
+  left: -20px;
+}
+button[data-glide-dir='>'] {
+  right: -20px;
 }
 </style>

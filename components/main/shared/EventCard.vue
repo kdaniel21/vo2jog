@@ -5,14 +5,18 @@
     class="text-dark text-decoration-none"
   >
     <b-card id="event-card" :img-src="image" no-body>
-      <b-card-body class="px-3 pb-2 pt-2">
-        <h6 v-if="startDate" class="my-0">
-          {{ startDate }}
-        </h6>
-        <h5 class="font-weight-bold mb-0">{{ event.name }}</h5>
-        <div v-if="location">
-          <fa icon="map-marker-alt" />
-          <span>{{ location }}</span>
+      <b-card-body
+        class="px-3 pb-2 pt-2 d-flex flex-column justify-content-between"
+      >
+        <div>
+          <h6 v-if="startDate" class="my-0">
+            {{ startDate }}
+          </h6>
+          <h5 class="font-weight-bold mb-0">{{ event.name }}</h5>
+          <div v-if="location">
+            <fa icon="map-marker-alt" />
+            <span>{{ location }}</span>
+          </div>
         </div>
         <div v-if="categories" class="mt-3 d-flex flex-wrap">
           <b-badge
@@ -46,7 +50,7 @@ export default {
 <style scoped>
 #event-card {
   width: min(80vw, 18rem);
-  height: 100%;
+  height: 290px;
 }
 .card-img {
   max-height: 150px;
