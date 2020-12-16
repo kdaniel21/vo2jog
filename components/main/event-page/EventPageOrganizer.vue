@@ -2,25 +2,46 @@
   <div id="event-page-organizer">
     <h2>Organizer</h2>
 
-    <div class="d-flex">
-      <b-avatar :src="organizer.avatar" size="min(100px, 15vw)"></b-avatar>
+    <div
+      class="d-flex flex-wrap justify-content-center justify-content-sm-start"
+    >
+      <!-- AVATAR -->
+      <b-avatar :src="organizer.avatar" size="100px"></b-avatar>
 
-      <div class="d-flex flex-column justify-content-center ml-3">
+      <!-- SHORT PROFILE INFORMATION -->
+      <div class="d-flex flex-column justify-content-center ml-3 flex-grow-1">
         <h4>{{ organizer.name }}</h4>
-        <p class="text-muted text-truncate">
-          {{ organizer.description.substring(0, 100) + '...' }}
+        <p class="text-muted">
+          {{ organizer.motto }}
         </p>
-        <div>
-          <b-button variant="primary" pill :to="`/o/${organizer.id}`"
-            >View Profile
+        <!-- PROFILE BUTTONS -->
+        <div class="d-flex flex-wrap">
+          <b-button
+            variant="primary"
+            class="btn-block-xs-only mb-2 mb-sm-0 mr-sm-2"
+            pill
+            :to="`/o/${organizer.id}`"
+          >
+            <fa icon="users" fixed-width />
+            <span>View Profile</span>
           </b-button>
+
           <b-button
             variant="secondary"
             pill
             :href="organizer.socialMedia[0].link"
             target="_blank"
+            class="btn-block-xs-only"
           >
-            {{ `Visit ${organizer.socialMedia[0].name}` }}
+            <fa
+              fixed-width
+              :icon="
+                organizer.socialMedia[0].icon.length > 1
+                  ? organizer.socialMedia[0].icon
+                  : organizer.socialMedia[0].icon[0]
+              "
+            />
+            <span>{{ `Visit ${organizer.socialMedia[0].name}` }}</span>
           </b-button>
         </div>
       </div>
@@ -35,4 +56,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+#event-page-organizer {
+  width: 100%;
+  max-width: 100%;
+}
+</style>
