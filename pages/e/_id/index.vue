@@ -1,7 +1,6 @@
 <template>
   <div id="event-page">
     <event-page-photo :img="event.image" />
-    <h2 class="font-weight-bold">{{ event.name }}</h2>
     <event-page-basic-information :event="event" />
     <hr />
 
