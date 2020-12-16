@@ -4,27 +4,10 @@
 
     <div>
       <span class="font-weight-bold">Address:</span>
-      <span v-if="location.address.houseNumber">
-        {{ `${location.address.houseNumber}.` }}
-      </span>
-      <span v-if="location.address.street">
-        {{ `${location.address.street},` }}
-      </span>
-      <span v-if="location.address.city"> {{ location.address.city }}</span>
-      <span v-if="location.address.postalCode">
-        {{ `${location.address.postalCode},` }}
-      </span>
-      <span v-if="location.address.county">
-        {{ `${location.address.county},` }}
-      </span>
-      <span v-if="location.address.state">
-        {{ `${location.address.state},` }}
-      </span>
-      <span v-if="location.address.countryName">
-        {{ location.address.countryName }}
-      </span>
+      <span>{{ address }}</span>
     </div>
-    <div class="mb-3">
+
+    <div>
       <span class="font-weight-bold">Coordinates:</span>
       <span>{{ location.coordinates[1] }}&#176;,</span>
       <span>{{ location.coordinates[0] }}&#176;</span>
@@ -33,7 +16,18 @@
     <location-map
       :lng="location.coordinates[0]"
       :lat="location.coordinates[1]"
+      class="mt-3"
     />
+    <b-button
+      variant="primary"
+      pill
+      :href="navigationUrl"
+      target="_blank"
+      class="mt-2 btnb-block-xs-only float-right"
+    >
+      <fa icon="directions" fixed-width />
+      <span>Plan Route!</span>
+    </b-button>
   </div>
 </template>
 
@@ -41,6 +35,32 @@
 export default {
   name: 'EventPageLocation',
   props: { location: { type: Object, default: null } },
+  data() {
+    return {
+      addressElements: [
+        { name: 'houseNumber', append: '.' },
+        { name: 'street', append: ',' },
+        { name: 'city', append: '' },
+        { name: 'postalCode', append: ',' },
+        { name: 'county', append: ',' },
+        { name: 'state', append: ',' },
+        { name: 'countryName', append: '' },
+      ],
+    };
+  },
+  computed: {
+    address() {
+      return this.addressElements.reduce((address, { name, append }) => {
+        const value = this.location.address[name];
+        if (!value) return address;
+
+        return `${address} ${value}${append} `;
+      }, '');
+    },
+    navigationUrl() {
+      return `https://www.google.com/maps/dir/?api=1&destination=${this.address}`;
+    },
+  },
 };
 </script>
 
