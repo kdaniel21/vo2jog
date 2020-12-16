@@ -24,7 +24,6 @@ import { mapState } from 'vuex';
 
 export default {
   name: 'MyEvents',
-  components: { EventCard },
   computed: {
     ...mapState('organizer/events', ['events']),
   },
