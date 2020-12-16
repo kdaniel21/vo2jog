@@ -36,7 +36,7 @@ export default {
     url('~@/assets/img/background-landing.jpg') no-repeat center center;
   background-size: cover;
 
-  height: min(500px, 50vh);
+  height: min(500px, 65vh);
 }
 .bg-transparent {
   background-color: transparent !important;
