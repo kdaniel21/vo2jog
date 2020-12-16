@@ -12,9 +12,7 @@ export default {
   },
   computed: {
     documentsWithIcons() {
-      const { documents } = this;
-
-      return documents.map(doc => {
+      return this.documents.map(doc => {
         const url = `${this.$config.staticUrl}/events/docs/${doc.file}`;
         const extension = '.' + doc.file.split('.').pop();
         const icon =
