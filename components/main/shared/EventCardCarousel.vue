@@ -58,7 +58,6 @@ div[data-glide-el='controls'] {
 button[data-glide-dir='<'],
 button[data-glide-dir='>'] {
   position: absolute;
-  border: 0;
   height: 40px;
   width: 40px;
   border-radius: 20px;
