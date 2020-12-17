@@ -54,7 +54,7 @@ export default {
   name: 'SearchBar',
   data() {
     return {
-      searchQuery: null,
+      searchQuery: this.$store.state.events.filters.q,
       location: null,
     };
   },
@@ -73,6 +73,19 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+@import '~/node_modules/bootstrap/scss/_functions.scss';
+@import '~/node_modules/bootstrap/scss/_variables.scss';
+@import '~/node_modules/bootstrap/scss/_mixins.scss';
+
+@include media-breakpoint-up(sm) {
+  #location-input > .vs__dropdown-toggle {
+    border: none !important;
+    height: 100% !important;
+  }
+}
+</style>
 
 <style lang="scss" scoped>
 @import '~/node_modules/bootstrap/scss/_functions.scss';
@@ -110,19 +123,6 @@ export default {
   }
   #location-input-group > .input-group-append > .btn {
     border-radius: 10px;
-  }
-}
-</style>
-
-<style lang="scss">
-@import '~/node_modules/bootstrap/scss/_functions.scss';
-@import '~/node_modules/bootstrap/scss/_variables.scss';
-@import '~/node_modules/bootstrap/scss/_mixins.scss';
-
-@include media-breakpoint-up(sm) {
-  #location-input > .vs__dropdown-toggle {
-    border: none !important;
-    height: 100% !important;
   }
 }
 </style>
