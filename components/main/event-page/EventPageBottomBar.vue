@@ -3,7 +3,7 @@
     id="event-page-bottom-bar"
     type="light"
     variant="light"
-    class="w-100"
+    class="w-100 px-0"
   >
     <b-container fluid="md">
       <b-navbar-brand class="font-weight-bold mr-1 d-none d-md-block">
@@ -72,7 +72,7 @@ export default {
 
 <style scoped>
 #event-page-bottom-bar {
-  position: fixed;
+  position: sticky;
   bottom: 0;
   left: 0;
   z-index: 999;

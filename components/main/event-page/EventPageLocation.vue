@@ -18,16 +18,19 @@
       :lat="location.coordinates[1]"
       class="mt-3"
     />
-    <b-button
-      variant="primary"
-      pill
-      :href="navigationUrl"
-      target="_blank"
-      class="mt-2 btnb-block-xs-only float-right"
-    >
-      <fa icon="directions" fixed-width />
-      <span>Plan Route!</span>
-    </b-button>
+
+    <div class="d-flex justify-content-end">
+      <b-button
+        variant="primary"
+        pill
+        :href="navigationUrl"
+        target="_blank"
+        class="mt-2 btn-block-xs-only"
+      >
+        <fa icon="directions" fixed-width />
+        <span>Plan Route!</span>
+      </b-button>
+    </div>
   </div>
 </template>
 

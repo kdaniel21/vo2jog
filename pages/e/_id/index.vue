@@ -1,7 +1,5 @@
 <template>
   <div id="event-page">
-    <event-page-bottom-bar :event="event" />
-
     <event-page-photo :img="event.image" />
     <event-page-basic-information :event="event" />
     <hr />
@@ -29,6 +27,9 @@
     <hr />
 
     <event-page-location :location="event.location" />
+
+    <h2>Sign Up Now!</h2>
+    <event-page-bottom-bar :event="event" />
   </div>
 </template>
 
