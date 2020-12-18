@@ -25,6 +25,9 @@ export default {
 #default-layout {
   max-width: 100vw;
 }
+#default-layout > * {
+  max-width: 100%;
+}
 /* same amount as navbar height */
 .navbar-margin {
   padding-top: 60px;
