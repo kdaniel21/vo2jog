@@ -1,27 +1,12 @@
 <template>
-  <div id="the-footer">
-    <hr />
-    <div class="d-flex justify-content-center flex-wrap">
-      <div>
-        <h5>Company</h5>
-        <ul class="list-unstyled mr-5">
-          <li>About Us</li>
-          <li>Careers</li>
-          <li>Become Partner</li>
-          <li>Contact</li>
-        </ul>
-      </div>
-      <div>
-        <h5>Social Media</h5>
-        <ul class="list-unstyled">
-          <li>Follow Us on Facebook</li>
-          <li>Follow Us on Twitter</li>
-          <li>Follow Us on Instagram</li>
-          <li>Join Our Strava Group</li>
-        </ul>
-      </div>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam
+        obcaecati magnam ab similique in quis!
+      </p>
     </div>
-  </div>
+  </footer>
 </template>
 
 <script>

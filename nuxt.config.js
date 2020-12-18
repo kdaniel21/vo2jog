@@ -34,7 +34,6 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
-    '~/plugins/vue-sidebar-bootstrap.js',
     '~/plugins/axios.js',
     '~/plugins/vue-select.js',
     '~/plugins/vuelidate/vuelidate.js',
@@ -56,8 +55,7 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    // https://go.nuxtjs.dev/bootstrap
-    'bootstrap-vue/nuxt',
+    'nuxt-buefy',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
@@ -134,5 +132,10 @@ export default {
       solid: true,
       brands: true,
     },
+  },
+
+  buefy: {
+    defaultIconPack: 'fa',
+    defaultIconComponent: 'fa',
   },
 };
