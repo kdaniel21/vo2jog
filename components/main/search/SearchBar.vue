@@ -58,8 +58,11 @@ export default {
       location: null,
     };
   },
+  created() {
+    this.loadFilters();
+  },
   methods: {
-    ...mapActions('events', ['setFilter']),
+    ...mapActions('events', ['setFilter', 'loadFilters']),
     applyFilters() {
       let lat, lng;
       if (this.location) {

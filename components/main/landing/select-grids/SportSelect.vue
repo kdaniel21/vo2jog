@@ -19,7 +19,7 @@ export default {
       return this.sports.map(sport => ({
         name: sport,
         image: require(`@/assets/img/landing/categories/${sport.toLowerCase()}.jpg`),
-        to: `/search?sport=${sport}`,
+        to: `/search?main=${sport.toLowerCase()}`,
       }));
     },
   },

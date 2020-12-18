@@ -19,7 +19,7 @@ export default {
       return this.distances.map(distance => ({
         name: distance,
         image: require(`~/assets/img/landing/distances/${distance.toLowerCase()}.jpg`),
-        to: `/search?distance=${distance}`,
+        to: `/search?distance=${distance.toLowerCase()}`,
       }));
     },
   },
