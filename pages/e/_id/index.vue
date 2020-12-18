@@ -1,5 +1,7 @@
 <template>
   <div id="event-page">
+    <event-page-bottom-bar :event="event" />
+
     <event-page-photo :img="event.image" />
     <event-page-basic-information :event="event" />
     <hr />
@@ -40,5 +42,3 @@ export default {
   },
 };
 </script>
-
-<style></style>
