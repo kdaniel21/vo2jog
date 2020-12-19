@@ -4,6 +4,10 @@ export default {
     host: '0.0.0.0',
   },
 
+  compilerOptions: {
+    types: ['@nuxt/types', 'nuxt-i18n'],
+  },
+
   loaders: {
     vue: {
       compilerOptions: {
@@ -59,6 +63,7 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
+    'nuxt-i18n',
     // '@nuxtjs/proxy',
   ],
 
@@ -137,5 +142,17 @@ export default {
   buefy: {
     defaultIconPack: 'fa',
     defaultIconComponent: 'fa',
+  },
+
+  i18n: {
+    locales: [
+      { code: 'en', iso: 'en-US', file: 'en.json', localName: 'English' },
+      { code: 'hu', iso: 'hu-HU', file: 'hu.json', localName: 'Magyar' },
+    ],
+    lazy: true,
+    defaultLocale: 'en',
+    strategy: 'no_prefix',
+    langDir: 'locales/',
+    detectBrowserLanguage: { fallbackLocale: 'en' },
   },
 };

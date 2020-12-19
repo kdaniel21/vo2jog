@@ -2,25 +2,20 @@
   <b-navbar id="the-navbar" :transparent="isTransparent">
     <!-- BRAND -->
     <template #brand>
-      <b-navbar-item> Racircuit </b-navbar-item>
-      {{ isTransparent }}
+      <b-navbar-item>{{ $t('navbar.brand') }}</b-navbar-item>
     </template>
-    <b-navbar-brand>
-      <nuxt-link to="/" class="text-white">Racircuit</nuxt-link>
-    </b-navbar-brand>
-
     <!-- ITEMS -->
     <template #end>
       <b-navbar-item tag="nuxt-link" to="search">
         <b-icon icon="search" />
-        <span>Search</span>
+        <span>{{ $t('navbar.search') }}</span>
       </b-navbar-item>
 
       <!-- BUTTONS -->
       <b-navbar-item tag="div">
         <div class="buttons">
           <b-button tag="nuxt-link" to="login" class="button is-primary">
-            Login
+            {{ $t('navbar.login') }}
           </b-button>
 
           <b-button
@@ -29,7 +24,7 @@
             class="button is-primary"
             outlined
           >
-            Organizers
+            {{ $t('navbar.organizers') }}
           </b-button>
         </div>
       </b-navbar-item>
