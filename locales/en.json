@@ -1,8 +1,33 @@
 {
+  "common": {
+    "search": "Search"
+  },
+
   "navbar": {
     "brand": "Racircuit",
     "search": "Search",
     "login": "Login",
     "organizers": "Organizers"
+  },
+
+  "landing": {
+    "call_to_action": {
+      "title": "Where do you race next?",
+      "subtitle": "Find out together!"
+    },
+    "main": {
+      "running": "Running",
+      "cycling": "Cycling",
+      "triathlon": "Triathlon",
+      "swimming": "Swimming",
+      "other": "Other"
+    },
+    "distance": {
+      "10k": "10K",
+      "olympic": "Olympic",
+      "time_trial": "Time Trial",
+      "half_marathon": "Half Marathon",
+      "ironman": "Ironman"
+    }
   }
 }

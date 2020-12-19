@@ -1,5 +1,10 @@
 @import '~bulma/sass/utilities/_all';
 
+.is-vertical-center {
+  display: flex;
+  align-items: center;
+}
+
 .navbar {
   &.is-transparent {
     background-color: transparent;

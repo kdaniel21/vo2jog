@@ -1,23 +1,28 @@
 <template>
-  <section id="landing-search-area" class="section">
+  <section id="landing-search-area" class="section mb-4">
     <div class="container">
       <h1 class="is-size-2 title has-text-centered has-text-light">
-        Where do you race next?
+        {{ $t('landing.call_to_action.title') }}
       </h1>
       <h2 class="subtitle has-text-centered has-text-light">
-        Find out together!
+        {{ $t('landing.call_to_action.subtitle') }}
       </h2>
       <div class="box">
-        <b-field label="Search" label-position="on-border" class="has-addons">
+        <b-field
+          :label="$t('common.search')"
+          label-position="on-border"
+          class="has-addons"
+        >
           <b-input
-            placeholder="Search"
+            v-model="searchQuery"
+            :placeholder="$t('common.search')"
             type="search"
             icon="search"
             expanded
           ></b-input>
           <p class="control">
             <button class="button is-primary is-fullwidth" @click="onSearch">
-              Search
+              {{ $t('common.search') }}
             </button>
           </p>
         </b-field>
