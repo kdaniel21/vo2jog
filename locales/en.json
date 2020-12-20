@@ -3,7 +3,9 @@
     "search": "Search",
     "login": "Login",
     "name": "Name",
-    "email_address": "Email Address"
+    "email_address": "Email Address",
+    "description": "Description",
+    "organizer": "Organizer"
   },
 
   "shared": {
@@ -49,5 +51,15 @@
     "contacts": "Contacts",
     "phone_number": "Phone Number",
     "get_in_touch": "Get In Touch"
+  },
+
+  "event": {
+    "competitions": "Competitions",
+    "view_profile": "View Profile",
+    "visit": "Visit",
+    "faq": "Questions",
+    "schedule": "Schedule",
+    "day": "Day",
+    "documents": "Documents"
   }
 }

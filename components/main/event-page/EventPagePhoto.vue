@@ -1,5 +1,5 @@
 <template>
-  <b-img :src="img"></b-img>
+  <b-image :src="img" />
 </template>
 
 <script>
@@ -11,4 +11,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.image {
+  width: 40%;
+}
+</style>

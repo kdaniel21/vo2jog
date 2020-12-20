@@ -1,35 +1,32 @@
 <template>
-  <div id="event-page">
+  <div id="event-page" class="container">
     <event-page-photo :img="event.image" />
-    <event-page-basic-information :event="event" />
-    <hr />
 
-    <event-page-description :description="event.description" />
-    <hr />
+    <div class="columns mt-3">
+      <event-page-basic-information class="column is-half" :event="event" />
+    </div>
 
-    <event-page-competitions :competitions="event.competitions" />
-    <hr />
+    <event-page-description class="mt-2" :description="event.description" />
+
+    <event-page-competitions class="mt-2" :competitions="event.competitions" />
 
     <event-page-organizer :organizer="event.organizer" />
-    <hr />
 
     <event-page-faq :faq="event.faq" />
-    <hr />
 
-    <b-row>
-      <b-col cols="12" md="6">
+    <div class="columns is-desktop">
+      <div class="column">
         <event-page-schedule :schedule="event.schedule" />
-      </b-col>
-      <b-col>
+      </div>
+      <div class="column">
         <event-page-documents :documents="event.documents" />
-      </b-col>
-    </b-row>
-    <hr />
+      </div>
+    </div>
 
-    <event-page-location :location="event.location" />
+    <!-- <event-page-location :location="event.location" /> -->
 
-    <h2>Sign Up Now!</h2>
-    <event-page-bottom-bar :event="event" />
+    <!-- <h2>Sign Up Now!</h2> -->
+    <!-- <event-page-bottom-bar :event="event" /> -->
   </div>
 </template>
 

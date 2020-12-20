@@ -1,64 +1,70 @@
 <template>
-  <div id="event-page-organizer">
-    <h2>Organizer</h2>
+  <section class="card">
+    <div class="card-content">
+      <h2 class="title is-4">{{ $t('common.organizer') }}</h2>
 
-    <div
-      class="d-flex flex-wrap justify-content-center justify-content-sm-start"
-    >
-      <!-- AVATAR -->
-      <b-avatar :src="organizer.avatar" size="100px"></b-avatar>
+      <div class="columns">
+        <div id="avatar" class="column is-narrow container">
+          <b-image :src="organizer.avatar" ratio="1by1" rounded />
+        </div>
+        <div class="column has-text-centered-mobile">
+          <h4 class="is-size-4 has-text-weight-medium">{{ organizer.name }}</h4>
+          <p class="is-size-6 is-italic mb-4">{{ organizer.motto }}</p>
 
-      <!-- SHORT PROFILE INFORMATION -->
-      <div class="d-flex flex-column justify-content-center ml-3 flex-grow-1">
-        <h4>{{ organizer.name }}</h4>
-        <p class="text-muted">
-          {{ organizer.motto }}
-        </p>
-        <!-- PROFILE BUTTONS -->
-        <div class="d-flex flex-wrap">
+          <!-- BUTTONS -->
           <b-button
-            variant="primary"
-            class="btn-block-xs-only mb-2 mb-sm-0 mr-sm-2"
-            pill
-            :to="`/o/${organizer.id}`"
+            v-if="profileUrl"
+            type="is-primary"
+            tag="nuxt-link"
+            :to="profileUrl"
           >
-            <fa icon="users" fixed-width />
-            <span>View Profile</span>
+            {{ $t('event.view_profile') }}
           </b-button>
-
           <b-button
-            variant="secondary"
-            pill
-            :href="organizer.socialMedia[0].link"
+            v-if="primarySocialMedia"
+            type="is-primary is-light"
+            tag="a"
             target="_blank"
-            class="btn-block-xs-only"
+            icon-right="external-link-alt"
+            class="is-capitalized"
           >
-            <fa
-              fixed-width
-              :icon="
-                organizer.socialMedia[0].icon.length > 1
-                  ? organizer.socialMedia[0].icon
-                  : organizer.socialMedia[0].icon[0]
-              "
-            />
-            <span>{{ `Visit ${organizer.socialMedia[0].name}` }}</span>
+            {{ `${$t('event.visit')} ${primarySocialMedia.name}` }}
           </b-button>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
 export default {
   name: 'EventPageOrganizer',
   props: { organizer: { type: Object, default: null } },
+  computed: {
+    profileUrl() {
+      if (!this.organizer) return;
+
+      return `/o/${this.organizer.id}`;
+    },
+    primarySocialMedia() {
+      if (!this.organizer || !this.organizer.socialMedia.length) return;
+      const { socialMedia } = this.organizer;
+
+      return {
+        ...socialMedia[0],
+        icon:
+          socialMedia[0].icon.length > 1
+            ? socialMedia[0].icon
+            : socialMedia[0].icon[0],
+      };
+    },
+  },
 };
 </script>
 
 <style scoped>
-#event-page-organizer {
-  width: 100%;
-  max-width: 100%;
+#avatar {
+  width: 150px;
+  height: 150px;
 }
 </style>
