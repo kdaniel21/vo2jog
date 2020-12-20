@@ -1,5 +1,11 @@
 <template>
-  <b-carousel-list id="event-card-carousel" v-bind="settings" :data="events">
+  <b-carousel-list
+    id="event-card-carousel"
+    ref="carousel"
+    v-bind="settings"
+    :data="events"
+    :items-to-show="itemsToShow"
+  >
     <template #item="event">
       <event-card :event="event" />
     </template>
@@ -14,17 +20,30 @@ export default {
   },
   data() {
     return {
+      carouselWidth: null,
       settings: {
         iconSize: 'is-medium',
-        itemsToShow: 1,
-        breakpoints: {
-          600: { itemsToShow: 2 },
-          900: { itemsToShow: 3 },
-          1200: { itemsToShow: 4 },
-          1500: { itemsToShow: 5 },
-        },
       },
     };
+  },
+  computed: {
+    itemsToShow() {
+      const cardWidth = 290;
+      return Math.floor(this.carouselWidth / cardWidth);
+    },
+  },
+  mounted() {
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.handleResize);
+  },
+  methods: {
+    handleResize() {
+      if (this.$refs.carousel)
+        this.carouselWidth = this.$refs.carousel.$el.clientWidth;
+    },
   },
 };
 </script>
@@ -32,5 +51,6 @@ export default {
 <style>
 #event-card-carousel {
   height: 290px;
+  max-width: 100%;
 }
 </style>
