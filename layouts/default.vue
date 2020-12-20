@@ -2,7 +2,9 @@
   <div id="default-layout" class="is-flex is-flex-direction-column">
     <the-navbar />
 
-    <Nuxt id="content" class="is-flex-grow-1" />
+    <div id="content">
+      <Nuxt class="is-flex-grow-1" />
+    </div>
 
     <the-footer />
   </div>
