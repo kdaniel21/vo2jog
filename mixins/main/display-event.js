@@ -8,6 +8,9 @@ export default {
     };
   },
   computed: {
+    url() {
+      return `/e/${this.event.id}`;
+    },
     image() {
       return this.event.image || this.placeholderImage;
     },

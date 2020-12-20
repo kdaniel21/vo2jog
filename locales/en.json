@@ -3,6 +3,12 @@
     "search": "Search"
   },
 
+  "shared": {
+    "event_list_item": {
+      "details": "Learn More"
+    }
+  },
+
   "navbar": {
     "brand": "Racircuit",
     "search": "Search",
@@ -16,6 +22,7 @@
       "subtitle": "Find out together!"
     },
     "main": {
+      "title": "Select Sport",
       "running": "Running",
       "cycling": "Cycling",
       "triathlon": "Triathlon",
@@ -23,11 +30,15 @@
       "other": "Other"
     },
     "distance": {
+      "title": "Select Distance",
       "10k": "10K",
       "olympic": "Olympic",
       "time_trial": "Time Trial",
       "half_marathon": "Half Marathon",
       "ironman": "Ironman"
+    },
+    "popular_events": {
+      "title": "Most Popular Events"
     }
   }
 }

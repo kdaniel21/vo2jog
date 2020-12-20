@@ -1,9 +1,9 @@
 <template>
-  <nuxt-link v-if="event" :to="`/e/${event.id}`">
+  <nuxt-link v-if="event" :to="url">
     <div id="event-card" class="card is-flex is-flex-direction-column">
       <div class="card-image">
         <figure class="image is4by3">
-          <img :src="event.image" alt="Event Image" />
+          <img :src="image" alt="Event Image" />
         </figure>
       </div>
 
@@ -19,16 +19,7 @@
           </div>
         </div>
 
-        <!-- CATEGORIES -->
-        <div v-if="categories" class="is-clipped">
-          <span
-            v-for="category in categories"
-            :key="category"
-            class="tag is-primary mr-1 is-capitalized"
-          >
-            {{ category }}
-          </span>
-        </div>
+        <category-list :categories="categories" />
       </div>
     </div>
   </nuxt-link>

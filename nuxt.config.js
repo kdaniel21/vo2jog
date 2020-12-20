@@ -42,7 +42,6 @@ export default {
     '~/plugins/vue-select.js',
     '~/plugins/vuelidate/vuelidate.js',
     { src: '~/plugins/v-calendar', mode: 'client' },
-    '~/plugins/vue-glide.js',
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

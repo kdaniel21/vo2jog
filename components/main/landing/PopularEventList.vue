@@ -1,6 +1,8 @@
 <template>
   <div id="popular-event-list">
-    <h3>Most Popular Events</h3>
+    <h2 class="title has-text-capitalized">
+      {{ $t('landing.popular_events.title') }}
+    </h2>
 
     <event-card-carousel :events="events" />
   </div>

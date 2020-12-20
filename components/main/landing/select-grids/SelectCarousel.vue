@@ -1,6 +1,8 @@
 <template>
   <div id="select-carousel" class="mb-6">
-    <h2 class="title mb-2 has-text-capitalized">Select {{ title }}</h2>
+    <h2 class="title mb-2 has-text-capitalized">
+      {{ $t(`landing.${namespace}.title`) }}
+    </h2>
 
     <b-carousel-list v-bind="settings" :data="extendedItems">
       <template #item="{ name, image, to }">

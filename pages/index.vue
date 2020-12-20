@@ -4,15 +4,13 @@
     <landing-search-area />
 
     <div class="container px-1">
-      <select-carousel title="Sport" namespace="main" :items="sports" />
+      <select-carousel namespace="main" :items="sports" />
 
-      <select-carousel
-        title="Distance"
-        namespace="distance"
-        :items="distances"
-      />
+      <select-carousel namespace="distance" :items="distances" />
 
-      <event-card :event="event" />
+      <!-- <event-card :event="event" /> -->
+      <!-- <event-list-item :event="event" /> -->
+      <popular-event-list />
     </div>
   </div>
 </template>

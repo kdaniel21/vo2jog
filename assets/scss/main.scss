@@ -1,10 +1,12 @@
 @import '~bulma/sass/utilities/_all';
 
+// Vertical centering helper
 .is-vertical-center {
   display: flex;
   align-items: center;
 }
 
+// Make navbar fully transparent
 .navbar {
   &.is-transparent {
     background-color: transparent;

@@ -1,48 +1,43 @@
 <template>
-  <b-card v-if="event" id="event-list-item" class="p-0" no-body img-left>
-    <b-card-img :src="event.image" left class="d-none d-sm-block"></b-card-img>
+  <div id="event-list-item" class="card is-flex">
+    <div class="card-image is-hidden-mobile">
+      <figure class="image">
+        <img :src="image" alt="" />
+      </figure>
+    </div>
 
-    <b-card-body
-      class="d-flex flex-column flex-sm-row justify-content-between py-1"
+    <div
+      class="card-content is-flex-grow-1 py-2 px-3 is-flex is-flex-direction-column is-justify-content-space-between"
     >
-      <div
-        class="d-flex flex-column justify-content-start justify-content-md-between"
-      >
-        <h6 v-if="mainCategory" class="text-uppercase text-muted mb-0">
+      <div>
+        <h5 class="is-size-6 is-uppercase has-text-weight-light">
           {{ mainCategory }}
-        </h6>
-        <h5 class="font-weight-bold mb-0">{{ event.name }}</h5>
-        <h6 v-if="startDate" class="start-date">{{ startDate }}</h6>
-
-        <!-- CATEGORIES -->
-        <div
-          v-if="categories"
-          class="d-none d-md-flex flex-wrap overflow-hidden mt-3"
-        >
-          <b-badge
-            v-for="category in categories"
-            :key="category"
-            class="text-capitalize mr-1 mb-1"
-            variant="primary"
-            >{{ category }}
-          </b-badge>
-        </div>
+        </h5>
+        <h3 class="subtitle has-text-weight-medium mb-0">{{ event.name }}</h3>
+        <h5 class="is-size-6">{{ startDate }}</h5>
       </div>
 
-      <div
-        class="mt-2 mb-2 d-flex flex-row flex-sm-column justify-content-between align-items-end"
+      <category-list :categories="categories" />
+    </div>
+    <!-- LOCATION -->
+    <div
+      class="is-flex is-flex-direction-column is-justify-content-space-between py-2 pr-3 pl-2"
+    >
+      <div>
+        <b-icon icon="map-marker-alt" />
+        <span>{{ location }}</span>
+      </div>
+
+      <b-button
+        type="is-primary"
+        size="is-small"
+        rounded
+        tag="nuxt-link"
+        :to="url"
+        >{{ $t('shared.event_list_item.details') }}</b-button
       >
-        <h6 class="text-right">
-          <fa v-if="location" icon="map-marker-alt" fixed-width />
-          <span>{{ location }}</span>
-        </h6>
-
-        <b-button :to="`/e/${event.id}`" variant="primary" size="sm" pill
-          >Learn More</b-button
-        >
-      </div>
-    </b-card-body>
-  </b-card>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -72,14 +67,17 @@ export default {
 
 <style scoped>
 #event-list-item {
-  /* height: min(7rem, 30vh); */
-  /* OLDER BROWSERS */
-  max-height: 30vh;
-  height: 7rem;
   height: clamp(6rem, 7.5rem, 26vh);
   width: min(40rem, 100%);
 }
-.start-date {
-  font-size: 90%;
+
+#event-list-item > .card-image {
+  width: 30%;
+}
+
+#event-list-item > .card-image,
+#event-list-item > .card-image > .image,
+#event-list-item > .card-image > .image > img {
+  height: 100%;
 }
 </style>
