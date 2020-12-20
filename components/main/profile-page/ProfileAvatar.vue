@@ -1,6 +1,5 @@
 <template>
-  <!-- <b-avatar id="profile-avatar" :src="img" size="min(60vw, 300px)"></b-avatar> -->
-  <figure id="profile-avatar" class="image">
+  <figure id="profile-avatar" class="image container">
     <img :src="img" alt="Profile picture" class="is-rounded" />
   </figure>
 </template>
