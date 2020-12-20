@@ -10,7 +10,7 @@
       class="card-content is-flex-grow-1 py-2 px-3 is-flex is-flex-direction-column is-justify-content-space-between"
     >
       <div>
-        <h5 class="is-size-6 is-uppercase has-text-weight-light">
+        <h5 class="is-size-7 is-uppercase is-family-monospace">
           {{ mainCategory }}
         </h5>
         <h3 class="subtitle has-text-weight-medium mb-0">{{ event.name }}</h3>
