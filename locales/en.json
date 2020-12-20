@@ -1,7 +1,9 @@
 {
   "common": {
     "search": "Search",
-    "login": "Login"
+    "login": "Login",
+    "name": "Name",
+    "email_address": "Email Address"
   },
 
   "shared": {
@@ -44,6 +46,8 @@
   "profile": {
     "recent_events": "Recent Events",
     "all_events": "All Events",
-    "contacts": "Contacts"
+    "contacts": "Contacts",
+    "phone_number": "Phone Number",
+    "get_in_touch": "Get In Touch"
   }
 }

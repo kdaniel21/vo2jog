@@ -6,22 +6,34 @@
       </h2>
 
       <b-table :data="contacts" hoverable :mobile-cards="true">
-        <b-table-column v-slot="{ row }" field="name" label="Name">
+        <b-table-column
+          v-slot="{ row }"
+          field="name"
+          :label="$t('common.name')"
+        >
           {{ row.name }}
         </b-table-column>
 
-        <b-table-column v-slot="{ row }" field="email" label="Email Address">
+        <b-table-column
+          v-slot="{ row }"
+          field="email"
+          :label="$t('common.email_address')"
+        >
           {{ row.email }}
         </b-table-column>
 
-        <b-table-column v-slot="{ row }" field="phone" label="Phone Number">
+        <b-table-column
+          v-slot="{ row }"
+          field="phone"
+          :label="$t('profile.phone_number')"
+        >
           {{ row.phone }}
         </b-table-column>
 
         <b-table-column
           v-slot="{ row }"
           field="action"
-          label="Get In Touch"
+          :label="$t('profile.get_in_touch')"
           centered
         >
           <div>
