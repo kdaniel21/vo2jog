@@ -1,9 +1,7 @@
 <template>
   <div id="event-list-item" class="card is-flex">
     <div class="card-image is-hidden-mobile">
-      <figure class="image">
-        <img :src="image" alt="Event Image" />
-      </figure>
+      <b-image :src="image" alt="Event Image" />
     </div>
 
     <div

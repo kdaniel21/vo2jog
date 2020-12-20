@@ -1,7 +1,11 @@
 <template>
-  <figure id="profile-avatar" class="image container">
-    <img :src="img" alt="Profile picture" class="is-rounded" />
-  </figure>
+  <b-image
+    id="profile-avatar"
+    :src="img"
+    alt="Profile Picture"
+    rounded
+    class="container"
+  />
 </template>
 
 <script>

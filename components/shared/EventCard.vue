@@ -2,9 +2,7 @@
   <nuxt-link v-if="event" :to="url">
     <div id="event-card" class="card is-flex is-flex-direction-column">
       <div class="card-image">
-        <figure class="image is4by3">
-          <img :src="image" alt="Event Image" />
-        </figure>
+        <b-image :src="image" alt="Event Image" />
       </div>
 
       <div
