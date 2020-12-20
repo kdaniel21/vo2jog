@@ -8,8 +8,6 @@
 
       <select-carousel namespace="distance" :items="distances" />
 
-      <!-- <event-card :event="event" /> -->
-      <!-- <event-list-item :event="event" /> -->
       <popular-event-list />
     </div>
   </div>
