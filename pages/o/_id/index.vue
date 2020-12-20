@@ -3,6 +3,10 @@
     <div class="columns is-desktop is-2 is-variable">
       <div class="column is-narrow">
         <profile-avatar :img="'https://i.pravatar.cc/300'" />
+        <profile-social-media
+          :social-media="profile.socialMedia"
+          class="mt-3"
+        />
       </div>
       <div class="column">
         <profile-information :profile="profile" />
