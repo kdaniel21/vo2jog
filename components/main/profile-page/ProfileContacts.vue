@@ -1,43 +1,52 @@
 <template>
-  <!-- <div id="card-contacts">
-    <b-card-title>Contacts</b-card-title>
+  <div id="profile-contacts" class="card">
+    <div class="card-content">
+      <h2 class="subtitle is-size-4 has-text-weight-medium">
+        {{ $t('profile.contacts') }}
+      </h2>
 
-    <b-table-lite striped hover responsive="md" :fields="fields" :items="data">
-      <!-- ACTIONS COLUMN
-      <template #cell(actions)="{ item }">
-        <a v-if="item.email" :href="`mailto:${item.email}`" class="text-dark">
-          <fa
-            v-b-popover.hover.top="`Mail ${item.name}`"
-            icon="envelope"
-            fixed-width
-          />
-        </a>
-        <a
-          v-if="item.phone"
-          :href="`tel:${item.phone}`"
-          class="d-md-none text-white"
+      <b-table :data="contacts" hoverable :mobile-cards="true">
+        <b-table-column v-slot="{ row }" field="name" label="Name">
+          {{ row.name }}
+        </b-table-column>
+
+        <b-table-column v-slot="{ row }" field="email" label="Email Address">
+          {{ row.email }}
+        </b-table-column>
+
+        <b-table-column v-slot="{ row }" field="phone" label="Phone Number">
+          {{ row.phone }}
+        </b-table-column>
+
+        <b-table-column
+          v-slot="{ row }"
+          field="action"
+          label="Get In Touch"
+          centered
         >
-          <fa
-            v-b-popover.hover.top="`Call ${item.name}`"
-            icon="phone"
-            fixed-width
-          />
-        </a>
-      </template>
-    </b-table-lite>
-  </div> -->
+          <div>
+            <b-tooltip :label="`Send email to ${row.name}`">
+              <a :href="`mailto:${row.email}`" class="has-text-dark">
+                <b-icon icon="envelope" />
+              </a>
+            </b-tooltip>
+            <b-tooltip v-if="{ row }" :label="`Call ${row.name}`">
+              <a :href="`tel:${row.phone}`" class="has-text-dark">
+                <b-icon icon="phone" />
+              </a>
+            </b-tooltip>
+          </div>
+        </b-table-column>
+      </b-table>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'ProfileContacts',
   props: {
-    data: { type: Array, default: null },
-  },
-  data() {
-    return {
-      fields: ['name', 'email', 'phone', { key: 'actions', label: '' }],
-    };
+    contacts: { type: Array, default: () => [] },
   },
 };
 </script>

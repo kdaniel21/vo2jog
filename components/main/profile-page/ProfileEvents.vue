@@ -11,7 +11,7 @@
       </div>
 
       <!-- EVENTS -->
-      <event-card-carousel :breakpoints="breakpoints" :events="events" />
+      <event-card-carousel :events="events" />
     </div>
   </div>
 </template>

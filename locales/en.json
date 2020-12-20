@@ -43,6 +43,7 @@
 
   "profile": {
     "recent_events": "Recent Events",
-    "all_events": "All Events"
+    "all_events": "All Events",
+    "contacts": "Contacts"
   }
 }
