@@ -1,9 +1,9 @@
 <template>
-  <div id="card-contacts">
+  <!-- <div id="card-contacts">
     <b-card-title>Contacts</b-card-title>
 
     <b-table-lite striped hover responsive="md" :fields="fields" :items="data">
-      <!-- ACTIONS COLUMN -->
+      <!-- ACTIONS COLUMN
       <template #cell(actions)="{ item }">
         <a v-if="item.email" :href="`mailto:${item.email}`" class="text-dark">
           <fa
@@ -25,7 +25,7 @@
         </a>
       </template>
     </b-table-lite>
-  </div>
+  </div> -->
 </template>
 
 <script>

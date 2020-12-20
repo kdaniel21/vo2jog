@@ -8,14 +8,14 @@
     <template #end>
       <b-navbar-item tag="nuxt-link" to="search">
         <b-icon icon="search" />
-        <span>{{ $t('navbar.search') }}</span>
+        <span>{{ $t('common.search') }}</span>
       </b-navbar-item>
 
       <!-- BUTTONS -->
       <b-navbar-item tag="div">
         <div class="buttons">
           <b-button tag="nuxt-link" to="login" class="button is-primary">
-            {{ $t('navbar.login') }}
+            {{ $t('common.login') }}
           </b-button>
 
           <b-button

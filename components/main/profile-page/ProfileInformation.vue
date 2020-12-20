@@ -1,18 +1,17 @@
 <template>
-  <div v-if="profile" id="profile-information" class="flex-grow-1">
-    <h1>{{ profile.name }}</h1>
-    <h5>
-      <fa icon="map-marker-alt" fixed-width />
-      <span>Vienna, AUT</span>
-    </h5>
-    <p class="mt-3">{{ profile.motto }}</p>
-    <p class="mt-3">{{ profile.description }}</p>
-    <hr />
+  <div v-if="profile" class="card">
+    <div class="card-content">
+      <h1 class="title">{{ profile.name }}</h1>
+      <h3 class="subtitle">
+        <b-icon icon="map-marker-alt" />
+        <span>Vienna, AUT</span>
+      </h3>
+      <p class="is-italic">{{ profile.motto }}</p>
+      <p class="mt-2">{{ profile.description }}</p>
+    </div>
 
-    <!-- <profile-card class="mt-3 mt-md-3" :profile="profile" /> -->
-    <profile-events />
-    <hr />
-    <profile-contacts :data="profile.contactPeople" />
+    <!-- RATINGS -->
+    <!-- <footer class="card-footer"></footer> -->
   </div>
 </template>
 
@@ -22,9 +21,3 @@ export default {
   props: { profile: { type: Object, default: null } },
 };
 </script>
-
-<style scoped>
-#profile-information {
-  width: min(27rem, 60vw);
-}
-</style>
