@@ -42,7 +42,7 @@ export default {
 
 <style scoped>
 #event-card {
-  width: min(80vw, 18rem);
+  width: min(80vw, 290px);
   height: 290px;
 }
 .icon {
