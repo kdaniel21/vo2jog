@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     handleResize() {
-      if (!this.$refs.carousel)
+      if (this.$refs.carousel)
         this.carouselWidth = this.$refs.carousel.$el.clientWidth;
     },
   },
