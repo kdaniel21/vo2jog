@@ -45,6 +45,7 @@ export default {
     '~/plugins/vuelidate/vuelidate.js',
     { src: '~/plugins/v-calendar', mode: 'client' },
     { src: '~/plugins/mapbox.js', mode: 'client' },
+    '~/plugins/observe-visibility',
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

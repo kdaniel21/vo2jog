@@ -1,7 +1,16 @@
 <template>
-  <div id="location-map" :style="{ height, width }">
+  <div
+    id="location-map"
+    v-observe-visibility="visibilityChange"
+    :style="{ height, width }"
+  >
     <client-only :placeholder="$t('shared.location_map.loading')">
-      <mgl-map v-bind="settings" :center="location">
+      <mgl-map
+        v-if="mapbox"
+        v-bind="settings"
+        :center="location"
+        :mapbox-gl="mapbox"
+      >
         <!-- CONTROLS -->
         <mgl-scale-control />
         <mgl-geolocate-control ref="geolocateControl" />
@@ -23,6 +32,7 @@ export default {
   },
   data() {
     return {
+      mapbox: null,
       settings: {
         accessToken: this.$config.mapboxAccessToken,
         mapStyle: 'mapbox://styles/mapbox/streets-v11',
@@ -40,6 +50,13 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    visibilityChange(isVisible) {
+      if (!isVisible || this.mapbox) return;
+
+      this.mapbox = require('mapbox-gl');
+    },
   },
 };
 </script>
