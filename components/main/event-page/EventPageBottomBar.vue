@@ -42,10 +42,9 @@ import displayEvent from '~/mixins/main/display-event';
 export default {
   name: 'EventPageBottomBar',
   mixins: [displayEvent],
-  props: { event: { type: Array, default: () => [] } },
+  props: { event: { type: Object, default: null } },
   computed: {
     cheapestEntry() {
-      return 5;
       if (!this.event.competitions[0].currentFee) return null;
 
       return this.event.competitions.reduce((cheapest, { currentFee }) =>
