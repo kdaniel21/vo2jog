@@ -23,7 +23,7 @@
       </div>
     </div>
 
-    <!-- <event-page-location :location="event.location" /> -->
+    <event-page-location :location="event.location" />
 
     <!-- <h2>Sign Up Now!</h2> -->
     <!-- <event-page-bottom-bar :event="event" /> -->

@@ -31,6 +31,8 @@ export default {
     staticUrl: 'http://127.0.0.1:4000',
     baseUrl: 'http://127.0.0.1:4000/api/v1',
     hereApiKey: 'BFTP7HQsgOf6mW8rMA9K8JWY6qf7VJtUxGW1ZxfzbNE',
+    mapboxAccessToken:
+      'pk.eyJ1Ijoia2RhbmllbDIxIiwiYSI6ImNraGN4ODByazAwYzAzMHMwbDBxeWExd3UifQ.dVIo1mUh3QnDc0jz1YFLoA',
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
@@ -42,6 +44,7 @@ export default {
     '~/plugins/vue-select.js',
     '~/plugins/vuelidate/vuelidate.js',
     { src: '~/plugins/v-calendar', mode: 'client' },
+    { src: '~/plugins/mapbox.js', mode: 'client' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

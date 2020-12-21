@@ -32,3 +32,11 @@
     }
   }
 }
+
+// Button full width mobile
+@media screen and (max-width: 768px), print {
+  .button.is-fullwidth-mobile {
+    display: flex;
+    width: 100%;
+  }
+}

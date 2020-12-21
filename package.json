@@ -21,11 +21,13 @@
     "core-js": "^3.8.1",
     "deep-map-object": "0.0.5",
     "is-iso-date": "0.0.1",
+    "mapbox-gl": "^2.0.0",
     "nuxt": "^2.14.11",
     "nuxt-buefy": "^0.4.4",
     "nuxt-i18n": "^6.16.0",
     "qs": "^6.9.4",
     "v-calendar": "^2.1.2",
+    "vue-mapbox": "^0.4.1",
     "vue-select": "^3.10.8",
     "vuelidate": "^0.7.6",
     "vuelidate-error-extractor": "^2.4.1"

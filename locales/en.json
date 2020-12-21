@@ -5,12 +5,17 @@
     "name": "Name",
     "email_address": "Email Address",
     "description": "Description",
-    "organizer": "Organizer"
+    "organizer": "Organizer",
+    "location": "Location",
+    "address": "Address"
   },
 
   "shared": {
     "event_list_item": {
       "details": "Learn More"
+    },
+    "location_map": {
+      "loading": "Loading Map"
     }
   },
 
@@ -60,6 +65,8 @@
     "faq": "Questions",
     "schedule": "Schedule",
     "day": "Day",
-    "documents": "Documents"
+    "documents": "Documents",
+    "coordinates": "Coordinates",
+    "plan_route": "Plan Route!"
   }
 }
