@@ -1,7 +1,9 @@
 <template>
   <section class="card">
     <div class="card-content">
-      <h1 class="title">{{ event.name }}</h1>
+      <h1 class="title mb-0">{{ event.name }}</h1>
+      <category-list :categories="categories" class="mb-4" />
+
       <ul class="is-size-5">
         <li>
           <b-icon icon="map-marker-alt" />
@@ -25,8 +27,11 @@
 </template>
 
 <script>
+import displayEvent from '~/mixins/main/display-event';
+
 export default {
   name: 'EventPageBasicInformation',
+  mixins: [displayEvent],
   props: {
     event: { type: Object, default: null },
   },
