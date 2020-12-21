@@ -1,54 +1,46 @@
 <template>
-  <b-navbar
-    id="event-page-bottom-bar"
-    type="light"
-    variant="light"
-    class="w-100 px-0"
-  >
-    <b-container fluid="md">
-      <b-navbar-brand class="font-weight-bold mr-1 d-none d-md-block">
-        Vienna Virtual Run
-      </b-navbar-brand>
-      <b-badge
-        v-for="category in categories"
-        :key="category"
-        class="mr-1 text-capitalize overflow-hidden d-none d-md-block"
-        size="lg"
-      >
-        {{ category }}
-      </b-badge>
+  <div id="event-page-bottom-bar" class="columns py-0 px-2">
+    <div class="column is-hidden-mobile">
+      <h3 class="has-text-weight-medium is-size-5">
+        {{ event.name }}
+      </h3>
+      <h5 class="is-size-6">
+        <span>
+          <b-icon v-if="startDate" icon="calendar-alt" />
+          {{ startDate }}
+        </span>
+        <span v-if="location" class="ml-3">
+          <b-icon icon="map-marker-alt" /> {{ location }}
+        </span>
+      </h5>
+    </div>
 
-      <b-navbar-nav
-        class="ml-auto align-items-center justify-content-between justify-content-md-end flex-grow-1"
-      >
-        <h5 v-if="cheapestEntry" class="mr-2 mt-auto">
-          Entries from {{ cheapestEntry }}&euro;
-        </h5>
-        <div>
-          <b-button
-            v-b-tooltip.hover
-            variant="secondary"
-            class="mr-1"
-            title="Share"
-          >
-            <fa icon="share-alt" fixed-width />
+    <div
+      class="column is-narrow is-flex is-align-items-center is-justify-content-space-between"
+    >
+      <h5 v-if="cheapestEntry" class="mr-2">
+        {{ $t('event.entries_from') }}
+        <span class="has-text-weight-medium">{{ cheapestEntry }}&euro;</span>
+      </h5>
+      <div class="b-tooltips">
+        <b-tooltip
+          :label="$t('event.share_tooltip')"
+          type="is-info"
+          class="is-hidden-tablet"
+        >
+          <b-button type="is-info" icon-right="share-alt"></b-button>
+        </b-tooltip>
+        <b-tooltip :label="$t('event.bookmark_tooltip')" type="is-info">
+          <b-button type="is-info" icon-right="bookmark"></b-button>
+        </b-tooltip>
+        <b-tooltip :label="$t('event.signup_tooltip')">
+          <b-button type="is-primary" tag="nuxt-link" to="signup">
+            Sign up
           </b-button>
-          <b-button
-            v-b-tooltip.hover
-            variant="secondary"
-            class="mr-1"
-            title="Bookmark Race"
-          >
-            <fa icon="bookmark" fixed-width />
-          </b-button>
-        </div>
-        <b-button v-b-tooltip.hover title="Let's do this!" variant="primary">
-          <fa icon="sign-in-alt" fixed-width />
-          <span>Sign up</span>
-        </b-button>
-      </b-navbar-nav>
-    </b-container>
-  </b-navbar>
+        </b-tooltip>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -60,6 +52,7 @@ export default {
   props: { event: { type: Array, default: () => [] } },
   computed: {
     cheapestEntry() {
+      return 5;
       if (!this.event.competitions[0].currentFee) return null;
 
       return this.event.competitions.reduce((cheapest, { currentFee }) =>
@@ -77,10 +70,6 @@ export default {
   left: 0;
   z-index: 999;
 
-  background-color: rgba(0, 0, 0, 0.5);
-}
-.navbar-expand > * {
-  padding-left: inherit;
-  padding-right: inherit;
+  background-color: #fff;
 }
 </style>

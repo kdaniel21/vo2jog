@@ -67,6 +67,10 @@
     "day": "Day",
     "documents": "Documents",
     "coordinates": "Coordinates",
-    "plan_route": "Plan Route!"
+    "plan_route": "Plan Route!",
+    "signup_tooltip": "Let's do this!",
+    "bookmark_tooltip": "Bookmark event for later",
+    "share_tooltip": "Share with your friends",
+    "entries_from": "Entries starting at"
   }
 }

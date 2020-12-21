@@ -23,10 +23,13 @@
       </div>
     </div>
 
-    <event-page-location :location="event.location" />
+    <event-page-location
+      v-if="event.location.coordinates.length"
+      :location="event.location"
+    />
 
     <!-- <h2>Sign Up Now!</h2> -->
-    <!-- <event-page-bottom-bar :event="event" /> -->
+    <event-page-bottom-bar :event="event" />
   </div>
 </template>
 
