@@ -1,17 +1,21 @@
 <template>
   <div id="category-select">
-    <h5 class="text-capitalize">{{ text || filterName }}</h5>
-    <b-badge
-      v-for="{ name, isSelected } in categoryItems"
-      :key="name"
-      class="mr-1 text-capitalize cursor-pointer"
-      :variant="isSelected ? 'primary' : 'secondary'"
-      pill
-      @click="toggleSelect(name)"
-    >
-      <span>{{ name }}</span>
-      <fa v-if="isSelected" icon="check" fixed-width />
-    </b-badge>
+    <h5 class="is-size-5 is-capitalized has-text-weight-medium">
+      {{ text || filterName }}
+    </h5>
+
+    <div class="my-4">
+      <span
+        v-for="{ name, isSelected } in categoryItems"
+        :key="name"
+        class="mr-1 is-capitalized is-clickable"
+        @click="toggleSelect(name)"
+      >
+        <b-tag :type="isSelected ? 'is-primary' : null" :closable="isSelected">
+          {{ name }}
+        </b-tag>
+      </span>
+    </div>
 
     <button-row v-if="!isMobile" @apply="applyFilter" @cancel="close" />
   </div>
@@ -89,9 +93,3 @@ export default {
   },
 };
 </script>
-
-<style>
-#category-select {
-  font-size: 1.2rem;
-}
-</style>

@@ -1,7 +1,23 @@
 <template>
-  <div id="filter-bar" class="d-flex mb-2 justify-content-between">
+  <div id="filter-bar" class="is-flex mb-2 is-justify-content-between">
+    <div class="is-flex">
+      <filter-dropdown :text="$t('search.sport')" filter-name="main">
+        <category-select slot-scope="{ attrs }" v-bind="attrs" />
+      </filter-dropdown>
+
+      <filter-dropdown
+        v-for="filter in filters"
+        :key="filter"
+        :filter-name="filter"
+        class="is-hidden-mobile"
+      >
+        <category-select slot-scope="{ attrs }" v-bind="attrs" />
+      </filter-dropdown>
+    </div>
+  </div>
+  <!-- <div id="filter-bar" class="d-flex mb-2 justify-content-between">
     <div class="d-flex">
-      <!-- MAIN CATEGORY -->
+      <!-- MAIN CATEGORY
       <filter-popover ref="foo" text="Sport" filter-name="main" class="mr-2">
         <category-select slot-scope="{ attrs }" v-bind="attrs" />
       </filter-popover>
@@ -35,7 +51,7 @@
       <mobile-filter-modal />
       <clear-filters class="d-none d-sm-block" />
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
@@ -67,3 +83,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+#item {
+  max-width: 300px;
+}
+</style>

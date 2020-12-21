@@ -1,7 +1,9 @@
 <template>
-  <div id="search-area">
-    <search-bar class="mb-2" />
-    <!-- <filter-bar /> -->
+  <div id="search-area" class="card">
+    <div class="card-content">
+      <search-bar class="mb-2" />
+      <filter-bar />
+    </div>
   </div>
 </template>
 
@@ -11,4 +13,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+@import '~/assets/scss/main.scss';
+#search-area {
+  @include from($tablet) {
+    width: max-content;
+  }
+}
+</style>
