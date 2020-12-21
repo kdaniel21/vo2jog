@@ -16,6 +16,9 @@
     },
     "location_map": {
       "loading": "Loading Map"
+    },
+    "location_autocomplete": {
+      "no_data": "This looks empty! Nothing?!"
     }
   },
 
