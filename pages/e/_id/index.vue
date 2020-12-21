@@ -2,9 +2,7 @@
   <div id="event-page" class="container">
     <event-page-photo :img="event.image" />
 
-    <div class="columns mt-3">
-      <event-page-basic-information class="column is-half" :event="event" />
-    </div>
+    <event-page-basic-information class="column is-half" :event="event" />
 
     <event-page-description class="mt-2" :description="event.description" />
 
