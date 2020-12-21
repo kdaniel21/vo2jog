@@ -52,7 +52,6 @@ export default {
   props: { event: { type: Array, default: () => [] } },
   computed: {
     cheapestEntry() {
-      return 5;
       if (!this.event.competitions[0].currentFee) return null;
 
       return this.event.competitions.reduce((cheapest, { currentFee }) =>
@@ -69,7 +68,6 @@ export default {
   bottom: 0;
   left: 0;
   z-index: 999;
-
   background-color: #fff;
 }
 </style>
