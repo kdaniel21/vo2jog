@@ -71,6 +71,7 @@
     "signup_tooltip": "Let's do this!",
     "bookmark_tooltip": "Bookmark event for later",
     "share_tooltip": "Share with your friends",
-    "entries_from": "Entries starting at"
+    "entries_from": "Entries starting at",
+    "sign_up_now": "Sign Up Now!"
   }
 }

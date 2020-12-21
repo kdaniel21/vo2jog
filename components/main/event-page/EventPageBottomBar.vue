@@ -1,5 +1,5 @@
 <template>
-  <div id="event-page-bottom-bar" class="columns py-0 px-2">
+  <div id="event-page-bottom-bar" class="columns pt-0 px-5">
     <div class="column is-hidden-mobile">
       <h3 class="has-text-weight-medium is-size-5">
         {{ event.name }}

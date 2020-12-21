@@ -26,7 +26,7 @@
       :location="event.location"
     />
 
-    <!-- <h2>Sign Up Now!</h2> -->
+    <h2 class="title is-4 px-5 pt-5">{{ $t('event.sign_up_now') }}</h2>
     <event-page-bottom-bar :event="event" />
   </div>
 </template>
