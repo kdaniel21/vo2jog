@@ -22,6 +22,12 @@
           </nuxt-link>
         </li>
       </ul>
+
+      <div class="is-flex is-justify-content-end mt-2">
+        <b-button type="is-primary" class="is-fullwidth-mobile">
+          {{ $t('event.sign_up_now') }}
+        </b-button>
+      </div>
     </div>
   </section>
 </template>

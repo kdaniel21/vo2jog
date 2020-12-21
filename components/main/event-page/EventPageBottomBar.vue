@@ -23,19 +23,12 @@
         <span class="has-text-weight-medium">{{ cheapestEntry }}&euro;</span>
       </h5>
       <div class="b-tooltips">
-        <b-tooltip
-          :label="$t('event.share_tooltip')"
-          type="is-info"
-          class="is-hidden-tablet"
-        >
-          <b-button type="is-info" icon-right="share-alt"></b-button>
-        </b-tooltip>
         <b-tooltip :label="$t('event.bookmark_tooltip')" type="is-info">
           <b-button type="is-info" icon-right="bookmark"></b-button>
         </b-tooltip>
         <b-tooltip :label="$t('event.signup_tooltip')">
           <b-button type="is-primary" tag="nuxt-link" to="signup">
-            Sign up
+            {{ $t('event.sign_up') }}
           </b-button>
         </b-tooltip>
       </div>
@@ -52,6 +45,7 @@ export default {
   props: { event: { type: Array, default: () => [] } },
   computed: {
     cheapestEntry() {
+      return 5;
       if (!this.event.competitions[0].currentFee) return null;
 
       return this.event.competitions.reduce((cheapest, { currentFee }) =>
