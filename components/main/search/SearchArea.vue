@@ -1,7 +1,7 @@
 <template>
   <div id="search-area">
     <search-bar class="mb-2" />
-    <filter-bar />
+    <!-- <filter-bar /> -->
   </div>
 </template>
 

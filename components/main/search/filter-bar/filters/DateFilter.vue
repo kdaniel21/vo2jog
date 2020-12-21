@@ -1,10 +1,6 @@
 <template>
   <div>
-    <v-date-picker
-      v-model="range"
-      v-bind="settings"
-      :columns="$screens({ default: 1, lg: 2 })"
-    />
+    <v-date-picker v-model="range" v-bind="settings" columns="1" />
 
     <button-row @apply="applyFilter" @cancel="close" />
   </div>

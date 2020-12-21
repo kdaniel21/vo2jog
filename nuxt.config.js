@@ -87,6 +87,11 @@ export default {
       pathRewrite: { '^/here-api/': '' },
       changeOrigin: true,
     },
+    '/mapbox-api/': {
+      target: 'https://api.mapbox.com/geocoding/v5/mapbox.places',
+      pathRewrite: { '^/mapbox-api/': '' },
+      changeOrigin: true,
+    },
   },
 
   // @nuxtjs/auth module configuration

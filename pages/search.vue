@@ -1,8 +1,8 @@
 <template>
-  <div id="search">
-    <search-area class="mb-3" />
+  <div id="search" class="container mt-2">
+    <search-area />
 
-    <search-results />
+    <!-- <search-results /> -->
   </div>
 </template>
 
