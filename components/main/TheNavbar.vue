@@ -2,7 +2,9 @@
   <b-navbar id="the-navbar" :transparent="isTransparent">
     <!-- BRAND -->
     <template #brand>
-      <b-navbar-item>{{ $t('navbar.brand') }}</b-navbar-item>
+      <b-navbar-item tag="nuxt-link" to="/">
+        {{ $t('navbar.brand') }}
+      </b-navbar-item>
     </template>
     <!-- ITEMS -->
     <template #end>
