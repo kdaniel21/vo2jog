@@ -1,23 +1,33 @@
 <template>
-  <b-form-group
-    :invalid-feedback="firstErrorMessage"
-    :state="isValid"
+  <b-field
     :label="label"
-    :description="description"
+    :label-position="labelPosition"
+    :custom-class="customClass"
+    :type="type"
+    :message="firstErrorMessage"
   >
-    <slot
-      :attrs="{ state: isValid }"
-      :listeners="{ input: () => preferredValidator.$touch() }"
-    />
-  </b-form-group>
+    <slot />
+  </b-field>
 </template>
 
 <script>
 import { singleErrorExtractorMixin } from 'vuelidate-error-extractor';
 
 export default {
-  name: 'FormElement',
+  name: 'FormGroup',
   extends: singleErrorExtractorMixin,
-  props: { description: { type: String, default: null } },
+  props: { labelPosition: { type: String, default: null } },
+  computed: {
+    type() {
+      if (this.hasErrors) return 'is-danger';
+
+      return this.isValid ? 'is-success' : null;
+    },
+    customClass() {
+      if (this.hasErrors) return 'has-text-danger';
+
+      return this.isValid ? 'has-text-success' : null;
+    },
+  },
 };
 </script>
