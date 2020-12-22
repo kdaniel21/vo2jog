@@ -1,7 +1,7 @@
 <template>
   <section class="card">
     <div class="card-content">
-      <h1 class="title mb-0">{{ event.name }}</h1>
+      <h1 class="title mb-2">{{ event.name }}</h1>
       <category-list :categories="categories" class="mb-4" />
 
       <ul class="is-size-5">
