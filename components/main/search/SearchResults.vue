@@ -1,5 +1,10 @@
 <template>
   <section id="search-results" class="container">
+    <!-- NO RESULTS -->
+    <p v-if="!events.length" class="has-text-centered py-6">
+      {{ $t('search.no_results') }}
+    </p>
+
     <div v-if="isCardView" id="card-deck">
       <event-card v-for="event in events" :key="event.id" :event="event" />
     </div>

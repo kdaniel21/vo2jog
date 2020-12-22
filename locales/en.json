@@ -89,6 +89,7 @@
     "reset_filters": "Clear Filters",
     "select_radius": "Select Radius",
     "filters": "Filters",
-    "apply_filters": "Apply Filters"
+    "apply_filters": "Apply Filters",
+    "no_results": "Nothing was found with your parameters. Maybe try again with something else?"
   }
 }
