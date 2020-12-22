@@ -128,14 +128,16 @@ export default {
   build: {},
 
   router: {
-    parseQuery: q => require('qs').parse(q, { comma: true }),
-    stringifyQuery: q =>
-      '?' +
-      require('qs').stringify(q, {
-        arrayFormat: 'comma',
+    parseQuery: q => require('qs').parse(q),
+    stringifyQuery: q => {
+      if (!Object.keys(q).length) return '/';
+
+      const queryString = require('qs').stringify(q, {
         skipNulls: true,
         encode: false,
-      }),
+      });
+      return `?${queryString}`;
+    },
   },
 
   // Fontawesome module configuration
