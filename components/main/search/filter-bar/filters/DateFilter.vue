@@ -43,7 +43,7 @@ export default {
       this.close();
     },
     close() {
-      this.$parent.$parent.close();
+      this.$parent.$parent.toggle();
     },
   },
 };
