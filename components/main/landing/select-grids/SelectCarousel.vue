@@ -40,7 +40,7 @@ export default {
       return this.items.map(item => ({
         name: this.$t(`landing.${namespace}.${item}`),
         image: require(`~/assets/img/landing/${namespace}/${item}.jpg`),
-        to: `/search?${namespace}=${item}`,
+        to: `/search?${namespace}[]=${item}`,
       }));
     },
   },
