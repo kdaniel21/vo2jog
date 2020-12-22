@@ -87,8 +87,7 @@ export default {
       this.close();
     },
     close() {
-      // eslint-disable-next-line vue/custom-event-name-casing
-      this.$root.$emit('bv::hide::popover', `popover-${this.filterName}`);
+      this.$parent.$parent.toggle();
     },
   },
 };
