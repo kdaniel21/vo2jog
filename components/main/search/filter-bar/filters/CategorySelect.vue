@@ -4,6 +4,8 @@
       {{ text || filterName }}
     </h5>
 
+    {{ filterName }}
+
     <div class="my-4">
       <span
         v-for="{ name, isSelected } in categoryItems"
@@ -45,6 +47,8 @@ export default {
         this.filterName === 'main'
           ? getters['events/mainCategories']
           : getters['events/getCategoryItems'](this.filterName);
+
+      if (!items) return null;
 
       return items.map(item => ({
         name: item,

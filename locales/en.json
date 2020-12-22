@@ -86,6 +86,8 @@
     "sport": "Sport",
     "select_date": "Select Date",
     "select_location": "Select Location",
-    "reset_filters": "Clear Filters"
+    "reset_filters": "Clear Filters",
+    "filters": "Filters",
+    "apply_filters": "Apply Filters"
   }
 }
