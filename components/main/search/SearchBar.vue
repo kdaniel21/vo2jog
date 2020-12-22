@@ -23,11 +23,8 @@ export default {
       location: null,
     };
   },
-  created() {
-    this.loadFilters();
-  },
   methods: {
-    ...mapActions('events', ['setFilter', 'loadFilters']),
+    ...mapActions('events', ['setFilter']),
     applyFilters() {
       let lat, lng;
       if (this.location) {

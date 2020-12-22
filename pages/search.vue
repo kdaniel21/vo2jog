@@ -7,5 +7,12 @@
 </template>
 
 <script>
-export default {};
+export default {
+  fetch({ store, route }) {
+    return Promise.all([
+      store.dispatch('events/fetchCategories'),
+      store.dispatch('events/loadFilters', route.query),
+    ]);
+  },
+};
 </script>

@@ -51,9 +51,6 @@ export default {
       ],
     };
   },
-  fetch() {
-    return Promise.all([this.fetchCategories(), this.loadFilters()]);
-  },
   computed: {
     ...mapGetters('events', ['subcategories']),
     filters() {
