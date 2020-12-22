@@ -1,7 +1,7 @@
 <template>
   <div id="search-area" class="card">
-    <div class="card-content">
-      <search-bar class="mb-2" />
+    <div class="card-content pb-2">
+      <search-bar class="mb-4" />
       <filter-bar />
     </div>
   </div>

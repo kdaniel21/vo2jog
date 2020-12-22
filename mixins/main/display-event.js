@@ -22,10 +22,7 @@ export default {
     location() {
       if (!this.event || !this.event.location) return 'Unknown Location';
 
-      const {
-        address: { city, countryCode },
-      } = this.event.location;
-      return `${city}, ${countryCode}`;
+      return this.event.location.address.city;
     },
     categories() {
       if (!this.event) return;

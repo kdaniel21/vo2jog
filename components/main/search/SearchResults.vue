@@ -1,11 +1,9 @@
 <template>
-  <div id="search-results">
-    <!-- CARD DECK -->
-    <b-card-group v-if="resultComponent === 'card'" deck>
+  <section id="search-results" class="container">
+    <div v-if="isCardView" id="card-deck">
       <event-card v-for="event in events" :key="event.id" :event="event" />
-    </b-card-group>
+    </div>
 
-    <!-- LIST VIEW -->
     <event-list-item
       v-for="event in events"
       v-else
@@ -14,17 +12,15 @@
       class="mb-3"
     />
 
-    <!-- PAGINATION -->
     <b-pagination
       v-if="resultsPerPage < totalNumOfResults"
       v-model="currentPage"
-      class="mt-3"
-      align="center"
-      hide-goto-end-buttons
+      :total="totalNumOfResults"
       :per-page="resultsPerPage"
-      :total-rows="totalNumOfResults"
+      order="is-centered"
+      class="mt-5"
     />
-  </div>
+  </section>
 </template>
 
 <script>
@@ -36,8 +32,8 @@ export default {
   mixins: [windowSize],
   computed: {
     ...mapState('events', ['events', 'resultsPerPage', 'totalNumOfResults']),
-    resultComponent() {
-      return this.width <= 768 ? 'list' : 'card';
+    isCardView() {
+      return this.width > 768;
     },
     currentPage: {
       get() {
@@ -54,4 +50,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+#card-deck {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 290px);
+  grid-gap: 1rem;
+}
+</style>
