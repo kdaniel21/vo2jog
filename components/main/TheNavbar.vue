@@ -18,7 +18,7 @@
           <b-icon icon="briefcase" />
           <span>{{ $t('navbar.organizers') }}</span>
         </template>
-        <b-navbar-item tag="nuxt-link" to="/login">
+        <b-navbar-item tag="nuxt-link" to="/organizers/login">
           <b-icon icon="sign-in-alt" />
           <span>{{ $t('common.login') }}</span>
         </b-navbar-item>
