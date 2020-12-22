@@ -5,6 +5,10 @@
         <category-select slot-scope="{ attrs }" v-bind="attrs" />
       </filter-dropdown>
 
+      <filter-dropdown text="Date" filter-name="date">
+        <date-filter />
+      </filter-dropdown>
+
       <filter-dropdown
         v-for="filter in filters"
         :key="filter"

@@ -82,6 +82,7 @@
   },
 
   "search": {
-    "sport": "Sport"
+    "sport": "Sport",
+    "select_date": "Select Date"
   }
 }
