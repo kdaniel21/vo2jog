@@ -13,22 +13,35 @@
         <span>{{ $t('common.search') }}</span>
       </b-navbar-item>
 
-      <!-- BUTTONS -->
-      <b-navbar-item tag="div">
-        <div class="buttons">
-          <b-button tag="nuxt-link" to="login" class="button is-primary">
-            {{ $t('common.login') }}
-          </b-button>
+      <b-navbar-dropdown>
+        <template #label>
+          <b-icon icon="briefcase" />
+          <span>{{ $t('navbar.organizers') }}</span>
+        </template>
+        <b-navbar-item tag="nuxt-link" to="/login">
+          <b-icon icon="sign-in-alt" />
+          <span>{{ $t('common.login') }}</span>
+        </b-navbar-item>
+        <b-navbar-item>
+          <b-icon icon="handshake" class="mr-1" />
+          <span>{{ $t('navbar.become_partner') }}</span>
+        </b-navbar-item>
+        <b-navbar-item>
+          <b-icon icon="info-circle" />
+          <span>{{ $t('navbar.about_us') }}</span>
+        </b-navbar-item>
+      </b-navbar-dropdown>
 
-          <b-button
-            tag="nuxt-link"
-            to="organizers"
-            class="button is-primary"
-            outlined
-          >
-            {{ $t('navbar.organizers') }}
-          </b-button>
-        </div>
+      <!-- BUTTONS -->
+      <b-navbar-item>
+        <b-button
+          type="is-primary"
+          tag="nuxt-link"
+          to="login"
+          icon-left="sign-in-alt"
+        >
+          {{ $t('common.login') }}
+        </b-button>
       </b-navbar-item>
     </template>
   </b-navbar>

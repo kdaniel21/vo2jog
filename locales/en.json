@@ -27,7 +27,9 @@
 
   "navbar": {
     "brand": "Racircuit",
-    "organizers": "Organizers"
+    "organizers": "Organizers",
+    "become_partner": "Become Partner",
+    "about_us": "About Us"
   },
 
   "landing": {
