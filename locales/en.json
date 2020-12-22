@@ -3,6 +3,7 @@
     "search": "Search",
     "login": "Login",
     "name": "Name",
+    "email": "Email",
     "email_address": "Email Address",
     "description": "Description",
     "organizer": "Organizer",
@@ -93,5 +94,15 @@
     "filters": "Filters",
     "apply_filters": "Apply Filters",
     "no_results": "Nothing was found with your parameters. Maybe try again with something else?"
+  },
+
+  "organizer_login": {
+    "organizer_login": "Organizer Login",
+    "password": "Password",
+    "sign_in": "Sign In",
+    "no_account": "Don't have an account?",
+    "get_started": "Get Started",
+    "forgot_password": "Forgot Password?",
+    "error": "Your email or password is not correct. Please try again!"
   }
 }
