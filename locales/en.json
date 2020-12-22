@@ -9,7 +9,8 @@
     "location": "Location",
     "address": "Address",
     "apply": "Apply",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "date": "Date"
   },
 
   "shared": {
@@ -83,6 +84,8 @@
 
   "search": {
     "sport": "Sport",
-    "select_date": "Select Date"
+    "select_date": "Select Date",
+    "select_location": "Select Location",
+    "select_radius": "Select Radius"
   }
 }

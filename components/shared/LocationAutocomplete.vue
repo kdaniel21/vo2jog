@@ -6,7 +6,7 @@
     :data="locations"
     :placeholder="placeholder"
     :loading="loading"
-    append-to-body
+    :append-to-body="appendToBody"
     clearable
     @typing="onSearch"
     @select="val => $emit('input', val)"
@@ -29,6 +29,7 @@ export default {
   props: {
     value: { type: Object, default: null },
     placeholder: { type: String, default: 'Vienna' },
+    appendToBody: { type: Boolean, default: true },
   },
   data() {
     return {

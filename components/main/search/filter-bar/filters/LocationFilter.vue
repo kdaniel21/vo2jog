@@ -1,22 +1,26 @@
 <template>
-  <div id="location-filter">
-    <location-search v-model="location" />
+  <div class="location-filter">
+    <h5 class="is-size-5 is-capitalized has-text-weight-medium">
+      {{ $t('search.select_location') }}
+    </h5>
 
-    <h5 class="mb-0">Select Radius</h5>
-    <div id="radius-select" class="d-flex flex-wrap w-100">
-      <b-badge
-        v-for="radiusOption in radiusOptions"
-        :key="radiusOption"
-        pill
-        :variant="radius === radiusOption ? 'primary' : 'secondary'"
-        class="mr-1 mt-1 flex-shrink-0 cursor-pointer"
-        @click="radius = radiusOption"
-      >
-        {{ radiusOption }} km
-      </b-badge>
-    </div>
+    <location-autocomplete v-model="location" :append-to-body="false" />
 
-    <button-row @cancel="close" @apply="applyFilter" />
+    <h5 class="is-size-6 is-capitalized has-text-weight-medium">
+      {{ $t('search.select_radius') }}
+    </h5>
+    <span
+      v-for="radius in radiusOptions"
+      :key="radius"
+      class="is-clickable"
+      @click="selectedRadius = radius"
+    >
+      <b-tag :type="selectedRadius === radius ? 'is-primary' : null">
+        {{ radius }} km
+      </b-tag>
+    </span>
+
+    <button-row class="mt-3" @cancel="close" @apply="applyFilter" />
   </div>
 </template>
 
@@ -28,7 +32,7 @@ export default {
   data() {
     return {
       location: null,
-      radius: 30,
+      selectedRadius: 30,
       radiusOptions: [10, 30, 50, 70, 100, 200],
     };
   },
@@ -40,20 +44,13 @@ export default {
 
       const lng = coordinates[0];
       const lat = coordinates[1];
-      await this.setFilter({ lat, lng, radius: this.radius });
+      await this.setFilter({ lat, lng, radius: this.selectedRadius });
 
       this.close();
     },
     close() {
-      // eslint-disable-next-line vue/custom-event-name-casing
-      this.$root.$emit('bv::hide::popover', 'popover-location');
+      this.$parent.$parent.close();
     },
   },
 };
 </script>
-
-<style>
-#radius-select {
-  font-size: 1.2rem;
-}
-</style>
