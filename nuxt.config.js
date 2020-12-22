@@ -46,6 +46,7 @@ export default {
     { src: '~/plugins/v-calendar', mode: 'client' },
     { src: '~/plugins/mapbox.js', mode: 'client' },
     '~/plugins/observe-visibility',
+    '~/plugins/toast',
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
