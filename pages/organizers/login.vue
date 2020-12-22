@@ -7,15 +7,16 @@
           {{ $t('organizer_login.organizer_login') }}
         </h1>
 
-        <b-field :label="$t('common.email')">
+        <form-group :label="$t('common.email')" :validator="$v.form.email">
           <b-input
             v-model="form.email"
             :placeholder="$t('common.email_address')"
             icon="envelope"
+            @input="$v.form.email.$touch()"
           />
-        </b-field>
+        </form-group>
 
-        <b-field>
+        <form-group :validator="$v.form.password">
           <template #label>
             <span>{{ $t('organizer_login.password') }}</span>
             <nuxt-link
@@ -33,8 +34,9 @@
             password-reveal
             :placeholder="$t('organizer_login.password')"
             icon="lock"
+            @input="$v.form.password.$touch()"
           />
-        </b-field>
+        </form-group>
 
         <b-button type="is-primary" class="is-fullwidth" @click="login">
           {{ $t('organizer_login.sign_in') }}
@@ -50,6 +52,8 @@
 </template>
 
 <script>
+import { required, email, minLength } from 'vuelidate/lib/validators';
+
 export default {
   data() {
     return {
@@ -58,6 +62,12 @@ export default {
         password: null,
       },
     };
+  },
+  validations: {
+    form: {
+      email: { required, email },
+      password: { required, minLength: minLength(8) },
+    },
   },
   methods: {
     async login() {
