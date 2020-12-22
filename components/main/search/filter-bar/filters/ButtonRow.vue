@@ -1,7 +1,7 @@
 <template>
   <div
     id="button-row"
-    class="is-flex is-justify-content-space-between mx-1 mt-2"
+    class="is-hidden-mobile is-flex is-justify-content-space-between mx-1 mt-2"
   >
     <b-button type="is-text" @click="$emit('cancel')">
       {{ $t('common.cancel') }}

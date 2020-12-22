@@ -87,6 +87,7 @@
     "select_date": "Select Date",
     "select_location": "Select Location",
     "reset_filters": "Clear Filters",
+    "select_radius": "Select Radius",
     "filters": "Filters",
     "apply_filters": "Apply Filters"
   }

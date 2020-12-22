@@ -1,5 +1,9 @@
 <template>
-  <b-button type="is-danger is-light" @click="resetFilters">
+  <b-button
+    type="is-danger is-light"
+    icon-left="trash-alt"
+    @click="resetFilters"
+  >
     {{ $t('search.reset_filters') }}
   </b-button>
 </template>

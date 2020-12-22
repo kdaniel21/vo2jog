@@ -4,7 +4,7 @@
       {{ $t('search.select_date') }}
     </h5>
 
-    <b-datepicker v-model="range" v-bind="settings" />
+    <b-datepicker v-model="range" v-bind="settings" class="my-4" />
 
     <button-row @apply="applyFilter" @cancel="close" />
   </div>
@@ -15,6 +15,7 @@ import { mapActions } from 'vuex';
 
 export default {
   name: 'DateFilter',
+  props: { value: { type: Array, default: () => [] } },
   data() {
     return {
       range: [],
@@ -27,6 +28,11 @@ export default {
       },
     };
   },
+  watch: {
+    range(val) {
+      this.$emit('input', val);
+    },
+  },
   created() {
     const { start, end } = this.$route.query;
     if (start) this.range[0] = new Date(start);
@@ -35,8 +41,8 @@ export default {
   methods: {
     ...mapActions('events', ['setFilter']),
     async applyFilter() {
-      const start = this.range[0];
-      const end = this.range[1];
+      const start = this.range[0].toISOString();
+      const end = this.range[1].toISOString();
 
       await this.setFilter({ start, end });
 
@@ -51,7 +57,7 @@ export default {
 
 <style lang="scss">
 // Remove visible box and align
-#filter-dropdown > #date-filter {
+#date-filter {
   margin: 0 -1rem;
 
   & > h5 {
