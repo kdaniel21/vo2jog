@@ -36,7 +36,7 @@ export default {
         lat = coordinates[1];
       }
 
-      return this.setFilter({ q: this.searchQuery, lat, lng });
+      return this.setFilter({ search: this.searchQuery, lat, lng });
     },
   },
 };
