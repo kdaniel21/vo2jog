@@ -1,8 +1,7 @@
 <template>
   <div id="event-page" class="container">
-    <event-page-photo :img="event.image" />
-
-    <event-page-basic-information class="column is-half" :event="event" />
+    <event-page-hero :event="event" />
+    <event-page-basic-information class="is-hidden-tablet" :event="event" />
 
     <event-page-description class="mt-2" :description="event.description" />
 
@@ -27,7 +26,7 @@
     />
 
     <h2 class="title is-4 px-5 pt-5">{{ $t('event.sign_up_now') }}</h2>
-    <event-page-bottom-bar :event="event" />
+    <event-page-bottom-bar :event="event" class="mb-4" />
   </div>
 </template>
 
