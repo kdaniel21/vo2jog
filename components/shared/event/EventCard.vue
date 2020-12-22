@@ -1,8 +1,13 @@
 <template>
   <nuxt-link v-if="event" :to="url">
     <div id="event-card" class="card is-flex is-flex-direction-column">
-      <div class="card-image">
-        <b-image :src="image" alt="Event Image" />
+      <div class="card-image is-clipped">
+        <b-image
+          id="event-img"
+          :src="image"
+          alt="Event Image"
+          class="is-clipped"
+        />
       </div>
 
       <div
@@ -45,5 +50,8 @@ export default {
 }
 .icon {
   width: inherit;
+}
+.card-image {
+  max-height: 60%;
 }
 </style>
