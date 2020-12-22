@@ -1,5 +1,5 @@
 <template>
-  <div id="filter-bar" class="is-flex mb-2 is-justify-content-between">
+  <div id="filter-bar" class="is-flex mb-2 is-justify-content-space-between">
     <div class="is-flex">
       <filter-dropdown :text="$t('search.sport')" filter-name="main">
         <category-select slot-scope="{ attrs }" v-bind="attrs" />
@@ -22,13 +22,16 @@
         <category-select slot-scope="{ attrs }" v-bind="attrs" />
       </filter-dropdown>
     </div>
+
+    <div>
+      <clear-filters class="is-hidden-mobile" />
+    </div>
   </div>
   <!-- <div id="filter-bar" class="d-flex mb-2 justify-content-between">
     <div class="d-flex">
 
     <div>
       <mobile-filter-modal />
-      <clear-filters class="d-none d-sm-block" />
     </div>
   </div> -->
 </template>

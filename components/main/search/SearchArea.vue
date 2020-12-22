@@ -12,12 +12,3 @@ export default {
   name: 'SearchArea',
 };
 </script>
-
-<style lang="scss" scoped>
-@import '~/assets/scss/main.scss';
-#search-area {
-  @include from($tablet) {
-    width: max-content;
-  }
-}
-</style>
