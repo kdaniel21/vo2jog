@@ -6,6 +6,9 @@
     :type="type"
     :message="firstErrorMessage"
   >
+    <template #label>
+      <slot name="label" />
+    </template>
     <slot />
   </b-field>
 </template>
