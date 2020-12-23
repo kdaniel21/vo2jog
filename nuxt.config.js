@@ -141,6 +141,8 @@ export default {
     },
   },
 
+  loading: '~/components/main/TheLoadingIndicator',
+
   // Fontawesome module configuration
   fontawesome: {
     component: 'fa',
