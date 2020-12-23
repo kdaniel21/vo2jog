@@ -4,13 +4,12 @@ import vuelidateErrorExtractor from 'vuelidate-error-extractor';
 
 import FormGroup from '@/plugins/vuelidate/FormGroup';
 
-import messages from '@/plugins/vuelidate/error-messages';
 import attributes from '@/plugins/vuelidate/attributes';
 
 Vue.use(Vuelidate);
 Vue.use(vuelidateErrorExtractor, {
-  messages,
-  attributes,
+  i18n: 'validation.messages',
+  i18nAttributes: attributes,
 });
 
-Vue.component('form-group', FormGroup);
+Vue.component('FormGroup', FormGroup);
