@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import { required, email, minLength } from 'vuelidate/lib/validators';
+import { required, email } from 'vuelidate/lib/validators';
 
 export default {
   data() {
@@ -66,7 +66,7 @@ export default {
   validations: {
     form: {
       email: { required, email },
-      password: { required, minLength: minLength(8) },
+      password: { required },
     },
   },
   methods: {
