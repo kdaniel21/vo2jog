@@ -124,6 +124,7 @@
     "no_account": "Don't have an account?",
     "get_started": "Get Started",
     "forgot_password": "Forgot Password?",
-    "error": "Your email or password is not correct. Please try again!"
+    "error": "Your email or password is not correct. Please try again!",
+    "success": "Success! Now you are logged in."
   }
 }
