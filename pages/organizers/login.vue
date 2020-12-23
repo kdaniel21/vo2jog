@@ -55,6 +55,8 @@
 import { required, email } from 'vuelidate/lib/validators';
 
 export default {
+  middleware: ['auth'],
+  auth: 'guest',
   data() {
     return {
       form: {
@@ -76,6 +78,7 @@ export default {
         await this.$auth.loginWith('local-organizer', {
           data: { email, password },
         });
+        this.$toast.success(this.$t('organizer_login.success'));
       } catch {
         this.$toast.error(this.$t('organizer_login.error'));
       }
