@@ -11,13 +11,16 @@ export default {
   created() {
     this.setSize();
   },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.setSize);
+  },
   methods: {
     setSize() {
       if (!process.client) return;
 
-      const { height, width } = screen;
-      this.width = width;
-      this.height = height;
+      const { innerHeight, innerWidth } = window;
+      this.width = innerWidth;
+      this.height = innerHeight;
     },
   },
 };

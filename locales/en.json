@@ -124,6 +124,17 @@
     "sign_out": "Sign Out"
   },
 
+  "organizer_sidebar": {
+    "event_page": "Event Page",
+    "information": "Information",
+    "details": "Details",
+    "competitions": "Competitions",
+    "analytics": "Analytics",
+    "participants": "Participants",
+    "settings": "Settings",
+    "profile": "Profile"
+  },
+
   "organizer_login": {
     "organizer_login": "Organizer Login",
     "password": "Password",
