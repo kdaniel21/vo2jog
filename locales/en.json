@@ -117,6 +117,13 @@
     "no_results": "Nothing was found with your parameters. Maybe try again with something else?"
   },
 
+  "organizer_navbar": {
+    "brand": "vo2jog",
+    "public_profile": "Public Profile",
+    "account": "Account Settings",
+    "sign_out": "Sign Out"
+  },
+
   "organizer_login": {
     "organizer_login": "Organizer Login",
     "password": "Password",
