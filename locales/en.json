@@ -158,6 +158,7 @@
 
   "organizer_dashboard": {
     "greeting": "Hi there, {name}!",
-    "subtitle": "How's your day doing so far?"
+    "subtitle": "How's your day doing so far?",
+    "my_events": "My Events"
   }
 }

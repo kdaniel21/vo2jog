@@ -1,7 +1,8 @@
 <template>
   <div class="container">
-    <greeting />
-    <hr />
+    <greeting-hero />
+
+    <organizer-events />
   </div>
 </template>
 

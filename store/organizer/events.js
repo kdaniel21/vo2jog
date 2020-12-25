@@ -33,7 +33,14 @@ export const mutations = {
 
 export const actions = {
   async fetchEvents({ commit }) {
-    const res = await this.$axios.get('/api/profile/events?fields=name');
+    const fields = [
+      'name',
+      'startDate',
+      'location',
+      'categories',
+      'imageCover',
+    ].join(',');
+    const res = await this.$axios.get(`/api/profile/events?fields=${fields}`);
 
     const events = res.data.data;
     if (events.length > 0) commit('setEvents', events);
