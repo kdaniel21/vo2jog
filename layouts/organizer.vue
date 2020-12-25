@@ -6,7 +6,7 @@
       @toggle-sidebar="toggleSidebar"
     />
 
-    <Nuxt />
+    <!-- <Nuxt /> -->
   </div>
 </template>
 
@@ -22,7 +22,6 @@ export default {
   },
   computed: {
     isSidebarVisible() {
-      console.log('visiblity', this.width > 1024 ? true : this.isSidebarOpened);
       return this.width > 1024 ? true : this.isSidebarOpened;
     },
   },

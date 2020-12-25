@@ -132,7 +132,9 @@
     "analytics": "Analytics",
     "participants": "Participants",
     "settings": "Settings",
-    "profile": "Profile"
+    "profile": "Profile",
+    "select_event": "Select Event",
+    "create_event": "Create New Event"
   },
 
   "organizer_login": {

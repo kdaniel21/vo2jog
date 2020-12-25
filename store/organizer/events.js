@@ -8,13 +8,11 @@ export const state = () => ({
 export const getters = {};
 
 export const mutations = {
-  setSelectedEvent(state, eventId) {
-    const index = state.events.findIndex(event => event.id === eventId);
-
-    state.selectedEvent = state.events[index];
-  },
   setEvents(state, events) {
     state.events = [...events];
+  },
+  setSelectedEvent(state, event) {
+    state.selectedEvent = { ...event };
   },
   addEvent(state, event) {
     state.events.push({ ...event });
@@ -35,20 +33,23 @@ export const mutations = {
 
 export const actions = {
   async fetchEvents({ commit }) {
-    const res = await this.$axios.get('/api/profile/events');
+    const res = await this.$axios.get('/api/profile/events?fields=name');
 
     const events = res.data.data;
     if (events.length > 0) commit('setEvents', events);
   },
-  preSelectEvent({ commit }) {
-    if (process.browser && localStorage.getItem('selectedEventId')) {
-      commit('setSelectedEvent', localStorage.getItem('selectedEventId'));
-    }
-  },
-  selectEvent({ commit }, eventId) {
-    if (process.browser) localStorage.setItem('selectedEventId', eventId);
+  async selectEvent({ commit }, selectedEventId) {
+    const res = await this.$axios.get(`/api/events/${selectedEventId}`);
 
-    commit('setSelectedEvent', eventId);
+    if (!res.data.data) return;
+
+    if (process.browser)
+      localStorage.setItem('selectedEventId', res.data.data.id);
+    commit('setSelectedEvent', res.data.data);
+  },
+  preSelectEvent({ dispatch }) {
+    if (process.browser && localStorage.getItem('selectedEventId'))
+      return dispatch('selectEvent', localStorage.getItem('selectedEventId'));
   },
   async createEvent({ commit }, newEvent) {
     const res = await this.$axios.post('/api/events', newEvent);

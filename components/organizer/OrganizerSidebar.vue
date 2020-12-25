@@ -19,6 +19,9 @@
         </span>
       </div>
 
+      <!-- SELECT EVENT -->
+      <event-select class="px-2 py-2" />
+
       <!-- MENU -->
       <b-menu class="px-3 py-5">
         <b-menu-list>
@@ -113,6 +116,9 @@ export default {
     &.is-mini {
       &:not(.is-mini-expand),
       &.is-mini-expand:not(:hover) {
+        #event-select {
+          display: none;
+        }
         .menu-label > span:nth-child(2) {
           display: none;
         }
