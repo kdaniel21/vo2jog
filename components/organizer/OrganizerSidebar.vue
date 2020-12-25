@@ -96,10 +96,18 @@ export default {
             {
               icon: 'info-circle',
               text: 'information',
-              to: '/edit/information',
+              to: '/organizers/edit/information',
             },
-            { icon: 'asterisk', text: 'details', to: '/edit/details' },
-            { icon: 'running', text: 'competitions', to: '/edit/competitions' },
+            {
+              icon: 'asterisk',
+              text: 'details',
+              to: '/organizers/edit/details',
+            },
+            {
+              icon: 'running',
+              text: 'competitions',
+              to: '/organizers/edit/competitions',
+            },
           ],
         },
         { icon: 'chart-line', text: 'analytics', disabled: true },

@@ -4,7 +4,7 @@
       <b-navbar-item class="is-hidden-desktop">
         <b-button @click="$emit('toggle-sidebar')">foo</b-button>
       </b-navbar-item>
-      <b-navbar-item tag="nuxt-link" to="/organizers">
+      <b-navbar-item tag="nuxt-link" to="/organizers/dashboard">
         {{ $t('navbar.brand') }}
       </b-navbar-item>
     </template>
