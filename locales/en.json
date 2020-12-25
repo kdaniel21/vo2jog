@@ -147,7 +147,7 @@
     },
 
     "login": {
-      "organizer.login": "Organizer Login",
+      "organizer_login": "Organizer Login",
       "password": "Password",
       "sign_in": "Sign In",
       "no_account": "Don't have an account?",
@@ -161,6 +161,13 @@
       "greeting": "Hi there, {name}!",
       "subtitle": "How's your day doing so far?",
       "my_events": "My Events"
+    },
+
+    "info": {
+      "title": "Edit Event Information",
+      "description": "Here you can edit all the basic information regarding the selected event, such as name, cover image or location. Finer details (like schedule, necessary documents) can be handled under the details menu or by {link}",
+      "click_here": "clicking here.",
+      "basic_information": "Basic Information"
     }
   }
 }
