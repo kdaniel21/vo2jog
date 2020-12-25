@@ -56,8 +56,8 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex';
 import flattenMergeCategories from '@/assets/utils/flatten-merge-categories';
-import { mapState } from 'vuex';
 
 export default {
   name: 'Categories',
@@ -88,6 +88,12 @@ export default {
     this.selectedEvent.categories.forEach(
       ({ category, value }) => (this.selected[category] = [...value])
     );
+  },
+  methods: {
+    ...mapActions('organizer/events', ['updateEvent']),
+    onSave() {
+      return this.updateEvent({ categories: { ...this.selected } });
+    },
   },
 };
 </script>

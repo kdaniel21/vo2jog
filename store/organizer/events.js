@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import camelToKebab from '@/assets/utils/camelToKebab';
 
 export const state = () => ({
@@ -49,7 +50,6 @@ export const actions = {
     const res = await this.$axios.get(`/api/events/${selectedEventId}`);
     if (!res.data.data) return;
 
-    // eslint-disable-next-line no-undef
     if (process.client) $nuxt.$cookies.set('selectedEventId', res.data.data.id);
     commit('setSelectedEvent', res.data.data);
   },
@@ -61,10 +61,15 @@ export const actions = {
     dispatch('selectEvent', id);
   },
   async updateEvent({ commit, state }, updatedItems) {
-    const { id } = state.selectedEvent;
-    const res = await this.$axios.patch(`/api/events/${id}`, updatedItems);
+    try {
+      const { id } = state.selectedEvent;
+      const res = await this.$axios.patch(`/api/events/${id}`, updatedItems);
 
-    commit('updateEvent', res.data.data);
+      this.$toast.success($nuxt.$t('toast.success.event_update'));
+      commit('updateEvent', res.data.data);
+    } catch {
+      this.$toast.success($nuxt.$t('toast.error.event_update'));
+    }
   },
   async addItem({ commit, state }, { name, data, url }) {
     const { id } = state.selectedEvent;

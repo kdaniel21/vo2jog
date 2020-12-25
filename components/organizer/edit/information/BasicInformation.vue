@@ -86,15 +86,9 @@ export default {
   },
   methods: {
     ...mapActions('organizer/events', ['updateEvent']),
-    async onSave() {
-      try {
-        const { name, startDate, endDate } = this.form;
-        await this.updateEvent({ name, startDate, endDate });
-
-        this.$toast.success(this.$t('toast.success.event_update'));
-      } catch {
-        this.$toast.error(this.$t('toast.error.event_update'));
-      }
+    onSave() {
+      const { name, startDate, endDate } = this.form;
+      return this.updateEvent({ name, startDate, endDate });
     },
   },
 };
