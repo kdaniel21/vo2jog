@@ -50,7 +50,7 @@
         </b-taginput>
       </b-field>
 
-      <button-right />
+      <button-right @click="onSave" />
     </div>
   </div>
 </template>
