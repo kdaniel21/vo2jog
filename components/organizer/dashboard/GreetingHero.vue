@@ -1,6 +1,6 @@
 <template>
   <div id="greeting" class="hero is-light">
-    <div class="hero-body pb-2 columns">
+    <div class="hero-body py-4 columns">
       <div
         id="avatar-container"
         class="column is-narrow is-flex is-justify-content-center"
