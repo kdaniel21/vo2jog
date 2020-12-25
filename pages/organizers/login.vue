@@ -78,9 +78,9 @@ export default {
         await this.$auth.loginWith('local-organizer', {
           data: { email, password },
         });
-        this.$toast.success(this.$t('organizer.login.success'));
+        this.$toast.success(this.$t('toast.success.login'));
       } catch {
-        this.$toast.error(this.$t('organizer.login.error'));
+        this.$toast.error(this.$t('toast.error.login'));
       }
     },
   },

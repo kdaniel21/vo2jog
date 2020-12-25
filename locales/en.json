@@ -15,8 +15,18 @@
     "save": "Save"
   },
 
-  "errors": {
-    "general": "Oops! We couldn't reach our our servers. Please try again!"
+  "toast": {
+    "error": {
+      "general": "Oops! We couldn't reach our our servers. Please try again!",
+      "event_update": "Something went wrong and we couldn't update the event. Please try again!",
+      "login": "Your email or password is not correct. Please try again!",
+      "create_event": "Could not create event. Please try again!"
+    },
+    "success": {
+      "login": "Success! Now you are logged in.",
+      "create_event": "Event created successfully!",
+      "event_update": "Your event was updated successfully!"
+    }
   },
 
   "shared": {
@@ -151,9 +161,7 @@
       "title": "Create New Event",
       "message": "Please select a name for your event. You can change this later on.",
       "placeholder": "VO2JOG Charity Run",
-      "confirm": "Create Event",
-      "success_toast": "Event created successfully!",
-      "error_toast": "Could not create event. Please try again!"
+      "confirm": "Create Event"
     },
 
     "login": {
@@ -162,9 +170,7 @@
       "sign_in": "Sign In",
       "no_account": "Don't have an account?",
       "get_started": "Get Started",
-      "forgot_password": "Forgot Password?",
-      "error": "Your email or password is not correct. Please try again!",
-      "success": "Success! Now you are logged in."
+      "forgot_password": "Forgot Password?"
     },
 
     "dashboard": {
@@ -187,7 +193,7 @@
       "single_day": "Single Day",
       "multi_day": "Multi-day",
       "categories": "Categories",
-      "main_category": "Sport"
+      "success_toast": "Event updated successfully!"
     }
   }
 }

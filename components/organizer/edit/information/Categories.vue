@@ -72,7 +72,7 @@ export default {
       const res = await this.$axios.get('/api/categories');
       this.categories = [...res.data.data];
     } catch {
-      this.$toast.error(this.$t('errors.general'));
+      this.$toast.error(this.$t('toast.error.general'));
     }
   },
   computed: {

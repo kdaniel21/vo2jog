@@ -19,9 +19,9 @@ export default {
     async onConfirm(name) {
       try {
         await this.createEvent(name);
-        this.$toast.success(this.$t('organizer.create_event.success_toast'));
+        this.$toast.success(this.$t('toast.success.create_event'));
       } catch {
-        this.$toast.error(this.$t('organizer.create_event.error_toast'));
+        this.$toast.error(this.$t('toast.error.create_event'));
       }
     },
   },
