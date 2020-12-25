@@ -22,13 +22,19 @@ export const mutations = {
     const { id } = updatedEvent;
     const index = state.events.findIndex(event => event.id === id);
 
-    if (index === -1) return;
-
-    // Update selectedEvent if needed
     if (state.selectedEvent.id === updatedEvent.id)
       Object.assign(state.selectedEvent, { ...updatedEvent });
 
-    Object.assign(state.events[index], { ...updatedEvent });
+    if (index === -1) return;
+
+    const { name, startDate, location, categories, imageCover } = updatedEvent;
+    Object.assign(state.events[index], {
+      name,
+      startDate,
+      location,
+      categories,
+      imageCover,
+    });
   },
 };
 
