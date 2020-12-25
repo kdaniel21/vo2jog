@@ -51,10 +51,14 @@ export const actions = {
     if (process.browser && localStorage.getItem('selectedEventId'))
       return dispatch('selectEvent', localStorage.getItem('selectedEventId'));
   },
-  async createEvent({ commit }, newEvent) {
-    const res = await this.$axios.post('/api/events', newEvent);
+  async createEvent({ commit, dispatch }, newEventName) {
+    console.log('creating event ');
+    const res = await this.$axios.post('/api/events', { name: newEventName });
+    console.log(res);
+    const { id, name } = res.data.data;
 
-    commit('addEvent', res.data.data);
+    commit('addEvent', { id, name });
+    dispatch('selectEvent', id);
   },
   async updateEvent({ commit, state }, updatedItems) {
     const { id } = state.selectedEvent;

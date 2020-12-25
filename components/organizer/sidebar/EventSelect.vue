@@ -11,9 +11,9 @@
     @focus="initEvents"
   >
     <template #header>
-      <span class="is-clickable" @click="createEvent">
+      <span class="is-clickable" @click="onCreateEvent">
         <b-icon icon="plus-circle" />
-        <span>{{ $t('organizer_sidebar.create_event') }}</span>
+        <span>{{ $t('organizer_create_event.title') }}</span>
       </span>
     </template>
   </b-autocomplete>
@@ -21,9 +21,11 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
+import createEvent from '@/mixins/organizer/create-event';
 
 export default {
   name: 'EventSelect',
+  mixins: [createEvent],
   data() {
     return {
       loading: false,
@@ -49,7 +51,6 @@ export default {
       await this.fetchEvents();
       this.loading = false;
     },
-    createEvent() {},
   },
 };
 </script>

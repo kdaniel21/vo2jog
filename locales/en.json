@@ -133,8 +133,16 @@
     "participants": "Participants",
     "settings": "Settings",
     "profile": "Profile",
-    "select_event": "Select Event",
-    "create_event": "Create New Event"
+    "select_event": "Select Event"
+  },
+
+  "organizer_create_event": {
+    "title": "Create New Event",
+    "message": "Please select a name for your event. You can change this later on.",
+    "placeholder": "VO2JOG Charity Run",
+    "confirm": "Create Event",
+    "success_toast": "Event created successfully!",
+    "error_toast": "Could not create event. Please try again!"
   },
 
   "organizer_login": {
