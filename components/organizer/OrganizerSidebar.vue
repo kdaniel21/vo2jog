@@ -26,8 +26,12 @@
       <b-menu class="px-3 py-5">
         <b-menu-list>
           <template #label>
-            <b-icon icon="calendar" />
-            <span id="event-name">Vienna Virtual Run</span>
+            <div v-if="selectedEvent">
+              <b-icon icon="calendar" />
+              <span id="event-name">
+                {{ selectedEvent.name }}
+              </span>
+            </div>
           </template>
 
           <b-menu-item
@@ -35,7 +39,7 @@
             :key="text"
             :icon="icon"
             :label="$t(`organizer_sidebar.${text}`)"
-            :disabled="disabled"
+            :disabled="disabled || !selectedEvent"
             :tag="to ? 'nuxt-link' : 'a'"
             :to="to"
           >
@@ -74,7 +78,9 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import windowSize from '~/mixins/window-size';
+
 export default {
   name: 'OrganizerSidebar',
   mixins: [windowSize],
@@ -102,6 +108,7 @@ export default {
     };
   },
   computed: {
+    ...mapState('organizer/events', ['selectedEvent']),
     isTouch() {
       return this.width < 1024;
     },
@@ -119,7 +126,7 @@ export default {
         #event-select {
           display: none;
         }
-        .menu-label > span:nth-child(2) {
+        .menu-label > div > span:nth-child(2) {
           display: none;
         }
         .menu-list {
