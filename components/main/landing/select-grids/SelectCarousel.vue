@@ -1,7 +1,7 @@
 <template>
   <div id="select-carousel" class="mb-6">
     <h2 class="title mb-2 has-text-capitalized">
-      {{ $t(`landing.${namespace}.title`) }}
+      {{ $t(`landing.${namespace}_title`) }}
     </h2>
 
     <b-carousel-list v-bind="settings" :data="extendedItems">
@@ -38,7 +38,7 @@ export default {
     extendedItems() {
       const { namespace } = this;
       return this.items.map(item => ({
-        name: this.$t(`landing.${namespace}.${item}`),
+        name: this.$t(`categories.${namespace}.${item}`),
         image: require(`~/assets/img/landing/${namespace}/${item}.jpg`),
         to: `/search?${namespace}[]=${item}`,
       }));

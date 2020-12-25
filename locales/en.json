@@ -11,7 +11,12 @@
     "address": "Address",
     "apply": "Apply",
     "cancel": "Cancel",
-    "date": "Date"
+    "date": "Date",
+    "save": "Save"
+  },
+
+  "errors": {
+    "general": "Oops! We couldn't reach our our servers. Please try again!"
   },
 
   "shared": {
@@ -47,6 +52,24 @@
     "attributes": {}
   },
 
+  "categories": {
+    "main": {
+      "name": "Sport",
+      "running": "Running",
+      "cycling": "Cycling",
+      "swimming": "Swimming",
+      "triathlon": "Triathlon",
+      "other": "Other"
+    },
+    "distance": {
+      "10k": "10K",
+      "olympic": "Olympic",
+      "time_trial": "Time Trial",
+      "half_marathon": "Half Marathon",
+      "ironman": "Ironman"
+    }
+  },
+
   "navbar": {
     "brand": "vo2jog",
     "organizers": "Organizers",
@@ -59,22 +82,8 @@
       "title": "Where do you race next?",
       "subtitle": "Find out together!"
     },
-    "main": {
-      "title": "Select Sport",
-      "running": "Running",
-      "cycling": "Cycling",
-      "triathlon": "Triathlon",
-      "swimming": "Swimming",
-      "other": "Other"
-    },
-    "distance": {
-      "title": "Select Distance",
-      "10k": "10K",
-      "olympic": "Olympic",
-      "time_trial": "Time Trial",
-      "half_marathon": "Half Marathon",
-      "ironman": "Ironman"
-    },
+    "main_title": "Select Sport",
+    "distance_title": "Select Distance",
     "popular_events": {
       "title": "Most Popular Events"
     }
@@ -167,7 +176,17 @@
       "title": "Edit Event Information",
       "description": "Here you can edit all the basic information regarding the selected event, such as name, cover image or location. Finer details (like schedule, necessary documents) can be handled under the details menu or by {link}",
       "click_here": "clicking here.",
-      "basic_information": "Basic Information"
+      "basic_information": "Basic Information",
+      "event_name": "Event Name",
+      "name_placeholder": "VO2JOG Charity Run",
+      "start_date": "Start Date",
+      "end_date": "End Date",
+      "select_date": "Click here to select date",
+      "event_length": "Event Length",
+      "single_day": "Single Day",
+      "multi_day": "Multi-day",
+      "categories": "Categories",
+      "main_category": "Sport"
     }
   }
 }
