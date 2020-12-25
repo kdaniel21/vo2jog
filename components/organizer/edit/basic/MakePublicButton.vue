@@ -20,11 +20,9 @@
 <script>
 import { mapState, mapActions } from 'vuex';
 import toaster from '@/mixins/toaster';
-import ConfirmationModal from '@/components/organizer/ConfirmationModal';
 
 export default {
   name: 'MakePublicButton',
-  components: { ConfirmationModal },
   mixins: [toaster],
   computed: {
     ...mapState({

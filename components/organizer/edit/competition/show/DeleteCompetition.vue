@@ -21,10 +21,8 @@
 <script>
 import { mapActions } from 'vuex';
 import toaster from '@/mixins/toaster';
-import ConfirmationModal from '@/components/organizer/ConfirmationModal';
 export default {
   name: 'DeleteButton',
-  components: { ConfirmationModal },
   mixins: [toaster],
   props: {
     id: { type: String, default: null },
