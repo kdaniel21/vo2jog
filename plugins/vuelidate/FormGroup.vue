@@ -1,10 +1,10 @@
 <template>
   <b-field
     :label="label"
-    :label-position="labelPosition"
     :custom-class="customClass"
     :type="type"
     :message="firstErrorMessage"
+    v-bind="$attrs"
   >
     <template #label>
       <slot name="label" />
@@ -19,7 +19,6 @@ import { singleErrorExtractorMixin } from 'vuelidate-error-extractor';
 export default {
   name: 'FormGroup',
   extends: singleErrorExtractorMixin,
-  props: { labelPosition: { type: String, default: null } },
   computed: {
     type() {
       if (this.hasErrors) return 'is-danger';
