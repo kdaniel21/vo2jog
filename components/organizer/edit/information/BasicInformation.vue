@@ -16,6 +16,7 @@
 
     <form-group :label="dateLabel" horizontal>
       <b-datepicker
+        v-model="form.startDate"
         icon="calendar-alt"
         :placeholder="$t('organizer.info.select_date')"
       />
@@ -55,6 +56,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import { required } from 'vuelidate/lib/validators';
 import { alphaNumWhiteDiacritic } from '@/plugins/vuelidate/custom-validators';
 
@@ -83,7 +85,17 @@ export default {
     },
   },
   methods: {
-    onSave() {},
+    ...mapActions('organizer/events', ['updateEvent']),
+    async onSave() {
+      try {
+        const { name, startDate, endDate } = this.form;
+        await this.updateEvent({ name, startDate, endDate });
+
+        this.$toast.success(this.$t('toast.success.event_update'));
+      } catch {
+        this.$toast.error(this.$t('toast.error.event_update'));
+      }
+    },
   },
 };
 </script>
