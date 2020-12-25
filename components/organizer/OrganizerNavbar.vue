@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style>
-#avatar > img {
+#organizer-navbar #avatar > img {
   width: 1.75rem;
   height: 1.75rem;
 }
