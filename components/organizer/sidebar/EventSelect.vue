@@ -31,19 +31,11 @@ export default {
       loading: false,
     };
   },
-  fetch() {
-    return this.preSelectEvent();
-  },
-  fetchOnServer: false,
   computed: {
     ...mapState('organizer/events', ['events', 'selectedEvent']),
   },
   methods: {
-    ...mapActions('organizer/events', [
-      'preSelectEvent',
-      'fetchEvents',
-      'selectEvent',
-    ]),
+    ...mapActions('organizer/events', ['fetchEvents', 'selectEvent']),
     async initEvents() {
       if (this.events.length) return;
 

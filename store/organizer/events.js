@@ -47,21 +47,14 @@ export const actions = {
   },
   async selectEvent({ commit }, selectedEventId) {
     const res = await this.$axios.get(`/api/events/${selectedEventId}`);
-
     if (!res.data.data) return;
 
-    if (process.browser)
-      localStorage.setItem('selectedEventId', res.data.data.id);
+    // eslint-disable-next-line no-undef
+    if (process.client) $nuxt.$cookies.set('selectedEventId', res.data.data.id);
     commit('setSelectedEvent', res.data.data);
   },
-  preSelectEvent({ dispatch }) {
-    if (process.browser && localStorage.getItem('selectedEventId'))
-      return dispatch('selectEvent', localStorage.getItem('selectedEventId'));
-  },
   async createEvent({ commit, dispatch }, newEventName) {
-    console.log('creating event ');
     const res = await this.$axios.post('/api/events', { name: newEventName });
-    console.log(res);
     const { id, name } = res.data.data;
 
     commit('addEvent', { id, name });

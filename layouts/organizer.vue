@@ -15,6 +15,7 @@ import windowSize from '~/mixins/window-size';
 
 export default {
   mixins: [windowSize],
+  middleware: ['auth', 'select-event'],
   data() {
     return {
       isSidebarOpened: false,
