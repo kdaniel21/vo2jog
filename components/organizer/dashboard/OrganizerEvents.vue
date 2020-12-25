@@ -1,8 +1,14 @@
 <template>
   <div id="organizer-events" class="mt-4">
-    <h3 class="title is-size-3 mb-2">
-      {{ $t('organizer_dashboard.my_events') }}
-    </h3>
+    <div class="is-flex is-justify-content-space-between">
+      <h3 class="title is-size-3">
+        {{ $t('organizer_dashboard.my_events') }}
+      </h3>
+
+      <b-button type="is-primary is-light" @click="onCreateEvent">
+        {{ $t('organizer_create_event.title') }}
+      </b-button>
+    </div>
 
     <event-card-carousel :events="events" />
   </div>
@@ -10,9 +16,11 @@
 
 <script>
 import { mapActions } from 'vuex';
+import createEvent from '@/mixins/organizer/create-event';
 
 export default {
   name: 'OrganizerEvents',
+  mixins: [createEvent],
   computed: {
     events() {
       return this.$store.state.organizer.events.events.map(event => ({
