@@ -29,7 +29,6 @@
     "v-calendar": "^2.1.2",
     "vue-mapbox": "^0.4.1",
     "vue-observe-visibility": "^0.4.6",
-    "vue-select": "^3.10.8",
     "vuelidate": "^0.7.6",
     "vuelidate-error-extractor": "^2.4.1"
   },

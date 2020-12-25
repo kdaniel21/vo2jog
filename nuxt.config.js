@@ -36,12 +36,11 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: ['@/assets/scss/main.scss', 'vue-select/dist/vue-select.css'],
+  css: ['@/assets/scss/main.scss'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     '~/plugins/axios.js',
-    '~/plugins/vue-select.js',
     '~/plugins/vuelidate/vuelidate.js',
     { src: '~/plugins/v-calendar', mode: 'client' },
     { src: '~/plugins/mapbox.js', mode: 'client' },
