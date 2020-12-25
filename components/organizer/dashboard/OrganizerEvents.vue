@@ -2,11 +2,11 @@
   <div id="organizer-events" class="mt-4">
     <div class="is-flex is-justify-content-space-between">
       <h3 class="title is-size-3">
-        {{ $t('organizer_dashboard.my_events') }}
+        {{ $t('organizer.dashboard.my_events') }}
       </h3>
 
       <b-button type="is-primary is-light" @click="onCreateEvent">
-        {{ $t('organizer_create_event.title') }}
+        {{ $t('organizer.create_event.title') }}
       </b-button>
     </div>
 

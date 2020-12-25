@@ -117,48 +117,50 @@
     "no_results": "Nothing was found with your parameters. Maybe try again with something else?"
   },
 
-  "organizer_navbar": {
-    "brand": "vo2jog",
-    "public_profile": "Public Profile",
-    "account": "Account Settings",
-    "sign_out": "Sign Out"
-  },
+  "organizer": {
+    "navbar": {
+      "brand": "vo2jog",
+      "public_profile": "Public Profile",
+      "account": "Account Settings",
+      "sign_out": "Sign Out"
+    },
 
-  "organizer_sidebar": {
-    "event_page": "Event Page",
-    "information": "Information",
-    "details": "Details",
-    "competitions": "Competitions",
-    "analytics": "Analytics",
-    "participants": "Participants",
-    "settings": "Settings",
-    "profile": "Profile",
-    "select_event": "Select Event"
-  },
+    "sidebar": {
+      "event_page": "Event Page",
+      "information": "Information",
+      "details": "Details",
+      "competitions": "Competitions",
+      "analytics": "Analytics",
+      "participants": "Participants",
+      "settings": "Settings",
+      "profile": "Profile",
+      "select_event": "Select Event"
+    },
 
-  "organizer_create_event": {
-    "title": "Create New Event",
-    "message": "Please select a name for your event. You can change this later on.",
-    "placeholder": "VO2JOG Charity Run",
-    "confirm": "Create Event",
-    "success_toast": "Event created successfully!",
-    "error_toast": "Could not create event. Please try again!"
-  },
+    "create_event": {
+      "title": "Create New Event",
+      "message": "Please select a name for your event. You can change this later on.",
+      "placeholder": "VO2JOG Charity Run",
+      "confirm": "Create Event",
+      "success_toast": "Event created successfully!",
+      "error_toast": "Could not create event. Please try again!"
+    },
 
-  "organizer_login": {
-    "organizer_login": "Organizer Login",
-    "password": "Password",
-    "sign_in": "Sign In",
-    "no_account": "Don't have an account?",
-    "get_started": "Get Started",
-    "forgot_password": "Forgot Password?",
-    "error": "Your email or password is not correct. Please try again!",
-    "success": "Success! Now you are logged in."
-  },
+    "login": {
+      "organizer.login": "Organizer Login",
+      "password": "Password",
+      "sign_in": "Sign In",
+      "no_account": "Don't have an account?",
+      "get_started": "Get Started",
+      "forgot_password": "Forgot Password?",
+      "error": "Your email or password is not correct. Please try again!",
+      "success": "Success! Now you are logged in."
+    },
 
-  "organizer_dashboard": {
-    "greeting": "Hi there, {name}!",
-    "subtitle": "How's your day doing so far?",
-    "my_events": "My Events"
+    "dashboard": {
+      "greeting": "Hi there, {name}!",
+      "subtitle": "How's your day doing so far?",
+      "my_events": "My Events"
+    }
   }
 }

@@ -15,17 +15,17 @@
 
         <b-navbar-item tag="nuxt-link" to="/organizers/profile">
           <b-icon icon="user-circle" />
-          <span>{{ $t('organizer_navbar.public_profile') }}</span>
+          <span>{{ $t('organizer.navbar.public_profile') }}</span>
         </b-navbar-item>
 
         <b-navbar-item tag="nuxt-link" to="/organizers/profile">
           <b-icon icon="user-cog" />
-          <span>{{ $t('organizer_navbar.account') }}</span>
+          <span>{{ $t('organizer.navbar.account') }}</span>
         </b-navbar-item>
 
         <b-navbar-item @click="$auth.logout">
           <b-icon icon="sign-out-alt" />
-          <span>{{ $t('organizer_navbar.sign_out') }}</span>
+          <span>{{ $t('organizer.navbar.sign_out') }}</span>
         </b-navbar-item>
       </b-navbar-dropdown>
 

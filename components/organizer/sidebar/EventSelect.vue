@@ -4,7 +4,7 @@
     :value="selectedEvent ? selectedEvent.name : null"
     :data="events"
     field="name"
-    :placeholder="$t('organizer_sidebar.select_event')"
+    :placeholder="$t('organizer.sidebar.select_event')"
     :loading="loading"
     open-on-focus
     @select="event => selectEvent(event.id)"
@@ -13,7 +13,7 @@
     <template #header>
       <span class="is-clickable" @click="onCreateEvent">
         <b-icon icon="plus-circle" />
-        <span>{{ $t('organizer_create_event.title') }}</span>
+        <span>{{ $t('organizer.create_event.title') }}</span>
       </span>
     </template>
   </b-autocomplete>

@@ -4,7 +4,7 @@
       <div class="card-content">
         <h1 class="title">
           <b-icon icon="briefcase" />
-          {{ $t('organizer_login.organizer_login') }}
+          {{ $t('organizer.login.organizer_login') }}
         </h1>
 
         <form-group :label="$t('common.email')" :validator="$v.form.email">
@@ -18,13 +18,13 @@
 
         <form-group :validator="$v.form.password">
           <template #label>
-            <span>{{ $t('organizer_login.password') }}</span>
+            <span>{{ $t('organizer.login.password') }}</span>
             <nuxt-link
               to="/forgot-password"
               class="is-size-7 is-pulled-right"
               tabindex="-1"
             >
-              {{ $t('organizer_login.forgot_password') }}
+              {{ $t('organizer.login.forgot_password') }}
             </nuxt-link>
           </template>
 
@@ -32,19 +32,19 @@
             v-model="form.password"
             type="password"
             password-reveal
-            :placeholder="$t('organizer_login.password')"
+            :placeholder="$t('organizer.login.password')"
             icon="lock"
             @input="$v.form.password.$touch()"
           />
         </form-group>
 
         <b-button type="is-primary" class="is-fullwidth" @click="login">
-          {{ $t('organizer_login.sign_in') }}
+          {{ $t('organizer.login.sign_in') }}
         </b-button>
 
         <div class="mt-6">
-          <span>{{ $t('organizer_login.no_account') }}</span>
-          <nuxt-link to="/">{{ $t('organizer_login.get_started') }}</nuxt-link>
+          <span>{{ $t('organizer.login.no_account') }}</span>
+          <nuxt-link to="/">{{ $t('organizer.login.get_started') }}</nuxt-link>
         </div>
       </div>
     </section>
@@ -78,9 +78,9 @@ export default {
         await this.$auth.loginWith('local-organizer', {
           data: { email, password },
         });
-        this.$toast.success(this.$t('organizer_login.success'));
+        this.$toast.success(this.$t('organizer.login.success'));
       } catch {
-        this.$toast.error(this.$t('organizer_login.error'));
+        this.$toast.error(this.$t('organizer.login.error'));
       }
     },
   },

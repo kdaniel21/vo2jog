@@ -38,7 +38,7 @@
             v-for="{ icon, text, disabled, children, to } in eventMenu"
             :key="text"
             :icon="icon"
-            :label="$t(`organizer_sidebar.${text}`)"
+            :label="$t(`organizer.sidebar.${text}`)"
             :disabled="disabled || !selectedEvent"
             :tag="to ? 'nuxt-link' : 'a'"
             :to="to"
@@ -47,7 +47,7 @@
               v-for="{ text, icon, to } in children"
               :key="text"
               :icon="icon"
-              :label="$t(`organizer_sidebar.${text}`)"
+              :label="$t(`organizer.sidebar.${text}`)"
               :tag="to ? 'nuxt-link' : 'a'"
               :to="to"
             />
@@ -56,18 +56,18 @@
 
         <!-- MOBILE ONLY NAVBAR ITEMS -->
         <div class="is-hidden-tablet mt-3">
-          <b-menu-list :label="$t('organizer_sidebar.profile')">
+          <b-menu-list :label="$t('organizer.sidebar.profile')">
             <b-menu-item
               icon="user-circle"
-              :label="$t('organizer_navbar.public_profile')"
+              :label="$t('organizer.navbar.public_profile')"
             />
             <b-menu-item
               icon="user-cog"
-              :label="$t('organizer_navbar.account')"
+              :label="$t('organizer.navbar.account')"
             />
             <b-menu-item
               icon="sign-out-alt"
-              :label="$t('organizer_navbar.sign_out')"
+              :label="$t('organizer.navbar.sign_out')"
               @click="$auth.logout"
             />
           </b-menu-list>

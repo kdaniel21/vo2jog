@@ -10,9 +10,9 @@
 
       <div class="column is-narrow">
         <h1 class="is-size-2 title my-auto mt-4">
-          {{ $t('organizer_dashboard.greeting', $auth.user) }}
+          {{ $t('organizer.dashboard.greeting', $auth.user) }}
         </h1>
-        <h3 class="subtitle">{{ $t('organizer_dashboard.subtitle') }}</h3>
+        <h3 class="subtitle">{{ $t('organizer.dashboard.subtitle') }}</h3>
       </div>
     </div>
   </div>
