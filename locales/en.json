@@ -154,5 +154,10 @@
     "forgot_password": "Forgot Password?",
     "error": "Your email or password is not correct. Please try again!",
     "success": "Success! Now you are logged in."
+  },
+
+  "organizer_dashboard": {
+    "greeting": "Hi there, {name}!",
+    "subtitle": "How's your day doing so far?"
   }
 }

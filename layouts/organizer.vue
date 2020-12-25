@@ -6,7 +6,7 @@
       @toggle-sidebar="toggleSidebar"
     />
 
-    <!-- <Nuxt /> -->
+    <Nuxt />
   </div>
 </template>
 
