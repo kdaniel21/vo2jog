@@ -40,6 +40,11 @@ export default {
       default: null,
     },
   },
+  computed: {
+    url() {
+      return this.event.url || `/e/${this.event.id}`;
+    },
+  },
 };
 </script>
 
