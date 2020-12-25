@@ -62,6 +62,7 @@
       "other": "Other"
     },
     "distance": {
+      "name": "Distance",
       "10k": "10K",
       "olympic": "Olympic",
       "time_trial": "Time Trial",

@@ -12,6 +12,8 @@
     </div>
 
     <basic-information />
+
+    <categories />
   </div>
 </template>
 
