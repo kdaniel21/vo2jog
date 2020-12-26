@@ -28,4 +28,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#tiny-editor > .tox {
+  min-height: 20rem;
+}
+</style>

@@ -138,6 +138,11 @@
   },
 
   "organizer": {
+    "shared": {
+      "enter_link": "Please enter the URL",
+      "url_placeholder": "https://vo2jog.com"
+    },
+
     "navbar": {
       "brand": "vo2jog",
       "public_profile": "Public Profile",

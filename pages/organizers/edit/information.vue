@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container mb-6">
     <div class="mb-5">
       <h1 class="title mb-2">{{ $t('organizer.info.title') }}</h1>
       <i18n path="organizer.info.description" tag="p">
@@ -11,11 +11,13 @@
       </i18n>
     </div>
 
-    <basic-information />
+    <basic-information class="my-3" />
 
-    <categories />
+    <categories class="my-3" />
 
-    <image-upload class="mb-6" />
+    <image-upload class="my-3" />
+
+    <description class="my-3" />
   </div>
 </template>
 
