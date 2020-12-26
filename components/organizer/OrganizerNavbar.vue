@@ -2,7 +2,11 @@
   <b-navbar id="organizer-navbar" :mobile-burger="false">
     <template #brand>
       <b-navbar-item class="is-hidden-desktop">
-        <b-button @click="$emit('toggle-sidebar')">foo</b-button>
+        <b-button
+          type="is-primary is-light"
+          icon-left="bars"
+          @click="$emit('toggle-sidebar')"
+        />
       </b-navbar-item>
       <b-navbar-item tag="nuxt-link" to="/organizers/dashboard">
         {{ $t('navbar.brand') }}
