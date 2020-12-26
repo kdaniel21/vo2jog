@@ -1,6 +1,11 @@
 <template>
   <div class="is-flex is-justify-content-end">
-    <b-button v-bind="$attrs" :type="type" @click="$emit('click')">
+    <b-button
+      v-bind="$attrs"
+      :type="type"
+      class="is-fullwidth-mobile"
+      @click="$emit('click')"
+    >
       <slot>{{ $t('common.save') }}</slot>
     </b-button>
   </div>
