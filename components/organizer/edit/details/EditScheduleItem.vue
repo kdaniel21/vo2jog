@@ -57,12 +57,14 @@ export default {
 </script>
 
 <style lang="scss">
-#edit-schedule-item {
-  & .actions {
-    display: none;
-  }
-  & li:hover .actions {
-    display: initial;
+@media screen and (min-width: 1023px) {
+  #edit-schedule-item {
+    & .actions {
+      display: none;
+    }
+    & li:hover .actions {
+      display: initial;
+    }
   }
 }
 </style>
