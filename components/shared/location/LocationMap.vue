@@ -28,7 +28,8 @@
 export default {
   name: 'LocationMap',
   props: {
-    location: { type: Array, default: null },
+    // Default: Budapest coordinates
+    location: { type: Array, default: () => [19.04, 47.49] },
     height: { type: String, default: '100%' },
     width: { type: String, default: '100%' },
   },
