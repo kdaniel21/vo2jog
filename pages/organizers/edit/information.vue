@@ -10,25 +10,6 @@
         </template>
       </i18n>
     </div>
-
-    <!-- <b-tabs v-model="activeTab" type="is-boxed">
-      <b-tab-item label="Basic Information">
-        <edit-basic-information />
-      </b-tab-item>
-
-      <b-tab-item label="Categories">
-        <edit-categories />
-      </b-tab-item>
-
-      <b-tab-item label="Image Upload">
-        <edit-image-upload />
-      </b-tab-item>
-
-      <b-tab-item label="Description">
-        <edit-description />
-      </b-tab-item>
-    </b-tabs> -->
-
     <collapse-card :title="$t('organizer.info.basic_information')" class="my-2">
       <edit-basic-information />
     </collapse-card>
