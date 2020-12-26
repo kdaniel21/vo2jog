@@ -1,5 +1,5 @@
 <template>
-  <div id="categories">
+  <div id="edit-categories">
     <h2 class="title">{{ $t('organizer.info.categories') }}</h2>
 
     <!-- MAIN CATEGORY -->
@@ -74,7 +74,7 @@ import { mapState, mapActions } from 'vuex';
 import flattenMergeCategories from '@/assets/utils/flatten-merge-categories';
 
 export default {
-  name: 'Categories',
+  name: 'EditCategories',
   data() {
     return {
       categories: [],

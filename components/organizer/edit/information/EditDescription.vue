@@ -1,5 +1,5 @@
 <template>
-  <div id="description">
+  <div id="edit-description">
     <h2 class="title">{{ $t('common.description') }}</h2>
 
     <tiny-editor v-model="form.description" class="mb-3" />
@@ -12,7 +12,7 @@
 import { mapActions } from 'vuex';
 
 export default {
-  name: 'Description',
+  name: 'EditDescription',
   data() {
     return {
       form: {

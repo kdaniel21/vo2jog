@@ -1,5 +1,5 @@
 <template>
-  <div id="basic-information">
+  <div id="edit-basic-information">
     <h2 class="title">{{ $t('organizer.info.basic_information') }}</h2>
 
     <form-group
@@ -61,7 +61,7 @@ import { required } from 'vuelidate/lib/validators';
 import { alphaNumWhiteDiacritic } from '@/plugins/vuelidate/custom-validators';
 
 export default {
-  name: 'BasicInformation',
+  name: 'EditBasicInformation',
   data() {
     return {
       form: {

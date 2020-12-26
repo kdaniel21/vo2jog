@@ -13,36 +13,36 @@
 
     <!-- <b-tabs v-model="activeTab" type="is-boxed">
       <b-tab-item label="Basic Information">
-        <basic-information />
+        <edit-basic-information />
       </b-tab-item>
 
       <b-tab-item label="Categories">
-        <categories />
+        <edit-categories />
       </b-tab-item>
 
       <b-tab-item label="Image Upload">
-        <image-upload />
+        <edit-image-upload />
       </b-tab-item>
 
       <b-tab-item label="Description">
-        <description />
+        <edit-description />
       </b-tab-item>
     </b-tabs> -->
 
     <collapse-card title="Basic Information" class="my-2">
-      <basic-information class="my-3" />
+      <edit-basic-information class="my-3" />
     </collapse-card>
 
     <collapse-card title="Categories" class="my-2">
-      <categories class="my-3" />
+      <edit-categories class="my-3" />
     </collapse-card>
 
     <collapse-card title="Image" class="my-2">
-      <image-upload class="my-3" />
+      <edit-image-upload class="my-3" />
     </collapse-card>
 
     <collapse-card title="Description" class="my-2">
-      <description class="my-3" />
+      <edit-description class="my-3" />
     </collapse-card>
   </div>
 </template>

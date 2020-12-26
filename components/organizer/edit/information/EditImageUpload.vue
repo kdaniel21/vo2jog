@@ -1,5 +1,5 @@
 <template>
-  <div id="image-upload">
+  <div id="edit-image-upload">
     <h2 class="title">{{ $t('organizer.info.image') }}</h2>
 
     <div v-if="!form.image">
@@ -37,7 +37,7 @@
 import { mapActions } from 'vuex';
 
 export default {
-  name: 'ImageUpload',
+  name: 'EditImageUpload',
   data() {
     return {
       uploadNew: !this.$store.state.organizer.events.selectedEvent.imageCover,
