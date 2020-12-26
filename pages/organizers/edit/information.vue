@@ -29,20 +29,24 @@
       </b-tab-item>
     </b-tabs> -->
 
-    <collapse-card title="Basic Information" class="my-2">
-      <edit-basic-information class="my-3" />
+    <collapse-card :title="$t('organizer.info.basic_information')" class="my-2">
+      <edit-basic-information />
     </collapse-card>
 
-    <collapse-card title="Categories" class="my-2">
-      <edit-categories class="my-3" />
+    <collapse-card :title="$t('organizer.info.categories')" class="my-2">
+      <edit-categories />
     </collapse-card>
 
-    <collapse-card title="Image" class="my-2">
-      <edit-image-upload class="my-3" />
+    <collapse-card :title="$t('organizer.info.image')" class="my-2">
+      <edit-image-upload />
     </collapse-card>
 
-    <collapse-card title="Description" class="my-2">
-      <edit-description class="my-3" />
+    <collapse-card :title="$t('common.description')" class="my-2">
+      <edit-description />
+    </collapse-card>
+
+    <collapse-card :title="$t('common.location')" class="my-2">
+      <edit-location />
     </collapse-card>
   </div>
 </template>
