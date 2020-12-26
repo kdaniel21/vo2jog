@@ -24,6 +24,7 @@
             v-if="primarySocialMedia"
             type="is-primary is-light"
             tag="a"
+            :href="primarySocialMedia.link"
             target="_blank"
             icon-right="external-link-alt"
             class="is-capitalized"
