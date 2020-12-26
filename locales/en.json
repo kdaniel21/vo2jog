@@ -12,7 +12,9 @@
     "apply": "Apply",
     "cancel": "Cancel",
     "date": "Date",
-    "save": "Save"
+    "save": "Save",
+    "schedule": "Schedule",
+    "add_item": "Add Item"
   },
 
   "toast": {
@@ -20,12 +22,18 @@
       "general": "Oops! We couldn't reach our our servers. Please try again!",
       "event_update": "Something went wrong and we couldn't update the event. Please try again!",
       "login": "Your email or password is not correct. Please try again!",
-      "create_event": "Could not create event. Please try again!"
+      "create_event": "Could not create event. Please try again!",
+      "item_added": "Could not add item. Please try again!",
+      "item_updated": "Oops! We couldn't update the selected item. Please try again!",
+      "item_removed": "Oops! We couldn't remove the selected item. Please try again!"
     },
     "success": {
       "login": "Success! Now you are logged in.",
       "create_event": "Event created successfully!",
-      "event_update": "Your event was updated successfully!"
+      "event_update": "Your event was updated successfully!",
+      "item_added": "Item added successfully!",
+      "item_updated": "Success! We updated the selected item!",
+      "item_removed": "Success! We removed the selected item!"
     }
   },
 
@@ -113,7 +121,6 @@
     "view_profile": "View Profile",
     "visit": "Visit",
     "faq": "Questions",
-    "schedule": "Schedule",
     "day": "Day",
     "documents": "Documents",
     "coordinates": "Coordinates",
@@ -208,7 +215,9 @@
     "details": {
       "title": "Specify the Details",
       "description": "{proverb} - says the proverb. And it's probably right, so make sure to provide as much detail about your event as possible so that on race day everyone will know their responsibilities.",
-      "details_proverb": "\"The devil is in the details.\""
+      "details_proverb": "\"The devil is in the details.\"",
+      "day_x": "Day {dayNum}",
+      "select_time": "Select Time"
     }
   }
 }
