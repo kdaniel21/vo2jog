@@ -14,6 +14,8 @@
     <basic-information />
 
     <categories />
+
+    <image-upload class="mb-6" />
   </div>
 </template>
 

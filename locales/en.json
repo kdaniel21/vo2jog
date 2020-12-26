@@ -193,7 +193,10 @@
       "single_day": "Single Day",
       "multi_day": "Multi-day",
       "categories": "Categories",
-      "success_toast": "Event updated successfully!"
+      "success_toast": "Event updated successfully!",
+      "image": "Image",
+      "upload_new": "Upload New Image",
+      "upload_area": "Drop your image here or click to upload"
     }
   }
 }
