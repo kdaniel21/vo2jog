@@ -12,8 +12,9 @@
     >
       <!-- CLOSE BUTTON -->
       <div
-        class="is-hidden-desktop is-size-4 pr-4 pt-4 is-flex is-justify-content-end"
+        class="is-hidden-desktop is-size-4 pt-4 px-4 is-flex is-justify-content-space-between"
       >
+        <span class="title">{{ $t('navbar.brand') }}</span>
         <span @click="$emit('toggle-sidebar')">
           <b-icon icon="times" class="is-clickable" />
         </span>
