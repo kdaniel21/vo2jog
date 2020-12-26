@@ -3,7 +3,7 @@
     <b-sidebar
       id="organizer-sidebar"
       :open="isSidebarVisible"
-      position="absolute"
+      position="fixed"
       type="is-light"
       fullheight
       :fullwidth="isTouch"
