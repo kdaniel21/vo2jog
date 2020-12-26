@@ -1,12 +1,14 @@
 <template>
   <div v-if="categories" class="is-clipped">
-    <span
+    <b-tag
       v-for="category in categories"
       :key="category"
-      class="tag is-primary mr-1 is-capitalized is-light"
+      class="mr-1 is-capitalized"
+      ellipsis
+      type="is-primary is-light"
     >
       {{ category }}
-    </span>
+    </b-tag>
   </div>
 </template>
 
