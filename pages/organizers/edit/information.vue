@@ -35,11 +35,6 @@
 <script>
 export default {
   layout: 'organizer',
-  data() {
-    return {
-      activeTab: 0,
-    };
-  },
 };
 </script>
 
