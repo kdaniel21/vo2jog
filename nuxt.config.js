@@ -33,6 +33,7 @@ export default {
     hereApiKey: 'BFTP7HQsgOf6mW8rMA9K8JWY6qf7VJtUxGW1ZxfzbNE',
     mapboxAccessToken:
       'pk.eyJ1Ijoia2RhbmllbDIxIiwiYSI6ImNraGN4ODByazAwYzAzMHMwbDBxeWExd3UifQ.dVIo1mUh3QnDc0jz1YFLoA',
+    tinyApiKey: '19gmvey4ohplaafobgl7ffi8vywpfjpb1hw8knyv97ow7yhj',
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
@@ -42,8 +43,7 @@ export default {
   plugins: [
     '~/plugins/axios.js',
     '~/plugins/vuelidate/vuelidate.js',
-    { src: '~/plugins/v-calendar', mode: 'client' },
-    { src: '~/plugins/mapbox.js', mode: 'client' },
+    '~/plugins/mapbox.client.js',
     '~/plugins/observe-visibility',
     '~/plugins/toast',
   ],
