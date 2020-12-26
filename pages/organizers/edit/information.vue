@@ -11,19 +11,50 @@
       </i18n>
     </div>
 
-    <basic-information class="my-3" />
+    <!-- <b-tabs v-model="activeTab" type="is-boxed">
+      <b-tab-item label="Basic Information">
+        <basic-information />
+      </b-tab-item>
 
-    <categories class="my-3" />
+      <b-tab-item label="Categories">
+        <categories />
+      </b-tab-item>
 
-    <image-upload class="my-3" />
+      <b-tab-item label="Image Upload">
+        <image-upload />
+      </b-tab-item>
 
-    <description class="my-3" />
+      <b-tab-item label="Description">
+        <description />
+      </b-tab-item>
+    </b-tabs> -->
+
+    <collapse-card title="Basic Information" class="my-2">
+      <basic-information class="my-3" />
+    </collapse-card>
+
+    <collapse-card title="Categories" class="my-2">
+      <categories class="my-3" />
+    </collapse-card>
+
+    <collapse-card title="Image" class="my-2">
+      <image-upload class="my-3" />
+    </collapse-card>
+
+    <collapse-card title="Description" class="my-2">
+      <description class="my-3" />
+    </collapse-card>
   </div>
 </template>
 
 <script>
 export default {
   layout: 'organizer',
+  data() {
+    return {
+      activeTab: 0,
+    };
+  },
 };
 </script>
 
