@@ -203,6 +203,12 @@
       "upload_new": "Upload New Image",
       "upload_area": "Drop your image here or click to upload",
       "show_map": "Show Map"
+    },
+
+    "details": {
+      "title": "Specify the Details",
+      "description": "{proverb} - says the proverb. And it's probably right, so make sure to provide as much detail about your event as possible so that on race day everyone will know their responsibilities.",
+      "details_proverb": "\"The devil is in the details.\""
     }
   }
 }
