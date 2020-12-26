@@ -3,11 +3,9 @@
     <div class="mb-5">
       <h1 class="title mb-2">{{ $t('organizer.info.title') }}</h1>
       <i18n path="organizer.info.description" tag="p">
-        <template #link>
-          <nuxt-link to="/organizers/edit/details">
-            {{ $t('organizer.info.click_here') }}
-          </nuxt-link>
-        </template>
+        <nuxt-link slot="link" to="/organizers/edit/details">
+          {{ $t('organizer.info.click_here') }}
+        </nuxt-link>
       </i18n>
     </div>
     <collapse-card :title="$t('organizer.info.basic_information')" class="my-2">
