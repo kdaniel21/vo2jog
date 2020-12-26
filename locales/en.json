@@ -14,7 +14,8 @@
     "date": "Date",
     "save": "Save",
     "schedule": "Schedule",
-    "add_item": "Add Item"
+    "add_item": "Add Item",
+    "confirm": "Confirm"
   },
 
   "toast": {
@@ -217,7 +218,8 @@
       "description": "{proverb} - says the proverb. And it's probably right, so make sure to provide as much detail about your event as possible so that on race day everyone will know their responsibilities.",
       "details_proverb": "\"The devil is in the details.\"",
       "day_x": "Day {dayNum}",
-      "select_time": "Select Time"
+      "select_time": "Select Time",
+      "confirm_delete_item": "Are you sure you want to delete this item?"
     }
   }
 }

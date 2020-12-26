@@ -9,6 +9,8 @@
         </span>
       </i18n>
     </div>
+
+    <edit-schedule />
   </div>
 </template>
 
