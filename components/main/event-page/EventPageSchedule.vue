@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card-content">
-      <h2 class="title is-4">{{ $t('event.schedule') }}</h2>
+      <h2 class="title is-4">{{ $t('common.schedule') }}</h2>
 
       <aside class="menu">
         <div v-for="daySchedule in schedule" :key="daySchedule.day">
