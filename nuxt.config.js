@@ -99,6 +99,7 @@ export default {
   auth: {
     redirect: {
       login: '/organizers/login',
+      home: '/organizers/dashboard',
     },
     strategies: {
       'local-organizer': {
