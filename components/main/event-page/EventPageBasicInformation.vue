@@ -24,7 +24,7 @@
       </ul>
 
       <div class="is-flex is-justify-content-end mt-2">
-        <b-button type="is-primary" class="is-fullwidth-mobile">
+        <b-button type="is-primary" class="is-fullwidth">
           {{ $t('event.sign_up_now') }}
         </b-button>
       </div>
