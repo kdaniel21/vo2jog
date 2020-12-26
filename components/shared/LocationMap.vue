@@ -16,6 +16,8 @@
         <mgl-geolocate-control ref="geolocateControl" />
         <mgl-navigation-control :show-compass="false" />
 
+        <slot />
+
         <mgl-marker :coordinates="location" />
       </mgl-map>
     </client-only>
