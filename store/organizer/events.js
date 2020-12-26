@@ -78,30 +78,46 @@ export const actions = {
     }
   },
   async addItem({ commit, state }, { name, data, url }) {
-    const { id } = state.selectedEvent;
-    const endpointName = camelToKebab(name);
-    const endpointUrl = url || `/api/events/${id}/${endpointName}`;
+    try {
+      const { id } = state.selectedEvent;
+      const endpointName = camelToKebab(name);
+      const endpointUrl = url || `/api/events/${id}/${endpointName}`;
 
-    const res = await this.$axios.post(endpointUrl, data);
+      const res = await this.$axios.post(endpointUrl, data);
 
-    commit('updateEvent', { ...state.selectedEvent, [name]: res.data.data });
+      this.$toast.success($nuxt.$t('toast.success.item_added'));
+      commit('updateEvent', { ...state.selectedEvent, [name]: res.data.data });
+    } catch {
+      this.$toast.error($nuxt.$t('toast.error.item_added'));
+    }
   },
   async updateItem({ commit, state }, { name, itemId, data, url }) {
-    const { id } = state.selectedEvent;
-    const endpointName = camelToKebab(name);
-    const endpointUrl = url || `/api/events/${id}/${endpointName}/${itemId}`;
+    try {
+      const { id } = state.selectedEvent;
+      const endpointName = camelToKebab(name);
+      const endpointUrl =
+        url || `/api/events/${id}/${endpointName}/${itemId || data.id}`;
 
-    const res = await this.$axios.patch(endpointUrl, data);
+      const res = await this.$axios.patch(endpointUrl, data);
 
-    commit('updateEvent', { ...state.selectedEvent, [name]: res.data.data });
+      this.$toast.success($nuxt.$t('toast.success.item_updated'));
+      commit('updateEvent', { ...state.selectedEvent, [name]: res.data.data });
+    } catch {
+      this.$toast.error($nuxt.$t('toast.error.item_updated'));
+    }
   },
   async deleteItem({ commit, state }, { name, itemId, url }) {
-    const { id } = state.selectedEvent;
-    const endpointName = camelToKebab(name);
-    const endpointUrl = url || `/api/events/${id}/${endpointName}/${itemId}`;
+    try {
+      const { id } = state.selectedEvent;
+      const endpointName = camelToKebab(name);
+      const endpointUrl = url || `/api/events/${id}/${endpointName}/${itemId}`;
 
-    const res = await this.$axios.delete(endpointUrl);
+      const res = await this.$axios.delete(endpointUrl);
 
-    commit('updateEvent', { ...state.selectedEvent, [name]: res.data.data });
+      this.$toast.success($nuxt.$t('toast.success.item_removed'));
+      commit('updateEvent', { ...state.selectedEvent, [name]: res.data.data });
+    } catch {
+      this.$toast.error($nuxt.$t('toast.error.item_removed'));
+    }
   },
 };
