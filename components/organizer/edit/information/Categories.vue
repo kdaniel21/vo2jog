@@ -5,6 +5,7 @@
     <!-- MAIN CATEGORY -->
     <b-field :label="$t('categories.main.name')" horizontal>
       <b-taginput
+        ref="taginput-main"
         v-model="selected.main"
         :data="mainCategories"
         autocomplete
@@ -16,7 +17,13 @@
         </template>
 
         <template #selected="{ tags }">
-          <b-tag v-for="tag in tags" :key="tag">
+          <b-tag
+            v-for="tag in tags"
+            :key="tag"
+            closable
+            ellipsis
+            @close="$refs['taginput-main'].removeTag(i, $event)"
+          >
             {{ $t(`categories.main.${tag}`) }}
           </b-tag>
         </template>
@@ -32,6 +39,7 @@
         horizontal
       >
         <b-taginput
+          ref="taginput"
           v-model="selected[name]"
           :data="categoryItems"
           autocomplete
@@ -43,7 +51,13 @@
           </template>
 
           <template #selected="{ tags }">
-            <b-tag v-for="tag in tags" :key="tag">
+            <b-tag
+              v-for="(tag, i) in tags"
+              :key="tag"
+              closable
+              ellipsis
+              @close="$refs.taginput[i].removeTag(i, $event)"
+            >
               {{ $t(`categories.main.${tag}`) }}
             </b-tag>
           </template>
