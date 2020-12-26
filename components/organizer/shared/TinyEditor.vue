@@ -30,6 +30,6 @@ export default {
 
 <style>
 #tiny-editor > .tox {
-  min-height: 20rem;
+  min-height: 30rem;
 }
 </style>
