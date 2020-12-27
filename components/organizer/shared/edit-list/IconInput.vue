@@ -34,7 +34,7 @@
               v-for="option in iconOptions"
               :key="option.icon[1]"
               class="box is-clickable mx-2 has-text-centered"
-              @click="onSelectIcon(option)"
+              @click="selected = option.icon"
             >
               <b-icon
                 :pack="option.icon[0]"
@@ -45,15 +45,6 @@
               <div class="is-size-7">{{ option.name }}</div>
             </div>
           </div>
-
-          <footer class="modal-card-foot is-flex is-justify-content-end">
-            <b-button @click="close">{{ $t('common.cancel') }}</b-button>
-            <b-button
-              type="is-primary"
-              @click="$emit('input', selected) && close()"
-              >{{ $t('common.add') }}
-            </b-button>
-          </footer>
         </div>
       </template>
     </b-modal>
