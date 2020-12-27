@@ -234,7 +234,8 @@
       "social_media": "Social Media",
       "icon": "Icon",
       "add_social_media": "Add Social Media Website",
-      "questions": "Questions"
+      "questions": "Questions",
+      "add_question": "Add Question"
     }
   }
 }

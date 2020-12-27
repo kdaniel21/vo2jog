@@ -12,7 +12,9 @@
       role="button"
       :aria-controls="`collapse-${_uid}`"
     >
-      <p class="card-header-title">{{ title }}</p>
+      <p class="card-header-title">
+        <slot name="header">{{ title }}</slot>
+      </p>
       <a class="card-header-icon">
         <b-icon :icon="open ? 'chevron-down' : 'chevron-up'" />
       </a>

@@ -15,6 +15,8 @@
     <edit-documents class="mb-5" />
 
     <edit-social-media />
+
+    <edit-questions />
   </div>
 </template>
 
