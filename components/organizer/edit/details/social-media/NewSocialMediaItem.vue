@@ -5,6 +5,7 @@
       v-model="form.name"
       :is-edit="!!editedItem"
       :validator="$v.form.name"
+      :placeholder="$t('organizer.details.add_social_media')"
       @save="onSave"
       @cancel="cancel"
     >
