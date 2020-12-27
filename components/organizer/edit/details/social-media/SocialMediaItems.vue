@@ -1,7 +1,7 @@
 <template>
   <div id="social-media-items">
     <edit-list
-      :items="socialMediaWithIcons"
+      :items="socialMedia"
       @edit="item => $emit('edit', item)"
       @delete="onDelete"
     >
@@ -19,11 +19,9 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
-import socialMediaList from '@/mixins/social-media-list';
 
 export default {
   name: 'SocialMediaItems',
-  mixins: [socialMediaList],
   computed: {
     ...mapState({
       socialMedia: state => state.organizer.events.selectedEvent.socialMedia,

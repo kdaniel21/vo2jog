@@ -19,12 +19,11 @@ export default {
   },
   computed: {
     linkButton() {
-      const type = 'is-primary is-light';
       if (!this.value)
         return {
           text: this.$t('organizer.shared.add_link'),
           icon: 'link',
-          type,
+          type: 'is-primary is-light',
         };
       if (!this.isValid)
         return {
@@ -36,7 +35,7 @@ export default {
       return {
         text: this.$t('organizer.shared.link_added'),
         icon: 'check',
-        type,
+        type: 'is-success is-light',
       };
     },
   },

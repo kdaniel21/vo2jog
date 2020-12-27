@@ -4,8 +4,8 @@
       <b-menu-item
         v-for="item in items"
         :key="item.name || item.id"
-        :icon="icon || item.icon"
-        :icon-pack="iconPack || item.iconPack"
+        :icon="icon || item.icon[1]"
+        :icon-pack="iconPack || item.icon[0]"
       >
         <template #label>
           <slot :item="item" />

@@ -9,20 +9,7 @@
       @save="onSave"
       @cancel="cancel"
     >
-      <b-autocomplete
-        :icon-pack="iconPack"
-        :icon="icon"
-        :placeholder="$t('organizer.details.icon')"
-        :data="iconOptions"
-        open-on-focus
-        append-to-body
-        @select="iconOption => (form.icon = iconOption.icon)"
-      >
-        <template slot-scope="{ option: { icon, name } }">
-          <b-icon :pack="icon[0]" :icon="icon[1]" />
-          {{ name }}
-        </template>
-      </b-autocomplete>
+      <icon-input v-model="form.icon" />
 
       <link-input v-model="form.link" :is-valid="!$v.form.link.$invalid" />
     </new-item>
@@ -40,15 +27,6 @@ export default {
   },
   data() {
     return {
-      iconOptions: [
-        { icon: ['fa', 'globe'], name: 'Website' },
-        { icon: ['fa', 'images'], name: 'Race Photos' },
-        { icon: ['fab', 'facebook'], name: 'Facebook' },
-        { icon: ['fab', 'instagram'], name: 'Instagram' },
-        { icon: ['fab', 'flickr'], name: 'Flickr' },
-        { icon: ['fab', 'youtube'], name: 'YouTube' },
-        { icon: ['fab', 'twitter'], name: 'Twitter' },
-      ],
       form: {
         name: null,
         icon: null,
@@ -75,7 +53,7 @@ export default {
   },
   watch: {
     editedItem(val) {
-      if (!val) return (this.form.name = null);
+      // if (!val) return (this.form.name = null);
       this.form = { ...val };
     },
   },
@@ -92,11 +70,7 @@ export default {
       this.cancel();
     },
     cancel() {
-      this.form = {
-        name: null,
-        icon: null,
-        link: null,
-      };
+      this.form = {};
       this.$v.form.$reset();
       this.$emit('cancel');
     },
