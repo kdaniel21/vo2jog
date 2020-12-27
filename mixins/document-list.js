@@ -13,13 +13,12 @@ export default {
   computed: {
     documentsWithIcons() {
       return this.documents.map(doc => {
-        const url = `${this.$config.staticUrl}/events/docs/${doc.file}`;
         const extension = '.' + doc.file.split('.').pop();
         const icon =
           this.iconMap.find(icon => icon.extensions.includes(extension)).icon ||
           this.defaultIcon;
 
-        return { ...doc, icon, url };
+        return { ...doc, icon };
       });
     },
   },
