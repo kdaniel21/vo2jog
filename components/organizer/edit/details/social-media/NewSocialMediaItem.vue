@@ -24,10 +24,7 @@
         </template>
       </b-autocomplete>
 
-      <link-input-button
-        v-model="form.link"
-        :is-valid="!$v.form.link.$invalid"
-      />
+      <link-input v-model="form.link" :is-valid="!$v.form.link.$invalid" />
     </new-item>
   </div>
 </template>

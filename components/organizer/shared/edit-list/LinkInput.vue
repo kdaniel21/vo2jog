@@ -1,6 +1,6 @@
 <template>
   <b-button
-    id="link-input-button"
+    id="link-input"
     :type="linkButton.type"
     class="ml-1"
     :icon-left="linkButton.icon"
@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'LinkInputButton',
+  name: 'LinkInput',
   props: {
     value: { type: String, default: null },
     isValid: { type: Boolean, default: null },
@@ -22,19 +22,19 @@ export default {
       const type = 'is-primary is-light';
       if (!this.value)
         return {
-          text: this.$t('organizer.details.add_link'),
+          text: this.$t('organizer.common.enter_link'),
           icon: 'link',
           type,
         };
       if (!this.isValid)
         return {
-          text: this.$t('organizer.details.invalid_link'),
+          text: this.$t('organizer.shared.invalid_link'),
           icon: 'exclamation',
           type: 'is-danger is-light',
         };
 
       return {
-        text: this.$t('organizer.details.link_added'),
+        text: this.$t('organizer.shared.link_added'),
         icon: 'check',
         type,
       };
@@ -43,13 +43,13 @@ export default {
   methods: {
     showLinkDialog() {
       this.$buefy.dialog.prompt({
-        title: this.$t('organizer.details.add_link'),
-        message: this.$t('organizer.details.enter_link'),
+        title: this.$t('organizer.shared.add_link'),
+        message: this.$t('organizer.shared.enter_link'),
         hasIcon: !!this.icon,
         icon: this.icon,
         iconPack: this.iconPack,
         inputAttrs: {
-          placeholder: this.$t('organizer.details.link_placeholder'),
+          placeholder: this.$t('organizer.shared.link_placeholder'),
           required: true,
         },
         trapFocus: true,

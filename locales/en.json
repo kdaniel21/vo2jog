@@ -148,8 +148,10 @@
 
   "organizer": {
     "shared": {
-      "enter_link": "Please enter the URL",
-      "url_placeholder": "https://vo2jog.com"
+      "enter_link": "Please enter the link",
+      "link_placeholder": "https://vo2jog.com",
+      "link_added": "Link Added",
+      "invalid_link": "Invalid Link"
     },
 
     "navbar": {
@@ -227,12 +229,7 @@
       "uploaded_at": "Uploaded At",
       "delete_document": "Delete Document",
       "social_media": "Social Media",
-      "add_link": "Add Link",
-      "link_added": "Link Added",
-      "invalid_link": "Invalid Link",
-      "icon": "Icon",
-      "enter_link": "Please enter the link",
-      "link_placeholder": "https://vo2jog.com"
+      "icon": "Icon"
     }
   }
 }
