@@ -15,7 +15,8 @@
     "save": "Save",
     "schedule": "Schedule",
     "add_item": "Add Item",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "documents": "Documents"
   },
 
   "toast": {
@@ -123,7 +124,6 @@
     "visit": "Visit",
     "faq": "Questions",
     "day": "Day",
-    "documents": "Documents",
     "coordinates": "Coordinates",
     "plan_route": "Plan Route!",
     "signup_tooltip": "Let's do this!",
@@ -219,7 +219,7 @@
       "details_proverb": "\"The devil is in the details.\"",
       "day_x": "Day {dayNum}",
       "select_time": "Select Time",
-      "confirm_delete_item": "Are you sure you want to delete this item?"
+      "confirm_delete_item": "Are you sure you want to delete this item?"m
     }
   }
 }

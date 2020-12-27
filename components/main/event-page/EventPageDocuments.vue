@@ -1,7 +1,7 @@
 <template>
   <section id="event-page-documents" class="card">
     <div class="card-content">
-      <h2 class="title is-4 mb-1">{{ $t('event.documents') }}</h2>
+      <h2 class="title is-4 mb-1">{{ $t('common.documents') }}</h2>
 
       <ul class="menu-list">
         <li v-for="document in documentsWithIcons" :key="document.id">
