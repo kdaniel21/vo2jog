@@ -5,7 +5,6 @@
         v-for="document in documentsWithIcons"
         :key="document.id"
         :icon="document.icon"
-        tag="div"
       >
         <template #label>
           <a :href="document.file" target="_blank" class="is-inline-block">
