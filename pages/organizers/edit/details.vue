@@ -12,7 +12,9 @@
 
     <edit-schedule />
 
-    <edit-documents />
+    <edit-documents class="mb-5" />
+
+    <edit-social-media />
   </div>
 </template>
 

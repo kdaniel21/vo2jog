@@ -16,7 +16,8 @@
     "schedule": "Schedule",
     "add_item": "Add Item",
     "confirm": "Confirm",
-    "documents": "Documents"
+    "documents": "Documents",
+    "add": "Add"
   },
 
   "toast": {
@@ -224,7 +225,14 @@
       "file_name_placeholder": "Filename",
       "upload": "Upload",
       "uploaded_at": "Uploaded At",
-      "delete_document": "Delete Document"
+      "delete_document": "Delete Document",
+      "social_media": "Social Media",
+      "add_link": "Add Link",
+      "link_added": "Link Added",
+      "invalid_link": "Invalid Link",
+      "icon": "Icon",
+      "enter_link": "Please enter the link",
+      "link_placeholder": "https://vo2jog.com"
     }
   }
 }
