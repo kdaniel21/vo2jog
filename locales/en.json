@@ -151,7 +151,9 @@
       "enter_link": "Please enter the link",
       "link_placeholder": "https://vo2jog.com",
       "link_added": "Link Added",
-      "invalid_link": "Invalid Link"
+      "invalid_link": "Invalid Link",
+      "add_link": "Add Link",
+      "select_icon": ""
     },
 
     "navbar": {

@@ -22,7 +22,7 @@ export default {
       const type = 'is-primary is-light';
       if (!this.value)
         return {
-          text: this.$t('organizer.common.enter_link'),
+          text: this.$t('organizer.shared.add_link'),
           icon: 'link',
           type,
         };
