@@ -106,6 +106,15 @@ export const actions = {
       this.$toast.error($nuxt.$t('toast.error.item_updated'));
     }
   },
+  showDeleteConfirm({ dispatch }, payload) {
+    $nuxt.$buefy.dialog.confirm({
+      type: 'is-danger',
+      message: $nuxt.$t('organizer.details.confirm_delete_item'),
+      cancelText: $nuxt.$t('common.cancel'),
+      confirmText: $nuxt.$t('common.confirm'),
+      onConfirm: () => dispatch('deleteItem', payload),
+    });
+  },
   async deleteItem({ commit, state }, { name, itemId, url }) {
     try {
       const { id } = state.selectedEvent;
