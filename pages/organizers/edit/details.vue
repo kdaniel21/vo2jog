@@ -10,13 +10,21 @@
       </i18n>
     </div>
 
-    <edit-schedule />
+    <collapse-card :title="$t('common.schedule')" class="my-2">
+      <edit-schedule />
+    </collapse-card>
 
-    <edit-documents class="mb-5" />
+    <collapse-card :title="$t('common.documents')" class="my-2">
+      <edit-documents class="mb-5" />
+    </collapse-card>
 
-    <edit-social-media />
+    <collapse-card :title="$t('organizer.details.social_media')" class="my-2">
+      <edit-social-media />
+    </collapse-card>
 
-    <edit-questions />
+    <collapse-card :title="$t('organizer.details.questions')" class="my-2">
+      <edit-questions />
+    </collapse-card>
   </div>
 </template>
 
