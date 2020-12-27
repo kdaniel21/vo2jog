@@ -5,7 +5,6 @@
       v-model="form.name"
       :is-edit="!!editedItem"
       :validator="$v.form.name"
-      field="name"
       @save="onSave"
       @cancel="cancel"
     >
