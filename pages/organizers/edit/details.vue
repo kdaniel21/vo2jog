@@ -11,6 +11,8 @@
     </div>
 
     <edit-schedule />
+
+    <edit-documents />
   </div>
 </template>
 
