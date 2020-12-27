@@ -224,6 +224,7 @@
       "details_proverb": "\"The devil is in the details.\"",
       "day_x": "Day {dayNum}",
       "select_time": "Select Time",
+      "add_schedule_item": "Add Schedule Item",
       "confirm_delete_item": "Are you sure you want to delete this item?",
       "upload_area": "Drop your document here or click to upload",
       "file_name_placeholder": "Filename",
@@ -231,7 +232,9 @@
       "uploaded_at": "Uploaded At",
       "delete_document": "Delete Document",
       "social_media": "Social Media",
-      "icon": "Icon"
+      "icon": "Icon",
+      "add_social_media": "Add Social Media Website",
+      "questions": "Questions"
     }
   }
 }
