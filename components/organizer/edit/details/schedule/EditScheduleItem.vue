@@ -43,14 +43,9 @@ export default {
     };
   },
   methods: {
-    ...mapActions('organizer/events', ['deleteItem']),
+    ...mapActions('organizer/events', ['showDeleteConfirm']),
     onDeleteItem(item) {
-      this.$buefy.dialog.confirm({
-        message: this.$t('organizer.details.confirm_delete_item'),
-        cancelText: this.$t('common.cancel'),
-        confirmtext: this.$t('common.confirm'),
-        onConfirm: () => this.deleteItem({ name: 'schedule', itemId: item.id }),
-      });
+      this.showDeleteConfirm({ name: 'schedule', itemid: item.id });
     },
   },
 };
