@@ -15,17 +15,13 @@
 
     <div v-else>
       <slot :img="imagePreview">
-        <b-image
-          id="image-view"
-          :src="imagePreview"
-          ratio="4by3"
-          class="mb-3"
-        />
+        <b-image id="image-view" :src="imagePreview" ratio="4by3" />
       </slot>
 
       <b-button
         v-if="!uploadNew"
         type="is-primary"
+        class="mt-3"
         icon-left="upload"
         expanded
         @click="removeCurrent"
