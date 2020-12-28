@@ -47,9 +47,15 @@ export const actions = {
     await this.$auth.fetchUser();
   },
   async deleteProfileItem(context, { name, url, itemId }) {
-    const endpointName = camelToKebab(name);
-    const endpointUrl = url || `/api/profile/${endpointName}/${itemId}`;
-    await this.$axios.delete(endpointUrl);
-    await this.$auth.fetchUser();
+    try {
+      const endpointName = camelToKebab(name);
+      const endpointUrl = url || `/api/profile/${endpointName}/${itemId}`;
+      await this.$axios.delete(endpointUrl);
+      await this.$auth.fetchUser();
+
+      this.$toast.success($nuxt.$t('toast.success.profile_updated'));
+    } catch {
+      this.$toast.error($nuxt.$t('toast.error.profile_updated'));
+    }
   },
 };

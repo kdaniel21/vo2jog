@@ -269,7 +269,8 @@
     "profile": {
       "title": "Public Profile",
       "motto": "Motto",
-      "description_placeholder": "Write something about your organization"
+      "description_placeholder": "Write something about your organization",
+      "social_media": "Social Media Accounts"
     }
   }
 }
