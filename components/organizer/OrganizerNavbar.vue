@@ -22,7 +22,7 @@
           <span>{{ $t('organizer.navbar.public_profile') }}</span>
         </b-navbar-item>
 
-        <b-navbar-item tag="nuxt-link" to="/organizers/profile">
+        <b-navbar-item tag="nuxt-link" to="/organizers/account">
           <b-icon icon="user-cog" />
           <span>{{ $t('organizer.navbar.account') }}</span>
         </b-navbar-item>

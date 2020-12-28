@@ -28,7 +28,8 @@
       "create_event": "Could not create event. Please try again!",
       "item_added": "Could not add item. Please try again!",
       "item_updated": "Oops! We couldn't update the selected item. Please try again!",
-      "item_removed": "Oops! We couldn't remove the selected item. Please try again!"
+      "item_removed": "Oops! We couldn't remove the selected item. Please try again!",
+      "account_updated": "We couldn't update your account. Please try again!"
     },
     "success": {
       "login": "Success! Now you are logged in.",
@@ -36,7 +37,8 @@
       "event_update": "Your event was updated successfully!",
       "item_added": "Item added successfully!",
       "item_updated": "Success! We updated the selected item!",
-      "item_removed": "Success! We removed the selected item!"
+      "item_removed": "Success! We removed the selected item!",
+      "account_updated": "Your account has been updated successfully!"
     }
   },
 
@@ -250,6 +252,15 @@
       "participant_limit": "Participants Limit",
       "positive_elevation": "Positive Elevation",
       "negative_elevation": "Negative Elevation"
+    },
+
+    "account": {
+      "title": "Account",
+      "edit_credentials": "Edit Credentials",
+      "current_password": "Current Password",
+      "password_confirm": "Confirm Password",
+      "update_credentials": "Update Credentials",
+      "update_confirm": "Are you sure you want to update your credentials? This action is irreversible and you won't be able to use the old credentials!"
     }
   }
 }

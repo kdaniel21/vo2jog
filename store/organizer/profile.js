@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import camelToKebab from '@/assets/utils/camelToKebab';
 
 export const state = () => ({});
@@ -7,9 +8,24 @@ export const actions = {
     await this.$axios.patch('/api/profile', updatedItems);
     await this.$auth.fetchUser();
   },
+  showUpdateCredentialsConfirm({ dispatch }, payload) {
+    $nuxt.$buefy.dialog.confirm({
+      type: 'is-danger',
+      message: $nuxt.$t('organizer.account.update_confirm'),
+      cancelText: $nuxt.$t('common.cancel'),
+      confirmText: $nuxt.$t('common.confirm'),
+      onConfirm: () => dispatch('updateCredentials', payload),
+    });
+  },
   async updateCredentials(context, updatedItems) {
-    await this.$axios.patch('/api/profile/credentials', updatedItems);
-    await this.$auth.fetchUser();
+    try {
+      await this.$axios.patch('/api/profile/credentials', updatedItems);
+      await this.$auth.fetchUser();
+
+      $nuxt.$toast.success($nuxt.$t('toast.success.account_updated'));
+    } catch {
+      $nuxt.$toast.error($nuxt.$t('toast.error.account_updated'));
+    }
   },
   async addProfileItem(context, { name, data, url }) {
     const endpointName = camelToKebab(name);
