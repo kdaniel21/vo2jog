@@ -1,8 +1,11 @@
 <template>
-  <div id="event-page-description">
-    <h2>Description</h2>
-    <!-- eslint-disable-next-line vue/no-v-html -->
-    <div id="description" v-html="parsedDescription"></div>
+  <div class="card">
+    <div class="card-content">
+      <h2 class="title is-4">{{ $t('common.description') }}</h2>
+
+      <!-- eslint-disable-next-line vue/no-v-html -->
+      <div class="content" v-html="parsedDescription"></div>
+    </div>
   </div>
 </template>
 
@@ -17,9 +20,3 @@ export default {
   },
 };
 </script>
-
-<style>
-#description > h2 {
-  font-size: 1.5rem !important;
-}
-</style>

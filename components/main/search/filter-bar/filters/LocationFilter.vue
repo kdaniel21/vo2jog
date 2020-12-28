@@ -1,22 +1,10 @@
 <template>
-  <div id="location-filter">
-    <location-search v-model="location" />
+  <div class="location-filter">
+    <location-select v-model="location" />
 
-    <h5 class="mb-0">Select Radius</h5>
-    <div id="radius-select" class="d-flex flex-wrap w-100">
-      <b-badge
-        v-for="radiusOption in radiusOptions"
-        :key="radiusOption"
-        pill
-        :variant="radius === radiusOption ? 'primary' : 'secondary'"
-        class="mr-1 mt-1 flex-shrink-0 cursor-pointer"
-        @click="radius = radiusOption"
-      >
-        {{ radiusOption }} km
-      </b-badge>
-    </div>
+    <radius-select v-model="selectedRadius" />
 
-    <button-row @cancel="close" @apply="applyFilter" />
+    <button-row class="mt-3" @cancel="close" @apply="applyFilter" />
   </div>
 </template>
 
@@ -25,12 +13,17 @@ import { mapActions } from 'vuex';
 
 export default {
   name: 'LocationFilter',
+  props: { value: { type: Object, default: null } },
   data() {
     return {
       location: null,
-      radius: 30,
-      radiusOptions: [10, 30, 50, 70, 100, 200],
+      selectedRadius: null,
     };
+  },
+  watch: {
+    location(val) {
+      this.$emit('input', val);
+    },
   },
   methods: {
     ...mapActions('events', ['setFilter']),
@@ -40,20 +33,13 @@ export default {
 
       const lng = coordinates[0];
       const lat = coordinates[1];
-      await this.setFilter({ lat, lng, radius: this.radius });
+      await this.setFilter({ lat, lng, radius: this.selectedRadius });
 
       this.close();
     },
     close() {
-      // eslint-disable-next-line vue/custom-event-name-casing
-      this.$root.$emit('bv::hide::popover', 'popover-location');
+      this.$parent.$parent.toggle();
     },
   },
 };
 </script>
-
-<style>
-#radius-select {
-  font-size: 1.2rem;
-}
-</style>

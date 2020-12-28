@@ -1,30 +1,18 @@
 <template>
-  <div id="profile">
-    <h3 class="mb-5">Good to see you back {{ $auth.user.name }}!</h3>
+  <div class="container mb-6">
+    <h1 class="title">{{ $t('organizer.profile.title') }}</h1>
 
-    <profile />
-    <hr class="mt-5" />
+    <edit-profile-information />
 
-    <credentials />
-    <hr class="mt-5" />
+    <edit-profile-social-media />
 
-    <contact-people />
-    <hr class="mt-5" />
-
-    <social-media />
+    <edit-profile-contacts />
   </div>
 </template>
 
 <script>
-import Profile from '@/components/organizer/profile/profile/Profile';
-import Credentials from '@/components/organizer/profile/credentials/Credentials';
-import ContactPeople from '@/components/organizer/profile/contact-people/ContactPeople';
-import SocialMedia from '@/components/organizer/profile/social-media/SocialMedia';
-
 export default {
   layout: 'organizer',
-  middleware: ['auth'],
-  components: { Profile, Credentials, ContactPeople, SocialMedia },
 };
 </script>
 

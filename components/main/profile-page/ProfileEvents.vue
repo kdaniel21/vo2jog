@@ -1,11 +1,18 @@
 <template>
-  <div id="card-events">
-    <div class="d-flex justify-content-between">
-      <b-card-title>Events</b-card-title>
-      <nuxt-link to="/">All Events</nuxt-link>
-    </div>
+  <div id="profile-events" class="card">
+    <div class="card-content">
+      <div class="is-flex is-justify-content-space-between">
+        <h2 class="subtitle is-size-4 has-text-weight-medium">
+          {{ $t('profile.recent_events') }}
+        </h2>
+        <b-button type="is-link is-light">
+          {{ $t('profile.all_events') }}
+        </b-button>
+      </div>
 
-    <event-card-carousel :events="events" />
+      <!-- EVENTS -->
+      <event-card-carousel :events="events" />
+    </div>
   </div>
 </template>
 
@@ -15,6 +22,12 @@ export default {
   data() {
     return {
       events: [],
+      breakpoints: {
+        600: { itemsToShow: 1 },
+        900: { itemsToShow: 2 },
+        1200: { itemsToShow: 3 },
+        1500: { itemsToShow: 4 },
+      },
     };
   },
   async fetch() {

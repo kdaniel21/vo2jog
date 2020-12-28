@@ -1,19 +1,31 @@
 <template>
-  <div>
+  <div id="landing">
+    <landing-search-hero />
     <landing-search-area />
 
-    <b-container class="py-5 py-md-3">
-      <sport-select class="mt-5 mt-md-1" />
+    <div class="container px-1">
+      <select-carousel namespace="main" :items="sports" />
 
-      <distance-select class="mt-3 mt-md-5" />
+      <select-carousel namespace="distance" :items="distances" />
 
-      <popular-event-list class="mt-3 mt-md-5" />
-    </b-container>
+      <popular-event-list />
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  layout: 'landing',
+  data() {
+    return {
+      distances: ['10k', 'olympic', 'time_trial', 'half_marathon', 'ironman'],
+      sports: ['running', 'cycling', 'triathlon', 'swimming', 'other'],
+    };
+  },
 };
 </script>
+
+<style scoped>
+#landing {
+  margin-top: -56px;
+}
+</style>

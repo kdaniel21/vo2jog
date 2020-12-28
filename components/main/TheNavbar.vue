@@ -1,44 +1,49 @@
 <template>
-  <b-navbar id="the-navbar" toggleable="md" variant="primary">
-    <b-navbar-brand>
-      <nuxt-link to="/" class="text-white">Racircuit</nuxt-link>
-    </b-navbar-brand>
+  <b-navbar id="the-navbar" :transparent="isTransparent">
+    <!-- BRAND -->
+    <template #brand>
+      <b-navbar-item tag="nuxt-link" to="/">
+        {{ $t('navbar.brand') }}
+      </b-navbar-item>
+    </template>
+    <!-- ITEMS -->
+    <template #end>
+      <b-navbar-item tag="nuxt-link" to="search">
+        <b-icon icon="search" />
+        <span>{{ $t('common.search') }}</span>
+      </b-navbar-item>
 
-    <b-navbar-toggle id="navbar-toggle" target @click="toggleNavbar">
-      <fa icon="bars" fixed-width />
-    </b-navbar-toggle>
+      <b-navbar-dropdown>
+        <template #label>
+          <b-icon icon="briefcase" />
+          <span>{{ $t('navbar.organizers') }}</span>
+        </template>
+        <b-navbar-item tag="nuxt-link" to="/organizers/login">
+          <b-icon icon="sign-in-alt" />
+          <span>{{ $t('common.login') }}</span>
+        </b-navbar-item>
+        <b-navbar-item>
+          <b-icon icon="handshake" class="mr-1" />
+          <span>{{ $t('navbar.become_partner') }}</span>
+        </b-navbar-item>
+        <b-navbar-item>
+          <b-icon icon="info-circle" />
+          <span>{{ $t('navbar.about_us') }}</span>
+        </b-navbar-item>
+      </b-navbar-dropdown>
 
-    <!-- NORMAL NAVBAR CONTENT -->
-    <b-navbar-nav class="d-none d-md-flex ml-auto">
-      <b-nav-item v-for="{ name, link } in navItems" :key="name" :to="link">
-        <nuxt-link :to="link" class="text-white">
-          {{ name }}
-        </nuxt-link>
-      </b-nav-item>
-    </b-navbar-nav>
-
-    <!-- TOGGLED NAVBAR CONTENT -->
-    <div v-if="navOpen" id="main-menu" class="fixed-top" @click="toggleNavbar">
-      <fa
-        id="close-btn"
-        class="h2 text-white cursor-pointer mt-3 mr-3 mt-md-5 mr-md-5"
-        icon="times"
-        fixed-width
-      />
-      <b-navbar-nav id="mobile-nav" class="w-100 text-center">
-        <b-nav-item
-          v-for="{ name, link } in navItems"
-          :key="name"
-          class="mobile-nav-item"
+      <!-- BUTTONS -->
+      <b-navbar-item>
+        <b-button
+          type="is-primary"
+          tag="nuxt-link"
+          to="login"
+          icon-left="sign-in-alt"
         >
-          <nuxt-link
-            :to="link"
-            class="h2 text-center text-white text-decoration-none font-weight-bold mt-5 nav-item"
-            >{{ name }}</nuxt-link
-          >
-        </b-nav-item>
-      </b-navbar-nav>
-    </div>
+          {{ $t('common.login') }}
+        </b-button>
+      </b-navbar-item>
+    </template>
   </b-navbar>
 </template>
 
@@ -47,55 +52,13 @@ export default {
   name: 'TheNavbar',
   data() {
     return {
-      navOpen: false,
-      navItems: [
-        { name: 'Search', link: '/search' },
-        { name: 'Organizers', link: '/organizers' },
-        { name: 'Login', link: '/organizers/dashboard' },
-      ],
+      transparentRoutes: ['/'],
     };
   },
-  methods: {
-    toggleNavbar() {
-      this.navOpen = !this.navOpen;
+  computed: {
+    isTransparent() {
+      return this.transparentRoutes.includes(this.$route.path);
     },
   },
 };
 </script>
-
-<style scoped>
-#the-navbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 60px;
-}
-#main-menu {
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.92);
-  z-index: 1000;
-  transition: 0.5s;
-  overflow: hidden;
-}
-#navbar-toggle,
-#navbar-toggle:focus {
-  border: none;
-  outline: none;
-}
-#mobile-nav {
-  position: relative;
-  top: 25%;
-}
-.mobile-nav-item:hover {
-  transform: scale(1.2);
-  color: rgba(255, 255, 255, 0.5) !important;
-}
-#close-btn {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-</style>

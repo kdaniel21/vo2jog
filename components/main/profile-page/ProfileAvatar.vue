@@ -1,5 +1,11 @@
 <template>
-  <b-avatar id="profile-avatar" :src="img" size="min(60vw, 300px)"></b-avatar>
+  <b-image
+    id="profile-avatar"
+    :src="img"
+    alt="Profile Picture"
+    rounded
+    class="container"
+  />
 </template>
 
 <script>
@@ -10,3 +16,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+#profile-avatar {
+  height: min(60vw, 300px);
+  width: min(60vw, 300px);
+}
+</style>

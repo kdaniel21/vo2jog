@@ -4,6 +4,10 @@ export default {
     host: '0.0.0.0',
   },
 
+  compilerOptions: {
+    types: ['@nuxt/types', 'nuxt-i18n'],
+  },
+
   loaders: {
     vue: {
       compilerOptions: {
@@ -27,19 +31,21 @@ export default {
     staticUrl: 'http://127.0.0.1:4000',
     baseUrl: 'http://127.0.0.1:4000/api/v1',
     hereApiKey: 'BFTP7HQsgOf6mW8rMA9K8JWY6qf7VJtUxGW1ZxfzbNE',
+    mapboxAccessToken:
+      'pk.eyJ1Ijoia2RhbmllbDIxIiwiYSI6ImNraGN4ODByazAwYzAzMHMwbDBxeWExd3UifQ.dVIo1mUh3QnDc0jz1YFLoA',
+    tinyApiKey: '19gmvey4ohplaafobgl7ffi8vywpfjpb1hw8knyv97ow7yhj',
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: ['@/assets/scss/main.scss', 'vue-select/dist/vue-select.css'],
+  css: ['@/assets/scss/main.scss'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
-    '~/plugins/vue-sidebar-bootstrap.js',
     '~/plugins/axios.js',
-    '~/plugins/vue-select.js',
     '~/plugins/vuelidate/vuelidate.js',
-    { src: '~/plugins/v-calendar', mode: 'client' },
-    '~/plugins/vue-glide.js',
+    '~/plugins/mapbox.client.js',
+    '~/plugins/observe-visibility',
+    '~/plugins/toast',
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -56,11 +62,12 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    // https://go.nuxtjs.dev/bootstrap
-    'bootstrap-vue/nuxt',
+    'nuxt-buefy',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
+    'nuxt-i18n',
+    'cookie-universal-nuxt',
     // '@nuxtjs/proxy',
   ],
 
@@ -81,12 +88,18 @@ export default {
       pathRewrite: { '^/here-api/': '' },
       changeOrigin: true,
     },
+    '/mapbox-api/': {
+      target: 'https://api.mapbox.com/geocoding/v5/mapbox.places',
+      pathRewrite: { '^/mapbox-api/': '' },
+      changeOrigin: true,
+    },
   },
 
   // @nuxtjs/auth module configuration
   auth: {
     redirect: {
       login: '/organizers/login',
+      home: '/organizers/dashboard',
     },
     strategies: {
       'local-organizer': {
@@ -117,15 +130,19 @@ export default {
   build: {},
 
   router: {
-    parseQuery: q => require('qs').parse(q, { comma: true }),
-    stringifyQuery: q =>
-      '?' +
-      require('qs').stringify(q, {
-        arrayFormat: 'comma',
+    parseQuery: q => require('qs').parse(q),
+    stringifyQuery: q => {
+      if (!Object.keys(q).length) return '/';
+
+      const queryString = require('qs').stringify(q, {
         skipNulls: true,
         encode: false,
-      }),
+      });
+      return `?${queryString}`;
+    },
   },
+
+  loading: '~/components/main/TheLoadingIndicator',
 
   // Fontawesome module configuration
   fontawesome: {
@@ -134,5 +151,22 @@ export default {
       solid: true,
       brands: true,
     },
+  },
+
+  buefy: {
+    defaultIconPack: 'fa',
+    defaultIconComponent: 'fa',
+  },
+
+  i18n: {
+    locales: [
+      { code: 'en', iso: 'en-US', file: 'en.json', localName: 'English' },
+      { code: 'hu', iso: 'hu-HU', file: 'hu.json', localName: 'Magyar' },
+    ],
+    lazy: true,
+    defaultLocale: 'en',
+    strategy: 'no_prefix',
+    langDir: 'locales/',
+    detectBrowserLanguage: { fallbackLocale: 'en' },
   },
 };

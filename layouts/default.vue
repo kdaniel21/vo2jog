@@ -1,15 +1,10 @@
 <template>
-  <div id="default-layout" class="min-vh-100 d-flex flex-column navbar-margin">
+  <div id="default-layout" class="is-flex is-flex-direction-column">
     <the-navbar />
 
-    <slot>
-      <b-container
-        fluid="md"
-        class="flex-grow-1 d-flex flex-column py-3 py-md-5"
-      >
-        <Nuxt class="align-self-stretch flex-grow-1" />
-      </b-container>
-    </slot>
+    <div id="content" class="is-flex-grow-1">
+      <Nuxt />
+    </div>
 
     <the-footer />
   </div>
@@ -23,11 +18,10 @@ export default {
 
 <style scoped>
 #default-layout {
-  max-width: 100%;
+  min-height: 100vh;
+  max-width: 100vw;
 }
-/* same amount as navbar height */
-.navbar-margin {
-  padding-top: 60px;
+#content {
+  max-width: 100vw;
 }
 </style>
->

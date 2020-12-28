@@ -1,7 +1,11 @@
 <template>
-  <b-button id="clear-filters" size="sm" @click="resetFilters"
-    >Clear Filters</b-button
+  <b-button
+    type="is-danger is-light"
+    icon-left="trash-alt"
+    @click="resetFilters"
   >
+    {{ $t('search.reset_filters') }}
+  </b-button>
 </template>
 
 <script>

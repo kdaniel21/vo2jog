@@ -1,22 +1,20 @@
 <template>
-  <div id="event-page-documents">
-    <h2>Documents</h2>
+  <section id="event-page-documents" class="card">
+    <div class="card-content">
+      <h2 class="title is-4 mb-1">{{ $t('common.documents') }}</h2>
 
-    <b-list-group>
-      <b-list-group-item
-        v-for="document in documentsWithIcons"
-        :key="document.id"
-        v-b-tooltip.hover
-        :href="document.file"
-        target="_blank"
-        class="text-dark"
-        :title="`Download ${document.name}`"
-      >
-        <fa :icon="document.icon" fixed-width />
-        <span>{{ document.name }}</span>
-      </b-list-group-item>
-    </b-list-group>
-  </div>
+      <ul class="menu-list">
+        <li v-for="document in documentsWithIcons" :key="document.id">
+          <a :href="document.file" target="_blank" class="has-text-dark">
+            <b-tooltip :label="`Download ${document.name}`">
+              <b-icon :icon="document.icon" />
+              <span>{{ document.name }}</span>
+            </b-tooltip>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
 </template>
 
 <script>

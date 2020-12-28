@@ -1,35 +1,28 @@
 <template>
-  <div id="event-page">
-    <event-page-photo :img="event.image" />
-    <event-page-basic-information :event="event" />
-    <hr />
+  <div id="event-page" class="container">
+    <event-page-hero :event="event" />
+    <event-page-basic-information class="is-hidden-tablet" :event="event" />
 
-    <event-page-description :description="event.description" />
-    <hr />
+    <event-page-description class="mt-2" :description="event.description" />
 
-    <event-page-competitions :competitions="event.competitions" />
-    <hr />
+    <event-page-competitions class="mt-2" :competitions="event.competitions" />
 
     <event-page-organizer :organizer="event.organizer" />
-    <hr />
 
     <event-page-faq :faq="event.faq" />
-    <hr />
 
-    <b-row>
-      <b-col cols="12" md="6">
-        <event-page-schedule :schedule="event.schedule" />
-      </b-col>
-      <b-col>
-        <event-page-documents :documents="event.documents" />
-      </b-col>
-    </b-row>
-    <hr />
+    <div class="columns is-desktop">
+      <event-page-schedule class="column" :event="event" />
+      <event-page-documents class="column" :documents="event.documents" />
+    </div>
 
-    <event-page-location :location="event.location" />
+    <event-page-location
+      v-if="event.location.coordinates.length"
+      :location="event.location"
+    />
 
-    <h2>Sign Up Now!</h2>
-    <event-page-bottom-bar :event="event" />
+    <h2 class="title is-4 px-5 pt-5">{{ $t('event.sign_up_now') }}</h2>
+    <event-page-bottom-bar :event="event" class="mb-4" />
   </div>
 </template>
 

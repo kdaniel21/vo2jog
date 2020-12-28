@@ -1,90 +1,46 @@
 <template>
-  <vsb-layout :items="navItems" mobile-fullscreen>
-    <template #toggle-icon
-      ><fa
-        v-b-toggle="'sidebar'"
-        icon="bars"
-        class="h3 d-md-none mt-1 align-self-end"
-    /></template>
+  <div id="organizer-layout">
+    <organizer-navbar @toggle-sidebar="toggleSidebar" />
+    <organizer-sidebar
+      :is-sidebar-visible="isSidebarVisible"
+      @toggle-sidebar="toggleSidebar"
+    />
 
-    <template #title>
-      <div class="d-flex justify-content-between w-100">
-        <event-picker />
-        <create-event>
-          <fa
-            v-b-modal.create-modal
-            icon="plus-circle"
-            style="vertical-align: -0.5rem"
-          />
-        </create-event>
-      </div>
-    </template>
-
-    <template #navbar-content>
-      <organizer-navbar />
-    </template>
-
-    <template #dropdown-icon="{ item, index }">
-      <fa
-        v-if="item.children"
-        v-b-toggle="`nav-item-${index}`"
-        icon="caret-down"
-      />
-    </template>
-
-    <template>
-      <b-container class="py-3 py-md-5">
-        <Nuxt />
-      </b-container>
-    </template>
-  </vsb-layout>
+    <div class="px-2">
+      <Nuxt />
+    </div>
+  </div>
 </template>
 
 <script>
+import windowSize from '~/mixins/window-size';
+
 export default {
-  middleware: ['auth', 'fetch-events'],
+  mixins: [windowSize],
+  middleware: ['auth', 'select-event'],
   data() {
     return {
-      navItems: [
-        {
-          text: 'Dashboard',
-          link: '/organizers/dashboard',
-          icon: { tag: 'fa', attributes: { icon: 'tachometer-alt' } },
-        },
-        {
-          name: 'Event',
-          children: [
-            {
-              link: '/',
-              text: 'Analytics',
-              disabled: true,
-              icon: { tag: 'fa', attributes: { icon: 'chart-line' } },
-            },
-            {
-              link: '/',
-              text: 'Signups',
-              disabled: true,
-              icon: { tag: 'fa', attributes: { icon: 'user' } },
-            },
-            {
-              text: 'Edit',
-              icon: { tag: 'fa', attributes: { icon: 'edit' } },
-              children: [
-                { text: 'Basic Information', link: '/organizers/edit/basic' },
-                { text: 'Categories', link: '/organizers/edit/categories' },
-                { text: 'Description', link: '/organizers/edit/description' },
-                { text: 'Competitions', link: '/organizers/edit/competitions' },
-                { text: 'Location', link: '/organizers/edit/location' },
-                { text: 'Schedule', link: '/organizers/edit/schedule' },
-                { text: 'Social Media', link: '/organizers/edit/social-media' },
-                { text: 'Q&A', link: '/organizers/edit/questions' },
-                { text: 'Documents', link: '/organizers/edit/documents' },
-              ],
-            },
-          ],
-        },
-      ],
+      isSidebarOpened: false,
     };
+  },
+  computed: {
+    isSidebarVisible() {
+      return this.width > 1024 ? true : this.isSidebarOpened;
+    },
+  },
+  methods: {
+    toggleSidebar() {
+      this.isSidebarOpened = !this.isSidebarOpened;
+    },
   },
 };
 </script>
+
+<style scoped>
+@media screen and (min-width: 1024px) {
+  #organizer-layout {
+    /* Reduced sidebar width */
+    margin-left: 80px;
+  }
+}
+</style>

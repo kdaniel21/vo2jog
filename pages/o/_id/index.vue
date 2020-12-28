@@ -1,14 +1,19 @@
 <template>
-  <div id="organizer-profile">
-    <div class="d-flex flex-wrap justify-content-center">
-      <div class="text-center mr-md-5">
+  <div id="organizer-profile" class="container">
+    <div class="columns is-desktop is-2 is-variable">
+      <div class="column is-narrow">
         <profile-avatar :img="'https://i.pravatar.cc/300'" />
         <profile-social-media
-          class="mt-4"
           :social-media="profile.socialMedia"
+          class="mt-3"
         />
       </div>
-      <profile-information :profile="profile" />
+      <div class="column">
+        <profile-information :profile="profile" />
+
+        <profile-events class="my-2" />
+        <profile-contacts :contacts="profile.contactPeople" />
+      </div>
     </div>
   </div>
 </template>

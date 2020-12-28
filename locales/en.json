@@ -1,0 +1,288 @@
+{
+  "common": {
+    "search": "Search",
+    "login": "Login",
+    "name": "Name",
+    "email": "Email",
+    "email_address": "Email Address",
+    "description": "Description",
+    "organizer": "Organizer",
+    "location": "Location",
+    "address": "Address",
+    "apply": "Apply",
+    "cancel": "Cancel",
+    "date": "Date",
+    "save": "Save",
+    "schedule": "Schedule",
+    "add_item": "Add Item",
+    "confirm": "Confirm",
+    "documents": "Documents",
+    "add": "Add"
+  },
+
+  "toast": {
+    "error": {
+      "general": "Oops! We couldn't reach our our servers. Please try again!",
+      "event_update": "Something went wrong and we couldn't update the event. Please try again!",
+      "login": "Your email or password is not correct. Please try again!",
+      "create_event": "Could not create event. Please try again!",
+      "item_added": "Could not add item. Please try again!",
+      "item_updated": "Oops! We couldn't update the selected item. Please try again!",
+      "item_removed": "Oops! We couldn't remove the selected item. Please try again!",
+      "account_updated": "We couldn't update your account. Please try again!",
+      "profile_updated": "Oops! We couldn't update your profile. Please try again!"
+    },
+    "success": {
+      "login": "Success! Now you are logged in.",
+      "create_event": "Event created successfully!",
+      "event_update": "Your event was updated successfully!",
+      "item_added": "Item added successfully!",
+      "item_updated": "Success! We updated the selected item!",
+      "item_removed": "Success! We removed the selected item!",
+      "account_updated": "Your account has been updated successfully!",
+      "profile_updated": "Your profile has been updated!"
+    }
+  },
+
+  "shared": {
+    "event_list_item": {
+      "details": "Learn More"
+    },
+    "location_map": {
+      "loading": "Loading Map"
+    },
+    "location_autocomplete": {
+      "no_data": "This looks empty! Nothing?!"
+    }
+  },
+
+  "validation": {
+    "messages": {
+      "required": "This field is required!",
+      "email": "Invalid email address!",
+      "passwordConfirmMatch": "Your two passwords are not matching!",
+      "minLength": "The {attribute} needs to be at least {min} characters long!",
+      "maxLength": "This field cannot be longer than {max} characters!",
+      "url": "Invalid URL format!",
+      "alphaNum": "This field can only contain letters or numbers!",
+      "alphaNumDiacritic": "This field can only contain letters or numbers!",
+      "alphaNumWhiteDiacritic": "This field can only contain letters or numbers!",
+      "alpha": "This field can only contain letters!",
+      "alphaWhite": "This field can only contain letters!",
+      "alphaWhiteDiacritic": "This field can only contain letters!",
+      "text": "This field can only contain letters, numbers and punctuation marks!",
+      "dateLater": "The date must come later than {min}",
+      "numeric": "This field must contain only numbers!"
+    },
+    "attributes": {}
+  },
+
+  "categories": {
+    "main": {
+      "name": "Sport",
+      "running": "Running",
+      "cycling": "Cycling",
+      "swimming": "Swimming",
+      "triathlon": "Triathlon",
+      "other": "Other"
+    },
+    "distance": {
+      "name": "Distance",
+      "10k": "10K",
+      "olympic": "Olympic",
+      "time_trial": "Time Trial",
+      "half_marathon": "Half Marathon",
+      "ironman": "Ironman"
+    }
+  },
+
+  "navbar": {
+    "brand": "vo2jog",
+    "organizers": "Organizers",
+    "become_partner": "Become Partner",
+    "about_us": "About Us"
+  },
+
+  "landing": {
+    "call_to_action": {
+      "title": "Where do you race next?",
+      "subtitle": "Find out together!"
+    },
+    "main_title": "Select Sport",
+    "distance_title": "Select Distance",
+    "popular_events": {
+      "title": "Most Popular Events"
+    }
+  },
+
+  "profile": {
+    "recent_events": "Recent Events",
+    "all_events": "All Events",
+    "contacts": "Contacts",
+    "phone_number": "Phone Number",
+    "get_in_touch": "Get In Touch"
+  },
+
+  "event": {
+    "competitions": "Competitions",
+    "view_profile": "View Profile",
+    "visit": "Visit",
+    "faq": "Questions",
+    "coordinates": "Coordinates",
+    "plan_route": "Plan Route!",
+    "signup_tooltip": "Let's do this!",
+    "bookmark_tooltip": "Bookmark event for later",
+    "share_tooltip": "Share with your friends",
+    "entries_from": "Entries from",
+    "sign_up_now": "Sign Up Now!",
+    "sign_up": "Sign Up",
+    "distance": "Distance"
+  },
+
+  "search": {
+    "sport": "Sport",
+    "select_date": "Select Date",
+    "select_location": "Select Location",
+    "reset_filters": "Clear Filters",
+    "select_radius": "Select Radius",
+    "filters": "Filters",
+    "apply_filters": "Apply Filters",
+    "no_results": "Nothing was found with your parameters. Maybe try again with something else?"
+  },
+
+  "organizer": {
+    "shared": {
+      "enter_link": "Please enter the link",
+      "link_placeholder": "https://vo2jog.com",
+      "link_added": "Link Added",
+      "invalid_link": "Invalid Link",
+      "add_link": "Add Link",
+      "select_icon": "Select Icon",
+      "upload": "Upload",
+      "add_email": "Add Email",
+      "enter_email": "Please enter the email address",
+      "invalid_email": "Invalid Email",
+      "email_added": "Email Added",
+      "email_placeholder": "hello@vo2jog.com",
+      "add_phone": "Add Phone",
+      "enter_phone": "Please enter the phone number",
+      "phone_added": "Phone Added",
+      "invalid_phone": "Invalid Phone",
+      "phone_placeholder": "+36301112345"
+    },
+
+    "navbar": {
+      "brand": "vo2jog",
+      "public_profile": "Public Profile",
+      "account": "Account Settings",
+      "sign_out": "Sign Out"
+    },
+
+    "sidebar": {
+      "event_page": "Event Page",
+      "information": "Information",
+      "details": "Details",
+      "competitions": "Competitions",
+      "analytics": "Analytics",
+      "participants": "Participants",
+      "settings": "Settings",
+      "profile": "Profile",
+      "select_event": "Select Event"
+    },
+
+    "create_event": {
+      "title": "Create New Event",
+      "message": "Please select a name for your event. You can change this later on.",
+      "placeholder": "VO2JOG Charity Run",
+      "confirm": "Create Event"
+    },
+
+    "login": {
+      "organizer_login": "Organizer Login",
+      "password": "Password",
+      "sign_in": "Sign In",
+      "no_account": "Don't have an account?",
+      "get_started": "Get Started",
+      "forgot_password": "Forgot Password?"
+    },
+
+    "dashboard": {
+      "greeting": "Hi there, {name}!",
+      "subtitle": "How's your day doing so far?",
+      "my_events": "My Events"
+    },
+
+    "info": {
+      "title": "Edit Event Information",
+      "description": "Here you can edit all the basic information regarding the selected event, such as name, cover image or location. Finer details (like schedule, necessary documents) can be handled under the details menu or by {link}",
+      "click_here": "clicking here.",
+      "basic_information": "Basic Information",
+      "event_name": "Event Name",
+      "name_placeholder": "VO2JOG Charity Run",
+      "start_date": "Start Date",
+      "end_date": "End Date",
+      "select_date": "Click here to select date",
+      "event_length": "Event Length",
+      "single_day": "Single Day",
+      "multi_day": "Multi-day",
+      "categories": "Categories",
+      "success_toast": "Event updated successfully!",
+      "image": "Image",
+      "upload_new": "Upload New Image",
+      "upload_area": "Drop your image here or click to upload",
+      "show_map": "Show Map"
+    },
+
+    "details": {
+      "title": "Specify the Details",
+      "description": "{proverb} - says the proverb. And it's probably right, so make sure to provide as much detail about your event as possible so that on race day everyone will know their responsibilities.",
+      "details_proverb": "\"The devil is in the details.\"",
+      "day_x": "Day {dayNum}",
+      "select_time": "Select Time",
+      "add_schedule_item": "Add Schedule Item",
+      "confirm_delete_item": "Are you sure you want to delete this item?",
+      "upload_area": "Drop your document here or click to upload",
+      "file_name_placeholder": "Filename",
+      "upload": "Upload",
+      "uploaded_at": "Uploaded At",
+      "delete_document": "Delete Document",
+      "social_media": "Social Media",
+      "icon": "Icon",
+      "add_social_media": "Add Social Media Website",
+      "questions": "Questions",
+      "add_question": "Add Question"
+    },
+
+    "competitions": {
+      "title": "Competitions",
+      "description": "You can modify every tiny little detail of the competitions you offer for racers. Also the pricing can be modified in this page, though you can setup certain prices with a time limit.",
+      "edit_competition": "Edit Competition",
+      "unit": "Unit",
+      "min_age": "Minimum Age",
+      "age_before": "Born in year and before",
+      "max_age": "Maximum Age",
+      "age_after": "Born in year and after",
+      "participant_limit": "Participants Limit",
+      "positive_elevation": "Positive Elevation",
+      "negative_elevation": "Negative Elevation"
+    },
+
+    "account": {
+      "title": "Account",
+      "edit_credentials": "Edit Credentials",
+      "current_password": "Current Password",
+      "password_confirm": "Confirm Password",
+      "update_credentials": "Update Credentials",
+      "update_confirm": "Are you sure you want to update your credentials? This action is irreversible and you won't be able to use the old credentials!"
+    },
+
+    "profile": {
+      "title": "Public Profile",
+      "motto": "Motto",
+      "description_placeholder": "Write something about your organization",
+      "social_media": "Social Media Accounts",
+      "contacts": "Contact People",
+      "add_contact": "Add Contact Person"
+    }
+  }
+}

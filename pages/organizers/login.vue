@@ -1,63 +1,62 @@
 <template>
-  <b-row id="login" class="justify-content-center mt-5">
-    <b-col cols="12" sm="10" xl="8" class="align-items-stretch">
-      <b-card no-body>
-        <b-card-body>
-          <b-card-title>Login</b-card-title>
-          <b-row>
-            <b-col cols="12" sm="6" class="text-center align-self-center">
-              <img
-                :src="require('~/assets/svg/undraw-business_plan.svg')"
-                style="width: 200px"
-              />
-            </b-col>
-            <b-col class="border-left">
-              <b-form @submit.prevent="login">
-                <b-form-group label="Email" label-for="email-address">
-                  <b-form-input
-                    id="email-address"
-                    v-model="form.email"
-                    type="email"
-                    required
-                    placeholder="Your e-mail address"
-                  ></b-form-input>
-                </b-form-group>
+  <div id="login" class="container is-flex is-justify-content-center">
+    <section class="card mt-6">
+      <div class="card-content">
+        <h1 class="title">
+          <b-icon icon="briefcase" />
+          {{ $t('organizer.login.organizer_login') }}
+        </h1>
 
-                <b-form-group label="Password" label-for="password">
-                  <b-form-input
-                    id="password"
-                    v-model="form.password"
-                    type="password"
-                    required
-                    placeholder="Your password"
-                  ></b-form-input>
-                </b-form-group>
+        <form-group :label="$t('common.email')" :validator="$v.form.email">
+          <b-input
+            v-model="form.email"
+            :placeholder="$t('common.email_address')"
+            icon="envelope"
+            @input="$v.form.email.$touch()"
+          />
+        </form-group>
 
-                <b-button type="submit" block variant="primary" pill>
-                  Login
-                </b-button>
+        <form-group :validator="$v.form.password">
+          <template #label>
+            <span>{{ $t('organizer.login.password') }}</span>
+            <nuxt-link
+              to="/forgot-password"
+              class="is-size-7 is-pulled-right"
+              tabindex="-1"
+            >
+              {{ $t('organizer.login.forgot_password') }}
+            </nuxt-link>
+          </template>
 
-                <hr />
-                <div class="d-flex justify-content-end flex-wrap">
-                  <nuxt-link to="/organizers/forgot-password" class="small">
-                    Forgotten Password?
-                  </nuxt-link>
-                </div>
-              </b-form>
-            </b-col>
-          </b-row>
-        </b-card-body>
-      </b-card>
-    </b-col>
-  </b-row>
+          <b-input
+            v-model="form.password"
+            type="password"
+            password-reveal
+            :placeholder="$t('organizer.login.password')"
+            icon="lock"
+            @input="$v.form.password.$touch()"
+          />
+        </form-group>
+
+        <b-button type="is-primary" class="is-fullwidth" @click="login">
+          {{ $t('organizer.login.sign_in') }}
+        </b-button>
+
+        <div class="mt-6">
+          <span>{{ $t('organizer.login.no_account') }}</span>
+          <nuxt-link to="/">{{ $t('organizer.login.get_started') }}</nuxt-link>
+        </div>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script>
-import toaster from '@/mixins/toaster';
+import { required, email } from 'vuelidate/lib/validators';
 
 export default {
-  name: 'Login',
-  mixins: [toaster],
+  middleware: ['auth'],
+  auth: 'guest',
   data() {
     return {
       form: {
@@ -66,6 +65,12 @@ export default {
       },
     };
   },
+  validations: {
+    form: {
+      email: { required, email },
+      password: { required },
+    },
+  },
   methods: {
     async login() {
       try {
@@ -73,17 +78,17 @@ export default {
         await this.$auth.loginWith('local-organizer', {
           data: { email, password },
         });
-      } catch ({ response }) {
-        if (response.status === 403)
-          return this.errorToast(
-            'This account has not been approved yet. Please try again later or contact us!'
-          );
-
-        this.errorToast(
-          'Your email or password is not correct. Please try again!'
-        );
+        this.$toast.success(this.$t('toast.success.login'));
+      } catch {
+        this.$toast.error(this.$t('toast.error.login'));
       }
     },
   },
 };
 </script>
+
+<style scoped>
+.card {
+  width: min(450px, 100%);
+}
+</style>

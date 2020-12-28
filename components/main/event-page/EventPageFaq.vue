@@ -1,15 +1,17 @@
 <template>
-  <div id="event-page-faq">
-    <h2>Questions</h2>
+  <section id="event-page-faq" class="card">
+    <div class="card-content">
+      <h2 class="title is-4">{{ $t('event.faq') }}</h2>
 
-    <list-card
-      v-for="{ question, answer, id } in faq"
-      :key="id"
-      :title="question"
-    >
-      <p>{{ answer }}</p>
-    </list-card>
-  </div>
+      <collapse-card
+        v-for="{ question, answer, id } in faq"
+        :key="id"
+        :title="question"
+      >
+        <p>{{ answer }}</p>
+      </collapse-card>
+    </div>
+  </section>
 </template>
 
 <script>

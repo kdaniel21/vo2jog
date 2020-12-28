@@ -40,7 +40,7 @@ export const getters = {
 
 export const mutations = {
   setEvents(state, { events, length }) {
-    state.events = events;
+    state.events = [...events];
     state.totalNumOfResults = length;
   },
   setCategories(state, categories) {
@@ -62,7 +62,7 @@ export const actions = {
     });
 
     const { data, length } = res.data;
-    if (data) commit('setEvents', { events: data, length });
+    commit('setEvents', { events: data, length });
   },
   async setPage({ commit, dispatch }, page) {
     commit('setPage', page);
@@ -75,14 +75,12 @@ export const actions = {
 
     commit('setCategories', res.data.data);
   },
-  loadFilters({ commit, dispatch }) {
-    if (process.client) {
-      commit('setFilters', $nuxt._route.query);
-      const { page } = $nuxt._route.query;
-      if (page) commit('setPage', page);
-    }
+  loadFilters({ commit, dispatch }, query) {
+    if (!query) query = $nuxt._route.query;
+    commit('setFilters', query);
+    if (query.page) commit('setPage', query.page);
 
-    dispatch('fetchEvents');
+    return dispatch('fetchEvents');
   },
   setFilter({ commit, getters, state, dispatch }, filter) {
     // Set query params

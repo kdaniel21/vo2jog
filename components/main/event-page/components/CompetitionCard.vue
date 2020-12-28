@@ -1,7 +1,7 @@
 <template>
-  <list-card :title="competition.name" accordion="competitions-accordion">
+  <collapse-card :title="competition.name">
     <pre>{{ competition }}</pre>
-  </list-card>
+  </collapse-card>
 </template>
 
 <script>

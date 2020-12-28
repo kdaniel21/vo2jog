@@ -1,7 +1,9 @@
 <template>
-  <div id="search-area">
-    <search-bar class="mb-2" />
-    <filter-bar />
+  <div id="search-area" class="card">
+    <div class="card-content pb-2">
+      <search-bar class="mb-4" />
+      <filter-bar />
+    </div>
   </div>
 </template>
 
@@ -10,5 +12,3 @@ export default {
   name: 'SearchArea',
 };
 </script>
-
-<style></style>
