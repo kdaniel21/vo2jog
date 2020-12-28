@@ -131,7 +131,8 @@
     "share_tooltip": "Share with your friends",
     "entries_from": "Entries from",
     "sign_up_now": "Sign Up Now!",
-    "sign_up": "Sign Up"
+    "sign_up": "Sign Up",
+    "distance": "Distance"
   },
 
   "search": {
@@ -239,7 +240,16 @@
 
     "competitions": {
       "title": "Competitions",
-      "description": "You can modify every tiny little detail of the competitions you offer for racers. Also the pricing can be modified in this page, though you can setup certain prices with a time limit."
+      "description": "You can modify every tiny little detail of the competitions you offer for racers. Also the pricing can be modified in this page, though you can setup certain prices with a time limit.",
+      "edit_competition": "Edit Competition",
+      "unit": "Unit",
+      "min_age": "Minimum Age",
+      "age_before": "Born in year and before",
+      "max_age": "Maximum Age",
+      "age_after": "Born in year and after",
+      "participant_limit": "Participants Limit",
+      "positive_elevation": "Positive Elevation",
+      "negative_elevation": "Negative Elevation"
     }
   }
 }
