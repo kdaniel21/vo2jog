@@ -1,5 +1,7 @@
 <template>
   <div id="edit-profile-contacts">
+    <h2 class="title">{{ $t('organizer.profile.contacts') }}</h2>
+
     <edit-list
       :items="contacts"
       icon="user"
