@@ -19,17 +19,18 @@
       </slot>
 
       <b-button
-        v-if="!uploadNew"
         type="is-primary"
         class="mt-3"
         icon-left="upload"
         expanded
-        @click="removeCurrent"
+        @click="uploadNew ? $emit('upload') : removeCurrent()"
       >
-        {{ $t('organizer.info.upload_new') }}
+        {{
+          uploadNew
+            ? $t('organizer.shared.upload')
+            : $t('organizer.info.upload_new')
+        }}
       </b-button>
-
-      <slot v-else name="save-button" />
     </div>
   </div>
 </template>

@@ -2,9 +2,7 @@
   <div id="edit-image-upload">
     <h2 class="title">{{ $t('organizer.info.image') }}</h2>
 
-    <image-upload ref="image-upload" v-model="form.image">
-      <button-right slot="save-button" @click="onSave" />
-    </image-upload>
+    <image-upload ref="image-upload" v-model="form.image" @upload="onSave" />
   </div>
 </template>
 
