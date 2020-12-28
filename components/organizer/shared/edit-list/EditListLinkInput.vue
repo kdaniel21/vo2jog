@@ -20,6 +20,7 @@ export default {
       icon: 'link',
       title: this.$t('organizer.shared.add_link'),
       message: this.$t('organizer.shared.enter_link'),
+      buttonIcon: 'link',
     };
   },
   computed: {

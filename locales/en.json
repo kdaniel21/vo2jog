@@ -158,7 +158,17 @@
       "invalid_link": "Invalid Link",
       "add_link": "Add Link",
       "select_icon": "Select Icon",
-      "upload": "Upload"
+      "upload": "Upload",
+      "add_email": "Add Email",
+      "enter_email": "Please enter the email address",
+      "invalid_email": "Invalid Email",
+      "email_added": "Email Added",
+      "email_placeholder": "hello@vo2jog.com",
+      "add_phone": "Add Phone",
+      "enter_phone": "Please enter the phone number",
+      "phone_added": "Phone Added",
+      "invalid_phone": "Invalid Phone",
+      "phone_placeholder": "+36301112345"
     },
 
     "navbar": {
@@ -270,7 +280,8 @@
       "title": "Public Profile",
       "motto": "Motto",
       "description_placeholder": "Write something about your organization",
-      "social_media": "Social Media Accounts"
+      "social_media": "Social Media Accounts",
+      "add_contact": "Add Contact Person"
     }
   }
 }

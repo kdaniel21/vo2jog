@@ -15,7 +15,7 @@ export default {
   name: 'EditListTextInput',
   props: {
     value: { type: String, default: null },
-    isValid: { type: Boolean, default: null },
+    isValid: { type: Boolean, default: true },
     validationMessages: { type: Object, default: null },
     placeholder: { type: String, default: null },
     icon: { type: String, default: null },
@@ -30,7 +30,7 @@ export default {
       if (!this.value)
         return {
           text: messages.normal,
-          icon: 'link',
+          icon: this.icon,
           type: 'is-primary is-light',
         };
       if (!this.isValid)

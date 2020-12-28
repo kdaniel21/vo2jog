@@ -34,17 +34,29 @@ export const actions = {
     }
   },
   async addProfileItem(context, { name, data, url }) {
-    const endpointName = camelToKebab(name);
-    const endpointUrl = url || `/api/profile/${endpointName}`;
-    await this.$axios.post(endpointUrl, data);
-    await this.$auth.fetchUser();
+    try {
+      const endpointName = camelToKebab(name);
+      const endpointUrl = url || `/api/profile/${endpointName}`;
+      await this.$axios.post(endpointUrl, data);
+      await this.$auth.fetchUser();
+
+      this.$toast.success($nuxt.$t('toast.success.profile_updated'));
+    } catch {
+      this.$toast.error($nuxt.$t('toast.error.profile_updated'));
+    }
   },
   async updateProfileItem(context, { name, data, url, itemId }) {
-    const id = itemId || data.id;
-    const endpointName = camelToKebab(name);
-    const endpointUrl = url || `/api/profile/${endpointName}/${id}`;
-    await this.$axios.patch(endpointUrl, data);
-    await this.$auth.fetchUser();
+    try {
+      const id = itemId || data.id;
+      const endpointName = camelToKebab(name);
+      const endpointUrl = url || `/api/profile/${endpointName}/${id}`;
+      await this.$axios.patch(endpointUrl, data);
+      await this.$auth.fetchUser();
+
+      this.$toast.success($nuxt.$t('toast.success.profile_updated'));
+    } catch {
+      this.$toast.error($nuxt.$t('toast.error.profile_updated'));
+    }
   },
   async deleteProfileItem(context, { name, url, itemId }) {
     try {
