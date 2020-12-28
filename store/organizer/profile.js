@@ -5,8 +5,14 @@ export const state = () => ({});
 
 export const actions = {
   async updateProfile(context, updatedItems) {
-    await this.$axios.patch('/api/profile', updatedItems);
-    await this.$auth.fetchUser();
+    try {
+      await this.$axios.patch('/api/profile', updatedItems);
+      await this.$auth.fetchUser();
+
+      this.$toast.success($nuxt.$t('toast.success.profile_updated'));
+    } catch {
+      this.$toast.error($nuxt.$t('toast.error.profile_updated'));
+    }
   },
   showUpdateCredentialsConfirm({ dispatch }, payload) {
     $nuxt.$buefy.dialog.confirm({

@@ -29,7 +29,8 @@
       "item_added": "Could not add item. Please try again!",
       "item_updated": "Oops! We couldn't update the selected item. Please try again!",
       "item_removed": "Oops! We couldn't remove the selected item. Please try again!",
-      "account_updated": "We couldn't update your account. Please try again!"
+      "account_updated": "We couldn't update your account. Please try again!",
+      "profile_updated": "Oops! We couldn't update your profile. Please try again!"
     },
     "success": {
       "login": "Success! Now you are logged in.",
@@ -38,7 +39,8 @@
       "item_added": "Item added successfully!",
       "item_updated": "Success! We updated the selected item!",
       "item_removed": "Success! We removed the selected item!",
-      "account_updated": "Your account has been updated successfully!"
+      "account_updated": "Your account has been updated successfully!",
+      "profile_updated": "Your profile has been updated!"
     }
   },
 
@@ -155,7 +157,8 @@
       "link_added": "Link Added",
       "invalid_link": "Invalid Link",
       "add_link": "Add Link",
-      "select_icon": "Select Icon"
+      "select_icon": "Select Icon",
+      "upload": "Upload"
     },
 
     "navbar": {
@@ -261,6 +264,12 @@
       "password_confirm": "Confirm Password",
       "update_credentials": "Update Credentials",
       "update_confirm": "Are you sure you want to update your credentials? This action is irreversible and you won't be able to use the old credentials!"
+    },
+
+    "profile": {
+      "title": "Public Profile",
+      "motto": "Motto",
+      "description_placeholder": "Write something about your organization"
     }
   }
 }
