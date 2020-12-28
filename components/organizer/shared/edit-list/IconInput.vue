@@ -17,6 +17,7 @@
       trap-focus
       aria-role="dialog"
       aria-modal
+      @close="$emit('input', selected)"
     >
       <template #default="{ close }">
         <div class="modal-card">
@@ -55,7 +56,7 @@
 export default {
   name: 'IconInput',
   props: {
-    value: { type: String, default: null },
+    value: { type: Array, default: null },
   },
   data() {
     return {
