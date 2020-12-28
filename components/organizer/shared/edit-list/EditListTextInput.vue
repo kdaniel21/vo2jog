@@ -1,60 +1,68 @@
 <template>
   <b-button
-    id="link-input"
-    :type="linkButton.type"
+    id="edit-list-text-input"
+    :type="button.type"
     class="ml-1"
-    :icon-left="linkButton.icon"
-    @click="showLinkDialog"
+    :icon-left="button.icon"
+    @click="showDialog"
   >
-    {{ linkButton.text }}
+    {{ button.text }}
   </b-button>
 </template>
 
 <script>
 export default {
-  name: 'LinkInput',
+  name: 'EditListTextInput',
   props: {
     value: { type: String, default: null },
     isValid: { type: Boolean, default: null },
+    validationMessages: { type: Object, default: null },
+    placeholder: { type: String, default: null },
+    icon: { type: String, default: null },
+    iconPack: { type: String, default: null },
+    message: { type: String, default: null },
+    title: { type: String, default: null },
   },
   computed: {
-    linkButton() {
+    button() {
+      const messages = this.validationMessages;
+
       if (!this.value)
         return {
-          text: this.$t('organizer.shared.add_link'),
+          text: messages.normal,
           icon: 'link',
           type: 'is-primary is-light',
         };
       if (!this.isValid)
         return {
-          text: this.$t('organizer.shared.invalid_link'),
+          text: messages.invalid,
           icon: 'exclamation',
           type: 'is-danger is-light',
         };
 
       return {
-        text: this.$t('organizer.shared.link_added'),
+        text: messages.valid,
         icon: 'check',
         type: 'is-success is-light',
       };
     },
   },
   methods: {
-    showLinkDialog() {
+    showDialog() {
       this.$buefy.dialog.prompt({
-        title: this.$t('organizer.shared.add_link'),
-        message: this.$t('organizer.shared.enter_link'),
+        title: this.title,
+        message: this.message,
         hasIcon: !!this.icon,
         icon: this.icon,
         iconPack: this.iconPack,
         inputAttrs: {
-          placeholder: this.$t('organizer.shared.link_placeholder'),
+          placeholder: this.placeholder,
           required: true,
         },
         trapFocus: true,
         cancelText: this.$t('common.cancel'),
         confirmText: this.$t('common.add'),
-        onConfirm: link => this.$emit('input', link),
+        onConfirm: val => this.$emit('input', val),
       });
     },
   },

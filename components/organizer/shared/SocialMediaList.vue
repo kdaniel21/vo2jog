@@ -25,7 +25,10 @@
     >
       <icon-input v-model="form.icon" />
 
-      <link-input v-model="form.link" :is-valid="!$v.form.link.$invalid" />
+      <edit-list-link-input
+        v-model="form.link"
+        :is-valid="!$v.form.link.$invalid"
+      />
     </new-item>
   </div>
 </template>
