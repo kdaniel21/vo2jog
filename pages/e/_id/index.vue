@@ -12,12 +12,8 @@
     <event-page-faq :faq="event.faq" />
 
     <div class="columns is-desktop">
-      <div class="column">
-        <event-page-schedule :schedule="event.schedule" />
-      </div>
-      <div class="column">
-        <event-page-documents :documents="event.documents" />
-      </div>
+      <event-page-schedule class="column" :event="event" />
+      <event-page-documents class="column" :documents="event.documents" />
     </div>
 
     <event-page-location
