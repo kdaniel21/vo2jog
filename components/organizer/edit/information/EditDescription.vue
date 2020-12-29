@@ -16,12 +16,14 @@ export default {
   data() {
     return {
       form: {
-        description: this.$store.state.organizer.events.selectedEvent.description.replace(
-          /&lt;/g,
-          '<'
-        ),
+        description: this.$store.state.organizer.events.selectedEvent
+          .description,
       },
     };
+  },
+  created() {
+    if (this.form.description)
+      this.form.description = this.form.description.replace(/&lt;/g, '<');
   },
   methods: {
     ...mapActions('organizer/events', ['updateEvent']),
