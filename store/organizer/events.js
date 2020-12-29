@@ -53,11 +53,16 @@ export const actions = {
     if (events.length > 0) commit('setEvents', events);
   },
   async selectEvent({ commit }, selectedEventId) {
-    const res = await this.$axios.get(`/api/events/${selectedEventId}`);
-    if (!res.data.data) return;
+    try {
+      const res = await this.$axios.get(`/api/events/${selectedEventId}`);
+      if (!res.data.data) return;
 
-    if (process.client) $nuxt.$cookies.set('selectedEventId', res.data.data.id);
-    commit('setSelectedEvent', res.data.data);
+      if (process.client)
+        $nuxt.$cookies.set('selectedEventId', res.data.data.id);
+      commit('setSelectedEvent', res.data.data);
+    } catch {
+      // If event got deleted in the meantime it just doesn't get selected
+    }
   },
   async createEvent({ commit, dispatch }, newEventName) {
     const res = await this.$axios.post('/api/events', { name: newEventName });
