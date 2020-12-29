@@ -257,14 +257,18 @@
       "title": "Competitions",
       "description": "You can modify every tiny little detail of the competitions you offer for racers. Also the pricing can be modified in this page, though you can setup certain prices with a time limit.",
       "edit_competition": "Edit Competition",
+      "not_found": "Competition was not found. Please try selecting the event again!",
       "unit": "Unit",
       "min_age": "Minimum Age",
       "age_before": "Born in year and before",
       "max_age": "Maximum Age",
       "age_after": "Born in year and after",
+      "limit": "Limit",
       "participant_limit": "Participants Limit",
-      "positive_elevation": "Positive Elevation",
-      "negative_elevation": "Negative Elevation"
+      "positive_elevation": "Elevation Gain",
+      "negative_elevation": "Elevation Loss",
+      "elevation_different": "Elevation loss is different",
+      "details": "Details"
     },
 
     "account": {

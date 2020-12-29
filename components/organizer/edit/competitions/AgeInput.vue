@@ -1,7 +1,13 @@
 <template>
-  <form-group id="age-input" v-bind="$attrs" horizontal>
+  <form-group
+    id="age-input"
+    v-bind="$attrs"
+    :validator="validator ? validator : null"
+    horizontal
+  >
     <b-numberinput
       v-model="age"
+      :min="1900"
       :max="new Date().getFullYear()"
       :placeholder="placeholder || $attrs.label"
       @input="validator ? validator.$touch() : null"

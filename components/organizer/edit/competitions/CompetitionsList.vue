@@ -6,7 +6,10 @@
       class="card"
     >
       <header class="card-header">
-        <nuxt-link :to="`/edit/competitions/${id}`" class="card-header-title">
+        <nuxt-link
+          :to="`/organizers/edit/competitions/${id}`"
+          class="card-header-title"
+        >
           {{ name }}
         </nuxt-link>
 

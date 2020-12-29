@@ -1,5 +1,10 @@
 <template>
-  <form-group id="distance-input" v-bind="$attrs" horizontal>
+  <form-group
+    id="distance-input"
+    v-bind="$attrs"
+    :validator="validator"
+    horizontal
+  >
     <b-input
       v-model.number="distance.amount"
       type="number"
