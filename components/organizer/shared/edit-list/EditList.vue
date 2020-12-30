@@ -11,8 +11,10 @@
           <slot :item="item" />
 
           <span class="actions is-pulled-right">
-            <span @click="$emit('edit', item)"><b-icon icon="edit" /></span>
-            <span @click="$emit('delete', item)">
+            <span v-if="canEdit" @click="$emit('edit', item)">
+              <b-icon icon="edit" />
+            </span>
+            <span v-if="canDelete" @click="$emit('delete', item)">
               <b-icon icon="trash-alt" />
             </span>
           </span>
@@ -29,6 +31,8 @@ export default {
     items: { type: Array, default: () => [] },
     icon: { type: String, default: null },
     iconPack: { type: String, default: null },
+    canEdit: { type: Boolean, default: true },
+    canDelete: { type: Boolean, default: true },
   },
 };
 </script>

@@ -1,27 +1,39 @@
 <template>
-  <b-tabs id="competitions-list" v-model="selectedCompetition" type="toggle">
-    <b-tab-item
-      v-for="competition in selectedEvent.competitions"
-      :key="competition.id"
-      :label="competition.name"
+  <div id="competitions-list">
+    <div
+      v-for="{ name, id } in selectedEvent.competitions"
+      :key="id"
+      class="card"
     >
-      <edit-competition :competition="competition" />
-    </b-tab-item>
-  </b-tabs>
+      <header class="card-header">
+        <nuxt-link
+          :to="`/organizers/edit/competitions/${id}`"
+          class="card-header-title"
+        >
+          {{ name }}
+        </nuxt-link>
+
+        <div class="card-header-icon" @click="onDelete({ id })">
+          <b-icon icon="trash-alt" />
+        </div>
+      </header>
+    </div>
+  </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   name: 'CompetitionsList',
-  data() {
-    return {
-      selectedCompetition: 0,
-    };
-  },
   computed: {
     ...mapState('organizer/events', ['selectedEvent']),
+  },
+  methods: {
+    ...mapActions('organizer/events', ['showDeleteConfirm']),
+    onDelete({ id }) {
+      this.showDeleteConfirm({ name: 'competitions', itemId: id });
+    },
   },
 };
 </script>

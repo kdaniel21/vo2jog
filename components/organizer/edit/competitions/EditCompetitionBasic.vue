@@ -1,88 +1,73 @@
 <template>
   <div id="edit-competition-basic">
-    <b-dropdown aria-role="list" multiple>
-      <b-button slot="trigger" type="is-info">Fields</b-button>
-
-      <b-dropdown-item
-        v-for="field in Object.keys(fields)"
-        :key="field"
-        aria-role="listitem"
-        class="is-capitalized"
-      >
-        {{ field }}
-      </b-dropdown-item>
-    </b-dropdown>
-
-    <form-group :label="$t('common.name')" :validator="$v.form.name" horizontal>
-      <b-input v-model="form.name" />
-    </form-group>
+    <h2 class="title is-4">{{ $t('organizer.competitions.details') }}</h2>
 
     <distance-input
-      v-if="fields.distance"
       v-model="form.distance"
       :label="$t('event.distance')"
       :validator="$v.form.distance"
     />
 
+    <form-group
+      :validator="$v.form.limit"
+      :label="$t('organizer.competitions.limit')"
+      horizontal
+    >
+      <b-numberinput
+        v-model="form.limit"
+        :min="0"
+        :placeholder="$t('organizer.competitions.participant_limit')"
+      />
+    </form-group>
+
     <age-input
-      v-if="fields.ageLimit.minimum"
       v-model="form.ageLimit.minimum"
       :label="$t('organizer.competitions.min_age')"
-      :placeholder="$t('organizer.competitions.age_before')"
       :validator="$v.form.ageLimit.minimum"
+      :placeholder="$t('organizer.competitions.age_before')"
     />
 
     <age-input
-      v-if="fields.ageLimit.maximum"
       v-model="form.ageLimit.maximum"
       :label="$t('organizer.competitions.max_age')"
-      :placeholder="$t('organizer.competitions.age_after')"
       :validator="$v.form.ageLimit.maximum"
-    />
-
-    <age-input
-      v-if="fields.limit"
-      v-model="form.limit"
-      :label="$t('organizer.competitions.participant_limit')"
-      :validator="$v.form.limit"
+      :placeholder="$t('organizer.competitions.age_after')"
     />
 
     <distance-input
-      v-if="fields.elevation.positive"
-      v-model="fields.elevation.positive"
+      v-model="form.elevation.positive"
       :label="$t('organizer.competitions.positive_elevation')"
       :validator="$v.form.elevation.positive"
     />
 
+    <b-field horizontal>
+      <b-switch v-model="isElevationDifferent">
+        {{ $t('organizer.competitions.elevation_different') }}
+      </b-switch>
+    </b-field>
+
     <distance-input
-      v-if="fields.elevation.negative"
-      v-model="fields.elevation.negative"
+      v-if="isElevationDifferent"
+      v-model="form.elevation.negative"
       :label="$t('organizer.competitions.negative_elevation')"
       :validator="$v.form.elevation.negative"
     />
-
-    <button-right />
   </div>
 </template>
 
 <script>
-import { required } from 'vuelidate/lib/validators';
+import { decimal, numeric, minValue, maxValue } from 'vuelidate/lib/validators';
 
 export default {
   name: 'EditCompetitionBasic',
   props: {
-    competition: { type: Object, default: null },
+    value: { type: Object, default: null },
   },
   data() {
     return {
-      fields: {
-        distance: false,
-        ageLimit: false,
-        limit: false,
-        elevation: false,
-      },
+      isElevationDifferent:
+        this.value.elevation && this.value.elevation.negative.amount,
       form: {
-        name: null,
         distance: {
           amount: null,
           unit: 'kilometer',
@@ -107,20 +92,30 @@ export default {
   },
   validations: {
     form: {
-      name: { required },
+      distance: { amount: { decimal } },
+      ageLimit: {
+        minimum: {
+          numeric,
+          minValue: minValue(1900),
+        },
+        maximum: {
+          numeric,
+          maxValue: maxValue(new Date().getFullYear()),
+        },
+      },
+      elevation: {
+        positive: { amount: { numeric, minValue: minValue(0) } },
+        negative: { amount: { numeric, minValue: minValue(0) } },
+      },
+    },
+  },
+  watch: {
+    form(val) {
+      this.$emit('input', { ...this.value, ...this.form });
     },
   },
   created() {
-    this.form = { ...this.competition };
-    Object.keys(this.fields).forEach(field => {
-      if (typeof field !== 'object')
-        return (this.fields[field] = !!this.form[field]);
-
-      Object.keys(field).forEach(
-        nestedField =>
-          (this.fields[field][nestedField] = !!this.form[field][nestedField])
-      );
-    });
+    this.form = { ...this.value };
   },
 };
 </script>
