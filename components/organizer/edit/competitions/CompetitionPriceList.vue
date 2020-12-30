@@ -3,8 +3,6 @@
     id="competition-price-list"
     class="is-flex is-flex-direction-column is-justify-content-space-between"
   >
-    <pre>{{ $store.state.organizer.events. }}</pre>
-
     <edit-list
       :items="fees"
       icon="money-check"
@@ -74,8 +72,12 @@ export default {
       this.form.endTime = new Date(this.form.endTime);
       if (!this.editedItem) this.fees.push({ ...this.form });
       else {
-        const editedIndex = this.fees.findIndex(
-          ({ id }) => id === this.editedItem.id
+        // use time as identifier if change was only made locally
+        // therefore there's no id
+        const editedIndex = this.fees.findIndex(feeObj =>
+          feeObj.id
+            ? feeObj.id === this.editedItem.id
+            : feeObj.endTime.getTime() === this.editedItem.endTime.getTime()
         );
         this.fees.splice(editedIndex, 1, { ...this.form });
       }

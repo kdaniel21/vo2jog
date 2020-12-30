@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import rfdc from 'rfdc';
 import { mapActions } from 'vuex';
 
 export default {
@@ -43,7 +44,7 @@ export default {
       throw new Error(this.$t('organizer.competitions.not_found'));
 
     // deep copy
-    this.competition = JSON.parse(JSON.stringify(competitions[index]));
+    this.competition = rfdc({ proto: true })(competitions[index]);
   },
   methods: {
     ...mapActions('organizer/events', ['updateItem']),
@@ -57,6 +58,8 @@ export default {
         return;
 
       this.updateItem({ name: 'competitions', data: this.competition });
+      this.$refs['name-form'].$v.$reset();
+      this.$refs['basic-form'].$v.$reset();
     },
   },
 };
