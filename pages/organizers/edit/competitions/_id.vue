@@ -14,7 +14,9 @@
         v-model="competition"
         class="column"
       />
-      <div class="column"></div>
+      <div class="column">
+        <competition-price-list v-model="competition.fees" />
+      </div>
     </div>
   </div>
 </template>
@@ -54,7 +56,7 @@ export default {
       )
         return;
 
-      this.updateItem({ name: 'competition', data: this.competition });
+      this.updateItem({ name: 'competitions', data: this.competition });
     },
   },
 };

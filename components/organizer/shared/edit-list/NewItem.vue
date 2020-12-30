@@ -4,8 +4,8 @@
       <form-group>
         <b-input
           id="new-input"
+          v-bind="$attrs"
           :value="value"
-          :placeholder="placeholder"
           @input="onInput"
         />
       </form-group>
@@ -40,8 +40,7 @@
 export default {
   name: 'NewItem',
   props: {
-    value: { type: String, default: null },
-    placeholder: { type: String, default: null },
+    value: { type: [String, Number], default: null },
     validator: { type: Object, default: null },
     isEdit: { type: Boolean, default: false },
   },

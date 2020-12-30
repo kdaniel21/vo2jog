@@ -268,7 +268,9 @@
       "positive_elevation": "Elevation Gain",
       "negative_elevation": "Elevation Loss",
       "elevation_different": "Elevation loss is different",
-      "details": "Details"
+      "details": "Details",
+      "ends_at": "Ends at",
+      "currency": "Currency"
     },
 
     "account": {

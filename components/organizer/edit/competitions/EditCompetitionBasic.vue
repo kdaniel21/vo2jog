@@ -66,7 +66,7 @@ export default {
   data() {
     return {
       isElevationDifferent:
-        this.value && !!this.value.elevation.negative.amount,
+        this.value.elevation && this.value.elevation.negative.amount,
       form: {
         distance: {
           amount: null,
