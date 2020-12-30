@@ -22,11 +22,12 @@
 </template>
 
 <script>
-import rfdc from 'rfdc';
+import { deepClone } from '@/assets/utils/deep-clone';
 import { mapActions } from 'vuex';
 
 export default {
   layout: 'organizer',
+  middleware: ['event-selected'],
   data() {
     return {
       competition: {},
@@ -44,7 +45,7 @@ export default {
       throw new Error(this.$t('organizer.competitions.not_found'));
 
     // deep copy
-    this.competition = rfdc({ proto: true })(competitions[index]);
+    this.competition = deepClone(competitions[index]);
   },
   methods: {
     ...mapActions('organizer/events', ['updateItem']),

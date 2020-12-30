@@ -31,6 +31,7 @@
 <script>
 export default {
   layout: 'organizer',
+  middleware: ['event-selected'],
 };
 </script>
 
