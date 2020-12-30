@@ -5,8 +5,10 @@
       :label="$t('common.name')"
       label-position="on-border"
       grouped
+      group-multiline
     >
       <b-input
+        id="competition-name-input"
         v-model="form.name"
         :placeholder="$t('common.name')"
         @input="$v.form.name.$touch"
@@ -58,4 +60,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#competition-name-input {
+  width: min(30rem, 95vw);
+}
+</style>
