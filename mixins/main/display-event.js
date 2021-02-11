@@ -4,7 +4,7 @@ export default {
       maxNumOfCategories: 8,
       priorityCategories: ['main', 'terrain', 'distance'],
       placeholderImage:
-        'http://localhost:4000/events/img/event-5fa4e65399fadd4f0ebf1d8c-1608548616254.jpeg',
+        'http://vo2jog.herokuapp.com:4000/events/img/event-5fa4e65399fadd4f0ebf1d8c-1608548616254.jpeg',
     };
   },
   computed: {
