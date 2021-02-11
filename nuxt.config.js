@@ -28,8 +28,8 @@ export default {
   },
 
   publicRuntimeConfig: {
-    staticUrl: 'http://127.0.0.1:4000',
-    baseUrl: 'http://127.0.0.1:4000/api/v1',
+    staticUrl: 'https://vo2jog.herokuapp.com',
+    baseUrl: 'https://vo2jog.herokuapp.com/api/v1',
     hereApiKey: 'BFTP7HQsgOf6mW8rMA9K8JWY6qf7VJtUxGW1ZxfzbNE',
     mapboxAccessToken:
       'pk.eyJ1Ijoia2RhbmllbDIxIiwiYSI6ImNraGN4ODByazAwYzAzMHMwbDBxeWExd3UifQ.dVIo1mUh3QnDc0jz1YFLoA',
