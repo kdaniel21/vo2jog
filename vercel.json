@@ -5,5 +5,19 @@
       "src": "nuxt.config.js",
       "use": "@nuxtjs/vercel-builder"
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/:match*",
+      "destination": "https://vo2jog.herokuapp.com/:match*"
+    },
+    {
+      "source": "/here-api/:match*",
+      "destination": "https://geocode.search.hereapi.com/v1/geocode/:match*"
+    },
+    {
+      "source": "/mapbox-api/:match*",
+      "destination": "https://api.mapbox.com/geocoding/v5/mapbox.places/:match*"
+    }
   ]
 }
