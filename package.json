@@ -25,7 +25,7 @@
     "nuxt": "^2.14.11",
     "nuxt-buefy": "^0.4.4",
     "nuxt-i18n": "^6.16.0",
-    "qs": "^6.9.4",
+    "qs": "^6.10.1",
     "vue-mapbox": "^0.4.1",
     "vue-observe-visibility": "^0.4.6",
     "vuelidate": "^0.7.6",
