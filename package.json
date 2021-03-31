@@ -24,7 +24,7 @@
     "mapbox-gl": "^2.0.0",
     "nuxt": "^2.14.11",
     "nuxt-buefy": "^0.4.4",
-    "nuxt-i18n": "^6.16.0",
+    "nuxt-i18n": "^6.22.3",
     "qs": "^6.9.4",
     "vue-mapbox": "^0.4.1",
     "vue-observe-visibility": "^0.4.6",
