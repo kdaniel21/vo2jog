@@ -17,7 +17,7 @@
     "@nuxtjs/proxy": "^2.1.0",
     "@nuxtjs/style-resources": "^1.0.0",
     "@tinymce/tinymce-vue": "^3.2.7",
-    "cookie-universal-nuxt": "^2.1.4",
+    "cookie-universal-nuxt": "^2.1.5",
     "core-js": "^3.8.1",
     "deep-map-object": "0.0.5",
     "is-iso-date": "0.0.1",
