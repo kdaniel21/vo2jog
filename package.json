@@ -23,7 +23,7 @@
     "is-iso-date": "0.0.1",
     "mapbox-gl": "^2.0.0",
     "nuxt": "^2.14.11",
-    "nuxt-buefy": "^0.4.4",
+    "nuxt-buefy": "^0.4.11",
     "nuxt-i18n": "^6.16.0",
     "qs": "^6.9.4",
     "vue-mapbox": "^0.4.1",
