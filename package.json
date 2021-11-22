@@ -21,7 +21,7 @@
     "core-js": "^3.8.1",
     "deep-map-object": "0.0.5",
     "is-iso-date": "0.0.1",
-    "mapbox-gl": "^2.0.0",
+    "mapbox-gl": "^2.6.1",
     "nuxt": "^2.14.11",
     "nuxt-buefy": "^0.4.4",
     "nuxt-i18n": "^6.16.0",
