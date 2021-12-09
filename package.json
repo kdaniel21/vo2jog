@@ -28,7 +28,7 @@
     "qs": "^6.9.4",
     "vue-mapbox": "^0.4.1",
     "vue-observe-visibility": "^0.4.6",
-    "vuelidate": "^0.7.6",
+    "vuelidate": "^0.7.7",
     "vuelidate-error-extractor": "^2.4.1"
   },
   "devDependencies": {
