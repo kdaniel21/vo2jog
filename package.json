@@ -38,7 +38,7 @@
     "@nuxtjs/eslint-config": "^5.0.0",
     "@nuxtjs/eslint-module": "^3.0.0",
     "@nuxtjs/fontawesome": "^1.1.2",
-    "@nuxtjs/vercel-builder": "^0.19.0",
+    "@nuxtjs/vercel-builder": "^0.24.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.15.0",
     "eslint-config-prettier": "^7.1.0",
